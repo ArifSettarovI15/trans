@@ -1,0 +1,81 @@
+.cook-message {
+  $root: &;
+  display: none;
+  position: fixed;
+  width: 100%;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 100;
+  background-color: $color__primary;
+  &__wrapper {
+    @extend %flex-center-between;
+    padding: 8px;
+  }
+
+  &__logo {
+    @extend %flex-center;
+    @include size(54px);
+    flex: 0 0 54px;
+    margin-right: 14px;
+  }
+
+  &__img {
+    @include size(100%);
+    background-image: url('/assets/images/static/logo-mobile-2.png');
+    @extend %background__cover;
+  }
+
+  &__text {
+    font-size: 14px;
+    line-height: 1.15;
+    color: $color__light;
+    flex: 1;
+  }
+
+  &__btn {
+    margin-left: 24px;
+    width: 83px;
+    flex: 0 0 83px;
+    .button {
+      padding: 0 8px;
+
+      &__text {
+        font-size: 12px;
+        font-weight: bold;
+        line-height: 1.15;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+      }
+    }
+  }
+
+  &__close {
+    cursor: pointer;
+    @include size(20px);
+
+    svg * {
+      fill: $color__light;
+    }
+  }
+
+  &_2 {
+    display: block;
+    #{$root}__img {
+      @include size(32px);
+      background-image: url('/assets/images/static/onpay.png');
+    }
+
+    #{$root}__text {
+      font-weight: 500;
+      font-size: 18px;
+      line-height: 1.15;
+    }
+
+    #{$root}__btn {
+      @extend %flex-center;
+      @include size(32px);
+      flex: 0 0 32px;
+    }
+  }
+}

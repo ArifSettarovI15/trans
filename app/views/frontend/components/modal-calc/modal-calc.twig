@@ -1,0 +1,19 @@
+{% import 'frontend/elements/svg/svg_macros.twig' as Svg %}
+{% import 'frontend/elements/input/input_macro.twig' as Input %}
+<div id="modal_calc" class="modal modal_calc mfp-hide white-popup animated fast">
+    <div class="modal__head">
+        <div class="modal__title">Расчет поездки</div>
+        <div class="modal__close">
+            <div class="btn btn_xxs js-modal-close">
+                <div class="btn__icon">{{ Svg.icon('close', 1) }}</div>
+            </div>
+        </div>
+    </div>
+    {% set modal_calc = 1 %}
+    <div class="modal_map">
+        {% include 'frontend/components/order-block/order-block-map.twig' %}
+    </div>
+    <div class="modal__body">
+        {% include 'frontend/components/order-block/order-form.twig' %}
+    </div>
+</div>

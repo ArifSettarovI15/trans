@@ -1,0 +1,62 @@
+{% extends "global.html.twig" %}
+{% block content %}
+  {% set article_list = 1 %}
+{#  <pre>{{ dump(list) }}</pre>#}
+  <div class="mtb mtb_2">
+    {% if variables.categories %}
+        {% set categories = variables.categories %}
+    {% endif %}
+
+    <div class="container">
+      {% if not no_items %}
+        <div class="table-data">
+          <div class="page__tabs-wrapper">
+            <div class="tabs" data-url="{{ global.base_url }}/blog/" data-list="articles">
+              <div class="tabs__inner">
+                <div class="tabs__list">
+                  <div class="tabs__item">
+
+                    <div class="tabs__link {% if not variables.active_tab or variables.active_tab=='all'  %} tabs__link_active {% endif%} ajax-tab" data-active="0" data-name="id" data-type="filter_value" data-value="all" data-id="all">Все</div>
+
+                  </div>
+
+                  {% for category in categories %}
+                    <div class="tabs__item">
+                      <div class="tabs__link ajax-tab {% if category.art_cat_alias==variables.active_tab %}  tabs__link_active {% endif %}" data-active="0" data-name="id" data-type="filter_value" data-value="{{ category.art_cat_alias }}" data-id="{{ category.art_cat_alias }}">{{category.art_cat_title}}</div>
+                    </div>
+                  {% endfor %}
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="table-content" data-list="articles">
+
+            {% include 'frontend/components/table-list/table-list.twig' with {
+              block: 'article',
+              list: list
+            } %}
+          </div>
+          {% if paging_data.pages %}
+            <div class="table-list__paging">
+              {% include 'frontend/components/paging/paging.twig' %}
+            </div>
+          {% endif %}
+        </div>
+      {% else %}
+        <div class="empty">
+          <span>В данном разделе нет публикаций!</span>
+        </div>
+      {% endif %}
+    </div>
+
+  </div>
+  {% if where_go %}
+  <div>
+{#    <div class="decor_taxi"></div>#}
+    {% include 'frontend/components/screen-ways/screen-ways.twig' %}
+  </div>
+  {% endif %}
+  <div class="mtb">
+    {% include 'frontend/components/screen-callback/screen-callback.twig' %}
+  </div>
+{% endblock %}

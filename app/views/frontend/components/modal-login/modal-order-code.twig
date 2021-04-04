@@ -1,0 +1,47 @@
+{% import 'frontend/elements/svg/svg_macros.twig' as Svg %}
+{% import 'frontend/elements/input/input_macro.twig' as Input %}
+<div id="modal_confirm" class="modal mfp-hide white-popup animated fast">
+  <div class="modal__wrapper">
+    <div class="modal__head">
+      <div class="modal__title">Подтверждение заказа</div>
+      <div class="modal__close">
+        <div class="btn btn_xxs js-modal-close">
+          <div class="btn__icon">{{ Svg.icon('close', 1) }}</div>
+        </div>
+      </div>
+    </div>
+    <div class="modal__body">
+      <div class="modal__form form" data-url="{{ global.base_url }}/global/" data-callback="ShowThx">
+        <input type="hidden" class="element" name="action" value="process_order">
+        <input type="hidden" class="element" name="car_id">
+        <input type="hidden" class="element" name="comment">
+        <input type="hidden" class="element" name="date">
+        <input type="hidden" class="element" name="from">
+        <input type="hidden" class="element" name="passengers">
+        <input type="hidden" class="element" name="phone">
+        <input type="hidden" class="element" name="router-length">
+        <input type="hidden" class="element" name="router-time">
+        <input type="hidden" class="element" name="services">
+        <input type="hidden" class="element" name="price">
+        <input type="hidden" class="element" name="to">
+        <input type="hidden" class="element" name="date2">
+        <div class="modal__form-item">
+          {{ Input.field('number', {
+            label: 'Код из смс',
+            required: 1
+          }) }}
+        </div>
+        <div class="modal__form-item">
+          <div class="button button_md button_primary submit">
+            <div class="button__text">Подтвердить</div>
+          </div>
+        </div>
+        <div class="modal__form-item">
+          <div class="button button_md button_outline_1 submit-code">
+            <div class="button__text">повторить код смс</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

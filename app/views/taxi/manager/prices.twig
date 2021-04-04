@@ -1,0 +1,43 @@
+{% extends "manager/global.html.twig" %}
+{% block content %}
+
+
+
+
+    <div>
+        Обновление цен: <input type="text" class="mass-price-update" style="width: 100px;">
+        <select name="mass-price-type" class="mass-price-type" style="width: 100px;">
+            <option value="percent">%</option>
+            <option value="value">руб</option>
+        </select><br/>
+        Класс: <select name="mass-price-class" class="mass-price-class" style="width: 100px;">
+            <option value="0">Все</option>
+            {% for class in classes %}
+                <option value="{{ class.class_id }}">{{ class.class_title }}</option>
+            {% endfor %}
+        </select><br/>
+
+        <span class="btn btn-primary update-all-price">Обновить</span>
+    </div>
+<table class="table_bordered table_striped">
+    <tr>
+        <td>Куда</td>
+        {% for class in classes %}
+            <td>{{ class.class_title }}</td>
+        {% endfor %}
+
+    </tr>
+    {% for city in cities %}
+        <tr>
+            <td>{{ city.city_title }}</td>
+            {% for class in classes %}
+                <td>
+                    <input value="{{ prices[from_info.city_id][city.city_id]['classes'][class.class_id]['price_value'] }}" type="text" class="element price-changer" data-start="{{ from_info.city_id }}" data-end="{{ city.city_id }}" data-class="{{ class.class_id }}">
+                </td>
+            {% endfor %}
+
+        </tr>
+    {% endfor %}
+</table>
+
+{% endblock %}

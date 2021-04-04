@@ -1,0 +1,55 @@
+.stars {
+  display: flex;
+  &_type {
+    display: inline;
+    font-size: 0;
+    unicode-bidi: bidi-override;
+    direction: rtl;
+    margin: 0 -2px;
+  }
+
+  * {
+    font-size: 1rem;
+  }
+
+  .star {
+    display: none;
+
+    & + label {
+      position: relative;
+      display: inline-block;
+      overflow: hidden;
+      @include size(24px);
+      white-space: nowrap;
+      cursor: pointer;
+      margin: 0 2px;
+      //&:before {
+      //  content: '';
+      //  background-image: url('/assets/images/svg/star.svg');
+      //  background-repeat: no-repeat;
+      //  @include size(100%);
+      //  @extend %absolute-full;
+      //}
+    }
+
+    &:checked ~ label,
+    & + label:hover ~ label,
+    & + label:hover {
+      .star-icon {
+        svg * {
+          fill: $color__star;
+        }
+      }
+    }
+  }
+}
+
+.star-icon {
+  @include size(24px);
+
+  &_active {
+    svg * {
+      fill: $color__star;
+    }
+  }
+}

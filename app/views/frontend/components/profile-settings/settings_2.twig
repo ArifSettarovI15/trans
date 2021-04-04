@@ -1,0 +1,38 @@
+{% import 'frontend/elements/input/input_macro.twig' as Input %}
+{% import "frontend/elements/svg/svg_macros.twig" as Svg %}
+<div class="settings-card">
+  <div class="settings-card__wrapper">
+    <div class="form" data-url="{{ global.base_url}}/cabinet/profile/" data-callback="profileSaveDone">
+      <input type="hidden" name="action" value="process_editPhone" class="element">
+      <div class="settings-card__head">
+        <div class="settings-card__title">Телефон</div>
+        <div class="settings-card__descr">
+          Изменить номер телефона можно не болеех 2-х раз в сутки.
+        </div>
+      </div>
+      <div class="settings-card__list">
+        <div class="settings-card__item">
+          {{ Input.field('phone', {
+            required: 1,
+            value: '+'~global.user_profile.profile_phone,
+            label: 'Телефон',
+            type: 'tel',
+            disabled: 1
+          }) }}
+        </div>
+      </div>
+      <div class="settings-card__bottom">
+        <div class="settings-card__link">
+          <span class="link link_underline_hide js-input-active show">
+            <span class="link__icon">{{ Svg.icon('pen', 1) }}</span>
+            <span class="link__text">изменить</span>
+          </span>
+          <span class="link link_underline_hide js-input-save submit hide">
+            <span class="link__icon">{{ Svg.icon('pen', 1) }}</span>
+            <span class="link__text">сохранить</span>
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

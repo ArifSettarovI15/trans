@@ -1,0 +1,28 @@
+{% for item in list %}
+    <tr data-id="{{ item.city_id }}">
+        <td class="data_id">{{ item.city_id }}</td>
+        <td>
+            <div class="object_status  {% if item.city_status!=1%}no{% else %}yes{% endif %}" data-value="{{ item.city_id }}">
+                <span class="badge badge-danger">нет</span>
+                <span class="badge badge-success">да</span>
+            </div>
+        </td>
+        <td><img src="{{ item.city_icon_url }}" style="height:50px;"></td>
+        <td>{{ item.city_title }}</td>
+        <td>{{ item.city_coor }}</td>
+        <td>{% if item.city_type ==1 %}
+                Город
+                {% elseif item.city_type ==2 %}
+                 Гостиница
+                {% else %}
+                Место
+            {% endif %}
+
+        </td>
+        <td>
+            <a target="_blank" class="btn btn-success btn-xs" href="{{ global.base_url }}/manager/taxi/prices/{{ item.city_id }}/"><i class="fa fa-external-link" aria-hidden="true"></i></a>
+            <a target="_blank" href="{{ global.base_url }}/manager/taxi/cities/edit/{{ item.city_id  }}/" class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></a>
+            <div data-value="{{ item.city_id }}" class="btn btn-danger btn-xs delete"><i class="fa"></i></div>
+        </td>
+    </tr>
+{% endfor %}

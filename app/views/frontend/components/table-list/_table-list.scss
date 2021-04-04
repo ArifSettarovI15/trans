@@ -1,0 +1,78 @@
+.table-list {
+  $root: &;
+
+  &__list {
+    display: flex;
+    flex-wrap: wrap;
+    margin: -16px;
+  }
+
+  &__item {
+    width: (100%/4);
+    padding: 16px;
+  }
+
+  &__paging {
+    margin-top: 40px;
+  }
+
+  &_2,
+  &_3 {
+    #{$root}__item {
+      width: (100%/3);
+    }
+  }
+
+
+  @include media('<=1200px') {
+    &__list {
+      margin: -8px;
+    }
+
+    &__item {
+      width: (100%/3);
+      padding: 8px;
+    }
+
+    &__paging {
+      margin-top: 32px;
+    }
+  }
+
+  @include media('<lg') {
+
+    &_3 #{$root}__item {
+      width: (100%/2);
+    }
+  }
+
+  @include media('<md') {
+    &__paging {
+      margin-top: 24px;
+    }
+    &_2 #{$root}__item,
+    &__item {
+      width: (100%/2);
+    }
+
+    &_3 #{$root}__item {
+      width: 100%;
+    }
+  }
+
+  @include media('<sm') {
+    &__list {
+      margin: 0;
+    }
+    &_2 #{$root}__item,
+    &__item {
+      width: 100%;
+      margin-bottom: 14px;
+      padding: 0;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+}

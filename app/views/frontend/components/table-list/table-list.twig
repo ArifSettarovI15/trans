@@ -1,0 +1,20 @@
+{% if variables.mod %}
+    {% set mod = variables.mod %}
+{% endif %}
+
+<div class="table-list {% if mod %}table-list_{{ mod }}{% endif %}">
+
+    {% if variables.block %}
+    {% set block =variables.block %}
+    {% endif %}
+  <div class="table-list__table">
+    <div class="table-list__list">
+      {% for item in list %}
+
+        <div class="table-list__item">
+          {% include 'frontend/components/' ~ block ~ '/' ~ block ~ '.twig' %}
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>

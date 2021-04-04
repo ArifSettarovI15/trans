@@ -1,0 +1,101 @@
+.section {
+  $root: &;
+  &__title {
+    margin-bottom: 40px;
+  }
+
+  &_about {
+    #{$root}__decor {
+      z-index: -2;
+      position: absolute;
+      bottom: 56px;
+      left: 50%;
+      transform: translateX(-50%) scale(-1, 1);
+      width: 1920px;
+      height: 946px;
+      background-image: url('/assets/images/static/about-1.jpg');
+      @extend %background__cover;
+
+      &:after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 100%;
+        height: 70px;
+        background-image: url('/assets/images/static/hero-palette.png');
+        @extend %background__cover;
+      }
+
+      &:before {
+        content: '';
+        @extend %absolute-full;
+        background: linear-gradient(180deg, #FFFFFF 36.73%, rgba(255, 255, 255, 0) 100%);
+      }
+    }
+  }
+
+  &_steps {
+    .decor_taxi {
+      width: 1920px;
+      left: 50%;
+      transform: translateX(-50%);
+      top: 157px;
+      &:before,
+      &:after {
+        background-image: url('/assets/images/static/pattern_04.png');
+      }
+    }
+  }
+
+  &_pub {
+    .decor_taxi {
+      width: 1920px;
+      left: 50%;
+      transform: translateX(-50%);
+      top: 182px;
+      &:before,
+      &:after {
+        background-image: url('/assets/images/static/pattern_04.png');
+      }
+    }
+  }
+
+  &_ways {
+    .decor_taxi {
+      width: 1920px;
+      left: 50%;
+      transform: translateX(-50%);
+      top: 240px;
+      &:before,
+      &:after {
+        background-image: url('/assets/images/static/pattern_04.png');
+      }
+    }
+  }
+
+  @include media('<=1200px') {
+    &__title {
+      margin-bottom: 32px;
+    }
+
+    &_steps {
+      .decor_taxi {
+        display: none;
+      }
+    }
+
+    &_pub {
+      .decor_taxi {
+        display: none;
+      }
+    }
+  }
+
+  @include media('<md') {
+    &__title {
+      margin-bottom: 24px;
+    }
+  }
+}

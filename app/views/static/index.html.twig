@@ -1,0 +1,40 @@
+{% set is_home = 1 %}
+{% extends "global.html.twig" %}
+{% block content %}
+    <div class="order-bg">
+        <div class="container">
+            {% include 'frontend/components/order-block/order-block.twig' %}
+            <div class="slide_down__wrapper">
+                <div class="slide_down__content">
+                    <div class="slide_down__content__data">
+                        <span>БОЛЬШЕ ПРЕДЛОЖЕНИЙ</span><br>
+                        <span class="slide_down__content__arrow"><i class="fas fa-angle-double-down"></i></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="ptb">
+{#        {% include 'frontend/components/screen-park/screen-park.twig' %}#}
+    </div>
+
+	<div class="decor decor_2">
+        <div class="decor__item"></div>
+		<div class="pt screen-md-hide">
+			{% include 'frontend/components/screen-about/screen-about.twig' %}
+		</div>
+	</div>
+    {% if where_go or articles %}
+    <div class="decor decor_1">
+        {% if articles %}
+{#        {% include 'frontend/components/screen-article/screen-article.twig' %}#}
+        {% endif %}
+    </div>
+    {% endif %}
+{#    <div class="ptb">#}
+{#        {% include 'frontend/components/screen-callback/screen-callback.twig' %}#}
+{#    </div>#}
+
+{% endblock %}
+
+

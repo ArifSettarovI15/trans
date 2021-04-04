@@ -1,0 +1,121 @@
+{% extends "manager/global.html.twig" %}
+{% block content %}
+
+<div>
+    <div class="modal__wrapper">
+        <div class="modal__head">
+            <div class="modal__title">{% if edit==1 %}
+                Редактировать
+            {% else %}
+                Добавить
+                {% endif %}отзыв</div>
+
+        </div>
+        <div class="modal__body">
+            {% if edit %}
+            <div class="modal__form form">
+            {% else %}
+            <div class="modal__form form" data-url="{{ global.base_url }}/reviews/" data-callback="showAdded">
+            {% endif %}
+
+
+                <input name="action" type="hidden" value="process_review" class="element">
+                <fieldset class="modal__fieldset">
+                    <div class="modal__select">
+                        <div class="select__label">Класс авто</div>
+                        <div class="select">
+
+                            <select class="select_2 element" name="class">
+                                {% for item in classes %}
+                                    <option {% if item.class_id == review.review_class%}selected{% endif%} value="{{ item.class_id }}">{{ item.class_title  }}</option>
+                                {% endfor %}
+                            </select>
+
+                        </div>
+                    </div>
+                </fieldset>
+                <fieldset class="modal__fieldset">
+                    <div class="modal__feed-rating">
+                        <div class="feed-rating">
+                            <div class="feed-rating__list">
+                                <div class="feed-rating__item">
+                                    <div class="feed-rating__item-title">Комфорт поездки(1-5)</div>
+                                    <div class="feed-rating__item-stars">
+                                        <input type="number" class="element" name="comfort" value="{{ ratings.rating_comfort }}" required>
+                                    </div>
+                                </div>
+                                <div class="feed-rating__item">
+                                    <div class="feed-rating__item-title">Вежливость водителя (1-5)</div>
+                                    <div class="feed-rating__item-stars">
+                                        <input type="number" class="element" name="driver" value="{{ ratings.rating_driver }}" required>
+                                    </div>
+                                </div>
+                                <div class="feed-rating__item">
+                                    <div class="feed-rating__item-title">Чистота салона(1-5)</div>
+                                    <div class="feed-rating__item-stars">
+                                        <input type="number" class="element" name="clean" value="{{ ratings.rating_clean }}" required>
+                                    </div>
+                                </div>
+                                <div class="feed-rating__item">
+                                    <div class="feed-rating__item-title">Стоимость поездки(1-5)</div>
+                                    <div class="feed-rating__item-stars">
+                                        <input type="number" class="element" name="price" value="{{ ratings.rating_price }}" required>
+                                    </div>
+                                </div>
+                                <div class="feed-rating__item">
+                                    <div class="feed-rating__item-title">Знание маршрута(1-5)</div>
+                                    <div class="feed-rating__item-stars">
+                                        <input type="number" class="element" name="route_know" value="{{ ratings.rating_route }}" required>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </fieldset>
+                <fieldset class="modal__fieldset js-search-block">
+                    <div class="modal__fieldset-item">
+                        <span class="textfield__label">Ваше имя</span>
+                        <input type="text" class="element" name="uname" value="{{ review.review_uname }}" required>
+                    </div>
+                    <div class="modal__fieldset-item">
+                        <span class="textfield__label">Email</span>
+                        <div class="modal__fieldset-elem">
+                            <input type="text" class="element" name="uemail" value="{{ review.review_uemail }}">
+                        </div>
+                    </div>
+                    <div class="modal__fieldset-item">
+                        <label class="textfield textfield_req">
+                            <span class="textfield__label">Комментарий</span>
+                            <textarea name="comment" class="textfield__field element required">{{ review.review_comment }}</textarea>
+                        </label>
+                    </div>
+                    <div class="modal__fieldset-item">
+                        <label class="textfield textfield_req">
+                            <span class="textfield__label">Статус</span>
+                            <select name="review_status" class="element" id="">
+                                <option value="1">Модерация</option>
+                                <option value="2">Видимый</option>
+                            </select>
+                        </label>
+                    </div>
+                    <div class="modal__fieldset-item">
+
+                    </div><div class="submit btn btn-primary">
+                        {% if edit==1 %}
+                            Сохранить
+                        {% else %}
+                            Добавить
+                        {% endif %}
+                    </div>
+                </fieldset>
+            </div>
+        </div>
+    </div>
+</div>
+    <script>
+        function showAdded(response){
+            alert('Отзыв добавлен!');
+            window.location.replace("{{ global.base_url }}/manager/taxi/reviews");
+        }
+    </script>
+{% endblock %}

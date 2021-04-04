@@ -1,0 +1,19 @@
+{% import 'frontend/elements/input/input_macro.twig' as Input %}
+<div class="driver-data">
+  <div class="driver-data__title">Данные о семье</div>
+  <div class="driver-data__main">
+    <div class="driver-data__elem">
+      {% include 'frontend/components/modal-driver/form-block.twig' %}
+    </div>
+    <div class="driver-data__elem">
+      {{ Input.field('family', {
+        label: 'Семейное положение'
+      }) }}
+    </div>
+    <div class="driver-data__elem">
+      {{ Input.field('children', {
+        label: 'Дети',
+      }) }}
+    </div>
+  </div>
+</div>

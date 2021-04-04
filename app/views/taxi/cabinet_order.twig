@@ -1,0 +1,12 @@
+{% extends "global.html.twig" %}
+{% block content %}
+
+<div class="cabinet">
+  <div class="cabinet__block">
+    {% include 'frontend/components/cabinet-nav/cabinet-nav.twig' %}
+  </div>
+  <div class="cabinet__block">
+      {% include 'frontend/components/order-screen/order-screen.twig' %}
+  </div>
+</div>
+{% endblock %}

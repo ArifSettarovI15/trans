@@ -1,0 +1,106 @@
+.steps {
+  $root: &;
+  &__list {
+    display: flex;
+    flex-wrap: wrap;
+    margin: -16px;
+  }
+
+  &__item {
+    width: (100%/3);
+    padding: 16px;
+  }
+
+  &_2 {
+  }
+
+  @include media('<=1200px') {
+    &__list {
+      margin: -8px;
+    }
+
+    &__item {
+      padding: 8px;
+    }
+  }
+
+  @include media('<md') {
+    &__list {
+      margin: 0;
+    }
+
+    &__item {
+      width: 100%;
+      margin-bottom: 16px;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+}
+
+.step {
+  &__top {
+    max-width: 269px;
+    margin-bottom: 48px;
+  }
+
+  &__img {
+    padding-bottom: 75%;
+    border-radius: 8px;
+    overflow: hidden;
+
+    img {
+      @include size(100%);
+      @extend %absolute-full;
+    }
+  }
+
+  &__title {
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 1.4;
+    color: $color__dark;
+    margin-bottom: 14px;
+  }
+
+  &__descr {
+    font-weight: 300;
+    font-size: 14px;
+    line-height: 1.4;
+    color: $color__gray--darkest;
+  }
+
+  &__counter {
+    position: absolute;
+    left: 24px;
+    bottom: 0;
+    transform: translateY(50%);
+    @extend %flex-center;
+    @include size(64px);
+    border: 2px solid $color__primary--1;
+    border-radius: 50%;
+
+    &-inner {
+      @extend %flex-center;
+      @include size(48px);
+      border-radius: 50%;
+      background-color: $color__light;
+      background: linear-gradient(180deg, #FFCC00 0%, #FF9600 100%);
+
+      span {
+        font-weight: bold;
+        font-size: 24px;
+        line-height: 1.15;
+        color: $color__light;
+      }
+    }
+  }
+
+  @include media('<md') {
+    &__title {
+      font-size: 16px;
+    }
+  }
+}

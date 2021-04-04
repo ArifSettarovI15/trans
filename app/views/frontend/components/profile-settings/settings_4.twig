@@ -1,0 +1,50 @@
+{% import 'frontend/elements/input/input_macro.twig' as Input %}
+{% import "frontend/elements/svg/svg_macros.twig" as Svg %}
+
+<div class="settings-card">
+  <div class="settings-card__wrapper">
+    <div class="form" data-url="{{ global.base_url }}/cabinet/profile/">
+      <input type="hidden" name="action" class="element" value="process_subscribes">
+      <div class="settings-card__head">
+        <div class="settings-card__title">Рассылка</div>
+        <div class="settings-card__descr">
+          Вы можете подписаться на следующие виды рассылок:
+        </div>
+      </div>
+      <div class="settings-card__list">
+        <div class="settings-card__item">
+          {% include 'frontend/components/toggler/toggler.twig' with {
+            type: 'checkbox',
+            name: 'news_mes',
+            label: 'Акции и новости',
+            checked: global.user_profile.profile_subscribed_akcii|number_format
+          } %}
+        </div>
+        <div class="settings-card__item">
+          {% include 'frontend/components/toggler/toggler.twig' with {
+            type: 'checkbox',
+            name: 'tele_mess',
+            label: 'Telegram сообщения',
+            checked: global.user_profile.profile_subscribed_telegram|number_format,
+          } %}
+        </div>
+        <div class="settings-card__item">
+          {% include 'frontend/components/toggler/toggler.twig' with {
+            type: 'checkbox',
+            name: 'sms_mess',
+            label: 'SMS сообщения',
+            checked: global.user_profile.profile_subscribed_sms|number_format
+          } %}
+        </div>
+      </div>
+      <div class="settings-card__bottom">
+        <div class="settings-card__link">
+          <span class="link link_underline_hide submit">
+            <span class="link__icon">{{ Svg.icon('save-icon', 1) }}</span>
+            <span class="link__text">сохранить</span>
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

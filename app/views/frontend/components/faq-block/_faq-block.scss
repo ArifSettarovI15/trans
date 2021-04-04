@@ -1,0 +1,109 @@
+.faq-block {
+  &__wrapper {
+    @extend %med-container;
+  }
+
+  &__title {
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 1.15;
+    color: $color__dark;
+    margin-bottom: 40px;
+  }
+
+  &__item {
+    margin-bottom: 8px;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  @include media('<lg') {
+    &__title {
+      margin-bottom: 32px;
+    }
+  }
+
+  @include media('<md') {
+    &__title {
+      font-weight: 500;
+      font-size: 20px;
+      line-height: 1.4;
+      margin-bottom: 24px;
+    }
+  }
+}
+
+.faq-item {
+  $root: &;
+  border-radius: 4px;
+  border: 1px solid $color__gray--4;
+  overflow: hidden;
+  @include transitions(border-color);
+
+  &__head {
+    padding: 12px 0 11px 0;
+    @extend %flex-center-between;
+    cursor: pointer;
+  }
+
+  &__head-wrapper {
+    padding: 16px 14px;
+    @include transitions(background-color);
+  }
+
+  &__title {
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 1.4;
+    color: $color__dark;
+    @include transitions(color);
+  }
+
+  &__icon {
+    flex: 0 0 20px;
+    margin-left: 20px;
+    @include size(20px);
+
+    svg * {
+      fill: $color__primary;
+    }
+  }
+
+  &__content {
+    display: none;
+    padding: 14px;
+    background-color: $color__gray--1;
+  }
+
+  &:not(&_open):hover {
+    #{$root}__head-wrapper {
+      background-color: $color__primary--1;
+    }
+    
+    #{$root}__title {
+      color: $color__primary;
+    }
+  }
+
+  &_open {
+    border-color: $color__primary;
+    #{$root}__icon {
+      transform: rotate(180deg);
+    }
+    #{$root}__title {
+      color: $color__gray--darkest;
+    }
+  }
+
+  @include media('<md') {
+    &__head {
+      padding: 0;
+    }
+
+    &__title {
+      font-size: 16px;
+    }
+  }
+}

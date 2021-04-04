@@ -1,0 +1,47 @@
+{% for reviews in list %}
+    <style>
+        .review_row{
+            height: 50px !important;
+        }
+        .review_status{
+            text-align: center;
+            padding: 0;
+            font-size: 12px;
+            color: white;
+            margin: 0 auto;
+            width: 100px;
+            height: 20px;
+            border-radius:5px;
+        }
+        .review_status_1{
+            background: #cc3300;
+        }.review_status_2{
+            background: #00d6b2;
+        }
+    </style>
+    <tr class="review_row" data-id="{{ reviews.review_id }}">
+        <td class="data_id">{{ reviews.review_id }}</td>
+        <td >{{ reviews.review_uname }}</td>
+        <td>{{ reviews.review_uemail}} </td>
+        <td style="max-width: 150px;"><div style="max-height: 55px; overflow: hidden">{{ reviews.review_comment}}</div></td>
+        <td>{{ variables.classes[reviews.review_class].class_title }}</td>
+        <td>{{ reviews.review_rating }}</td>
+{#        <td><a href="{{ reviews.review_icon }}"></a>{{ reviews.review_icon }}</td>#}
+        <td>{{ reviews.review_time }}</td>
+        <td>
+            <div class="review_status review_status_{{ reviews.review_status }}">
+                {% if reviews.review_status==2 %}
+                    <span>Видимый</span>
+                    {% else %}
+                        <span>Модерация</span>
+                {% endif %}
+            </div>
+        </td>
+
+        <td>
+
+            <a target="_blank" href="{{ global.base_url }}/manager/taxi/reviews/edit/{{ reviews.review_id  }}/" class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></a>
+            <div data-value="{{ reviews.review_id }}" class="btn btn-danger btn-xs delete"><i class="fa"></i></div>
+        </td>
+    </tr>
+{% endfor %}

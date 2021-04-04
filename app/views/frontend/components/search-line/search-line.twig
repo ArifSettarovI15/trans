@@ -1,0 +1,22 @@
+{% import 'frontend/elements/input/input_macro.twig' as Input %}
+<div class="search-line">
+  <div class="search-line__wrapper">
+    <div class="search-line__search">
+      {{ Input.field('search', {
+        clear: 1,
+        icon: 'search',
+        classes: 'js-price-search',
+        pholder: 'Начните вводить...',
+        parent_mod: '2'
+      }) }}
+    </div>
+    <div class="search-line__or">
+      или
+    </div>
+    <div class="search-line__dop">
+      <div class="button button_md button_secondary popup-open" data-mfp-src="#modal_call" onclick="ym(70758373,'reachGoal','callback')">
+        <div class="button__text">перезвоните мне</div>
+      </div>
+    </div>
+  </div>
+</div>

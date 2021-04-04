@@ -1,0 +1,44 @@
+{% import 'frontend/elements/svg/svg_macros.twig' as Svg %}
+{% import 'frontend/elements/input/input_macro.twig' as Input %}
+<div id="modal_order" class="modal mfp-hide white-popup animated fast">
+    <div class="modal__wrapper">
+        <div class="modal__head">
+            <div class="modal__title">Быстрый заказ</div>
+            <div class="modal__close">
+                <div class="btn btn_xxs js-modal-close">
+                    <div class="btn__icon">{{ Svg.icon('close', 1) }}</div>
+                </div>
+            </div>
+        </div>
+        <div class="modal__body">
+            <div class="modal__form form" data-url="{{ global.base_url }}/callback/" data-callback="ShowThx">
+                <input type="hidden" name="action" value="process_callback" class="element">
+                <input type="hidden" name="call_from" class="element">
+                <input type="hidden" name="call_to" class="element">
+                <input type="hidden" name="car_id" class="element">
+                <input type="hidden" name="car_price" class="element">
+                <input type="hidden" name="router-time" class="element">
+                <input type="hidden" name="router-length" class="element">
+                <div class="modal__form-item">
+                    {{ Input.field('name', {
+                        label: 'Ваше имя',
+                        required: 1
+                    }) }}
+                </div>
+                <div class="modal__form-item">
+                    {{ Input.field('phone', {
+                        label: 'Ваш телефон',
+                        required: 1,
+                        value: '+7',
+                        type: 'tel'
+                    }) }}
+                </div>
+                <div class="modal__form-item">
+                    <div class="button button_md button_primary submit">
+                        <div class="button__text">отправить заявку</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

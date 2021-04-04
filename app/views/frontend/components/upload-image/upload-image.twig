@@ -1,0 +1,33 @@
+{% import 'frontend/elements/svg/svg_macros.twig' as Svg %}
+<div class="upload-image">
+    <div class="upload-image__btn">
+        <div class="button button_md button_outline_1">
+            <input type="hidden" class="element" value="upload_image">
+{#            <input type="file" class="upload-image__upload element js-upload" name="file" data-url="{{ global.base_url }}/upload/">#}
+            <input {% if image_data.upload_disabled==1 %}disabled="disabled"{% endif %} class="upload-image__upload element js-upload" {% if image_data.multiple %}multiple{% endif %} type="file"
+                   name="{{ image_data.input_name }}"
+                   data-url="{{ global.base_url }}/files/upload/"
+                   data-form-data='{
+                 "action": "upload_image",
+                 "input_name":"{{ image_data.input_name }}",
+                 "folder":"{{ image_data.folder }}{{ sub_folder1 }}",
+                 "sub_folder":"{{ image_data.sub_folder }}",
+                 "module":"{{ image_data.module }}",
+                 "filename":"{{ image_data.file_name }}",
+                 "multiple":"{{ image_data.multiple }}",
+                 "invert":"{{ image_data.invert }}"
+                }'>
+            <div class="button__icon">{{ Svg.icon('upload-icon', 1) }}</div>
+            <div class="button__text">загрузить фото</div>
+        </div>
+    </div>
+    <div class="upload-image__result">
+        <div class="upload-image__result-inner js-del-img">
+            <div class="upload-image__result-icon">{{ Svg.icon('basket-icon', 1) }}</div>
+        </div>
+        <div class="upload-image__result-container"></div>
+    </div>
+    <div class="loader">
+        <div class="lds-ring"><div></div><div></div><div></div><div></div></div>
+    </div>
+</div>

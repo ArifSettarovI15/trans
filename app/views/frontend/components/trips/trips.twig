@@ -1,0 +1,13 @@
+<div class="trips">
+  <div class="container">
+    <div class="trips__title">Последние поездки</div>
+
+    <div class="trips__block">
+      {% include 'frontend/components/table-list/table-list.twig' with {
+        block: 'order',
+        mod: 3,
+        list: list
+      } %}
+    </div>
+  </div>
+</div>

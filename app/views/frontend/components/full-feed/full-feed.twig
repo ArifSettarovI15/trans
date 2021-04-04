@@ -1,0 +1,83 @@
+{% import "frontend/elements/svg/svg_macros.twig" as Svg %}
+
+<div class="full-feed">
+  <div class="full-feed__wrapper">
+    <div class="full-feed__block">
+      <div class="full-feed__info">
+        <div class="full-feed__info-head">
+          <div class="full-feed__info-part">
+            <div class="full-feed__badge">
+              {% include 'frontend/components/badge/badge.twig' with {
+                badge_text: classes[review.review_class].class_title,
+                badge_theme: 'feed2'
+              } %}
+            </div>
+            <div class="full-feed__title">{{review.review_uname}}</div>
+          </div>
+          <div class="full-feed__ava">
+            <div class="full-feed__img" style="background-image: url({{ review.review_icon_url }})"></div>
+          </div>
+        </div>
+        <div class="full-feed__text">
+          {{ review.review_comment }}
+        </div>
+        <div class="full-feed__date">
+          {{date.DM}} <em>{{ date.Y }}</em>
+        </div>
+      </div>
+    </div>
+    <div class="full-feed__block">
+      <div class="full-feed__params">
+        <div class="full-feed__params-head">
+          <div class="full-feed__params-title">Оценка сервиса:</div>
+          <div class="full-feed__params-count">{{ Svg.icon('star', 1) }}<span>{{ review.review_rating }}</span></div>
+        </div>
+        <div class="full-feed__params-list">
+          <div class="full-feed__params-item">
+            <div class="full-feed__params-key">Комфорт поездки</div>
+            <div class="full-feed__params-value">
+              {% include 'frontend/components/stars/stars.twig' with {
+                rating: ratings.rating_comfort
+              } %}
+            </div>
+          </div>
+          <div class="full-feed__params-item">
+            <div class="full-feed__params-key">Вежливость водителя</div>
+            <div class="full-feed__params-value">
+              {% include 'frontend/components/stars/stars.twig' with {
+                rating: ratings.rating_driver
+              } %}
+            </div>
+          </div>
+          <div class="full-feed__params-item">
+            <div class="full-feed__params-key">Чистота салона</div>
+            <div class="full-feed__params-value">
+              {% include 'frontend/components/stars/stars.twig' with {
+                rating: ratings.rating_clean
+              } %}
+            </div>
+          </div>
+          <div class="full-feed__params-item">
+            <div class="full-feed__params-key">Стоимость поездки</div>
+            <div class="full-feed__params-value">
+              {% include 'frontend/components/stars/stars.twig' with {
+                rating: ratings.rating_price
+              } %}
+            </div>
+          </div>
+          <div class="full-feed__params-item">
+            <div class="full-feed__params-key">Знание маршрута</div>
+            <div class="full-feed__params-value">
+              {% include 'frontend/components/stars/stars.twig' with {
+                rating: ratings.rating_route
+              } %}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="full-feed__bottom">
+    {% include 'frontend/components/feed-controls/feed-controls.twig' %}
+  </div>
+</div>

@@ -1,0 +1,41 @@
+{% extends "global.html.twig" %}
+{% block content %}
+  <div class="mtb mtb_2">
+    <div class="page__tabs-wrapper">
+      <div class="tabs" data-tab="partners">
+        <div class="container">
+          <div class="tabs__inner">
+            <div class="tabs__list">
+                {% for item in partnership %}
+              <div class="tabs__item">
+                <div class="tabs__link  {% if loop.index==1 %}tabs__link_active{% endif %}" data-id="{{ loop.index }}" data-val="organisation">{{ item.partner_block_title }}</div>
+              </div>
+              {% endfor %}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <div class="tab-content" data-tab="partners">
+        {% for item in partnership %}
+
+          <div class="tab-content__content {% if loop.index==1 %} tab-content__content_active {% endif %} animated fadeIn fast" data-id="{{ loop.index }}">
+            <div class="article__wrapper">
+              <div class="article__text text text_article">
+                {{ item.partnership_text|replace({'--phone--': global.fields.about.about_phone2,'--title--': global.fields.about.about_title})|raw}}
+              </div>
+            </div>
+
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+  <div class="mtb">
+    {% include 'frontend/components/partner-block/partner-block.twig' %}
+  </div>
+  <div class="mtb">
+    {% include 'frontend/components/screen-callback/screen-callback.twig' %}
+  </div>
+{% endblock %}

@@ -1,0 +1,67 @@
+.section-title {
+  &__wrapper {
+    max-width: 770px;
+    margin: 0 auto;
+
+    &:before {
+      content: '';
+      @include size(64px, 32px);
+      background-image: url('/assets/images/static/pattern_02.png');
+      background-size: cover;
+      background-repeat: no-repeat;
+      position: absolute;
+      top: 8px;
+      left: -32px;
+      transform: translateX(-100%);
+    }
+  }
+
+  &__title {
+    font-weight: bold;
+    font-size: 42px;
+    line-height: 1.1;
+    color: $color__dark;
+  }
+
+  &__row {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 14px;
+  }
+
+  &__descr {
+    font-weight: 300;
+    font-size: 14px;
+    line-height: 1.4;
+    color: $color__gray--darkest;
+  }
+
+  @include media('<lg') {
+    &__wrapper {
+      &:before {
+        top: -40px;
+        left: -8px;
+        bottom: calc(100%);
+        transform: translateX(-50%);
+      }
+    }
+  }
+
+  @include media('<md') {
+    &__title {
+      font-weight: bold;
+      font-size: 24px;
+      line-height: 1.15;
+    }
+
+    &__row {
+      margin-top: 8px;
+      flex-direction: column;
+    }
+
+    &__link {
+      margin-top: 14px;
+    }
+  }
+}

@@ -1,0 +1,40 @@
+{% import "frontend/elements/svg/svg_macros.twig" as Svg %}
+<header class="header {% if global.user_info.user_id %}user-login{% endif %}">
+  <div class="header__top">
+    <div class="container">
+      <div class="header__wrapper">
+        <div class="header__logo">
+          {% set header_logo = 1 %}
+          {% include 'frontend/components/logo/logo.twig' with {
+            note: 0
+          } %}
+        </div>
+        <div class="header__element">
+          {% include 'frontend/components/nav/nav.twig' %}
+        </div>
+
+        <div class="header__element">
+          <div class="two_lines">
+            <div class="icon">
+              <span class="link__icon"><i class="fas fa-phone-volume"></i></span>
+            </div>
+            <a href="tel:{{global.fields.about.about_phone2|replace({'(':'',')':'',' ':'','-':''})}}" class="link link__underline">
+              {{ global.fields.about.about_phone2 }}
+            </a>
+            <a href="tel:{{global.fields.about.about_phone|replace({'(':'',')':'',' ':'','-':''})}}" class="link link__underline">
+              {{ global.fields.about.about_phone }}
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</header>
+{% include 'frontend/components/menu/menu.twig' %}
+{% include 'frontend/components/modal-login/modal-login.twig' %}
+{% include 'frontend/components/modal-register/modal-register.twig' %}
+{% if global.user_info.user_id %}
+  {% include 'frontend/components/cabinet-menu/cabinet-menu.twig' %}
+{% endif %}
+

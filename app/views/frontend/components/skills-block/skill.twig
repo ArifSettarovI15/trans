@@ -1,0 +1,12 @@
+{% import "frontend/elements/svg/svg_macros.twig" as Svg %}
+<div class="skill">
+  <div class="skill__round">
+    <div class="skill__icon">
+      {{ Svg.icon(item.mainpage_advantages_icon) }}
+    </div>
+  </div>
+  <div class="skill__content">
+    <div class="skill__title">{{ item.mainpage_advantages_title }}</div>
+    <div class="skill__descr">{{ item.mainpage_advantages_description }}</div>
+  </div>
+</div>

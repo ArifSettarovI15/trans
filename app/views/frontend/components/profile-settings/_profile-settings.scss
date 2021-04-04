@@ -1,0 +1,96 @@
+.settings-card {
+  height: 100%;
+  border: 1px solid $color__gray--4;
+  border-radius: 8px;
+  &__wrapper {
+    height: 100%;
+    padding: 32px;
+  }
+
+  &__head {
+    margin-bottom: 24px;
+  }
+
+  &__title {
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 1.4;
+  }
+
+  &__descr {
+    font-size: 13px;
+    line-height: 1.4;
+    margin-top: 14px;
+    color: $color__gray--darkest;
+  }
+
+  &__list {
+    margin-bottom: 24px;
+  }
+
+  &__item {
+    margin-bottom: 14px;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  &__bottom {
+
+  }
+
+  &__link {
+    margin-bottom: 14px;
+
+    .link {
+      &.hide {
+        display: none;
+      }
+
+      &.show {
+        display: flex;
+      }
+    }
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+  
+  &__ava {
+    @extend %flex-center;
+    @include size(66px);
+    flex: 0 0 66px;
+    background-color: $color__gray--3;
+    border-radius: 50%;
+    margin-bottom: 24px;
+    overflow: hidden;
+
+    &-img {
+      @include size(32px);
+    }
+
+    svg * {
+      fill: $color__gray--darkest;
+    }
+
+    img {
+      @extend %absolute-full;
+      @include size(100%);
+      object-fit: cover;
+    }
+  }
+
+  @include media('<lg') {
+    &__wrapper {
+      padding: 24px;
+    }
+  }
+
+  @include media('<md') {
+    &__wrapper {
+      padding: 14px;
+    }
+  }
+}

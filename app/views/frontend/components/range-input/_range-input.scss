@@ -1,0 +1,77 @@
+.range-input {
+  &__wrapper {
+    @extend %flex-middle;
+  }
+
+  &__label {
+    text-align: left;
+    font-size: 14px;
+    line-height: 1.15;
+    margin-bottom: 14px;
+    color: $color__gray--darkest;
+  }
+
+  &__val {
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 1.15;
+    color: $color__gray--darkest;
+  }
+}
+
+.range {
+  width: 100%;
+  margin: 0 15px;
+}
+
+.noUi-horizontal {
+  height: 6px;
+  background-color: $color__primary--lightest;
+  box-shadow: none;
+  border: 0;
+}
+
+.noUi-connect {
+  background-color: $color__primary;
+}
+
+.noUi-base {
+  margin-right: 10px;
+  left: 2px;
+}
+
+.noUi-horizontal .noUi-handle {
+  top: -7px;
+  right: -10px;
+  @include size(20px);
+  border-radius: 50%;
+  border: 4px solid $color__primary;
+  background-color: $color__light;
+}
+
+.noUi-connects {
+  border-radius: 5px;
+}
+
+.noUi-handle:before,
+.noUi-handle:after {
+  content: none;
+}
+
+.noUi-tooltip {
+  display: none;
+}
+
+.noUi-active {
+  .noUi-tooltip {
+    display: block;
+  }
+}
+
+.noUi-touch-area {
+  @extend %flex-center;
+  font-weight: bold;
+  font-size: 9px;
+  line-height: 1.1;
+  letter-spacing: 0.1em;
+}

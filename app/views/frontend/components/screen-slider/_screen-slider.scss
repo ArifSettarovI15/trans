@@ -1,0 +1,161 @@
+.screen-slider {
+  $root: &;
+  &__list {
+    display: flex;
+    flex-wrap: wrap;
+    margin: -16px;
+  }
+
+  .slick-dots {
+    width: auto;
+    position: relative;
+    bottom: auto;
+    height: 10px;
+    margin: 0 24px;
+  }
+
+  &__controls {
+    @extend %flex-center;
+    margin-top: 24px;
+
+    .slide-btn_prev {
+      order: 1;
+    }
+
+    .slick-dots {
+      width: auto;
+      height: 10px;
+      position: relative;
+      bottom: auto;
+      order: 2;
+    }
+
+    .slide-btn_next {
+      order: 3;
+    }
+  }
+
+  &__item {
+    display: none;
+    width: (100%/3);
+    padding: 16px;
+
+    &:nth-child(-n + 3) {
+      display: block;
+    }
+    
+    &.slick-slide {
+      display: block !important;
+    }
+  }
+
+  &_4 {
+    #{$root}__item {
+      width: (100%/4);
+      display: none;
+      
+      &:nth-child(-n + 4) {
+        display: block;
+      }
+    }
+  }
+
+  @include media('<=1200px') {
+    &__list {
+      margin: -8px;
+    }
+
+    &_4 {
+      #{$root}__item {
+        width: (100%/3);
+
+        &:nth-child(-n + 4) {
+          display: none;
+        }
+        
+        &:nth-child(-n + 3) {
+          display: block;
+        }
+      }
+    }
+
+    &__item {
+      padding: 8px;
+      width: (100%/3);
+    }
+  }
+
+  @include media('<md') {
+    &__controls {
+      margin-top: 16px;
+    }
+
+    &_4 {
+      #{$root}__item {
+        width: (100%/2);
+
+        &:nth-child(-n + 3) {
+          display: none;
+        }
+
+        &:nth-child(-n + 2) {
+          display: block;
+        }
+      }
+    }
+
+    &__list[data-p-count="1"] {
+      #{$root}__item {
+        width: 100%;
+
+        &:nth-child(-n + 3) {
+          display: none;
+        }
+
+        &:nth-child(-n + 1) {
+          display: block;
+        }
+      }
+    }
+
+    &__item {
+      width: (100%/2);
+
+      &:nth-child(-n + 3) {
+        display: none;
+      }
+
+      &:nth-child(-n + 2) {
+        display: block;
+      }
+    }
+  }
+
+  @include media('<sm') {
+    &_4 {
+      #{$root}__item {
+        width: 100%;
+
+        &:nth-child(-n + 2) {
+          display: none;
+        }
+
+        &:nth-child(-n + 1) {
+          display: block;
+        }
+      }
+    }
+
+    &__item {
+      width: 100%;
+
+      &:nth-child(-n + 2) {
+        display: none;
+      }
+
+      &:nth-child(-n + 1) {
+        display: block;
+      }
+    }
+  }
+}

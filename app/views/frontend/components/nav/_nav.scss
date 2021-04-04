@@ -1,0 +1,19 @@
+.nav {
+  &__list {
+    @extend %flex-center;
+    margin: 0 -16px;
+
+  }
+
+  &__item {
+    padding: 0 16px;
+    color: #76A2AB !important;
+    .link__text{
+      font-weight: 600;
+      font-size: 16px;
+      color: #f0f0f0 !important;
+    }
+  }
+
+
+}

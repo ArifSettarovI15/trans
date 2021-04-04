@@ -1,0 +1,111 @@
+.way {
+  $root: &;
+  min-height: 320px;
+
+  &:hover {
+    &:before {
+      background-color: $color__primary--lightest;
+    }
+
+    &:after {
+      opacity: 1;
+    }
+
+    #{$root}__image:before {
+      opacity: 0;
+    }
+  }
+
+  &:before {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    width: calc(100% - 20px);
+    transform: translateX(-50%);
+    background-color: $color__gray--3;
+    height: 6px;
+    border-radius: 0 0 6px 6px;
+    @include transitions(background-color);
+  }
+
+  &:after {
+    content: '';
+    @extend %absolute-full;
+    @include size(100%);
+    background: linear-gradient(180deg, rgba(57, 85, 254, 0.3) 0%, rgba(57, 85, 254, 0.7) 100%);
+    opacity: 0;
+    border-radius: 8px;
+    overflow: hidden;
+    @include transitions(opacity);
+  }
+
+  &__wrapper {
+    @extend %absolute-full;
+    @include size(100%);
+    border-radius: 8px;
+    overflow: hidden;
+  }
+
+  &__content,
+  &__img {
+    @extend %absolute-full;
+    @include size(100%);
+  }
+
+  &__img {
+    background: linear-gradient(180deg, rgba(38, 36, 37, 0.1) 0%, rgba(38, 36, 37, 0.3) 100%), #77798C;
+
+    img {
+      @include size(100%);
+      @include object-fit(cover);
+    }
+
+    &:before {
+      content: '';
+      background-color: $color__dark;
+      @extend %absolute-full;
+      @include size(100%);
+      opacity: .1;
+    }
+  }
+
+  &__content {
+    display: flex;
+    align-items: flex-end;
+    padding: 24px;
+    z-index: 1;
+  }
+
+  &__main {
+    width: 100%;
+  }
+
+  &__button {
+    flex: 0 0 40px;
+    margin-left: 20px;
+  }
+
+  &__palette {
+    @include size(28px, 14px);
+    min-width: 28px;
+    background-image: url('/assets/images/static/pattern_01.png');
+    @extend %background__cover;
+    margin-bottom: 10px;
+  }
+
+  &__title {
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 1.4;
+    color: $color__light;
+    margin-bottom: 20px;
+  }
+
+  &__descr {
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 1.4;
+    color: $color__light;
+  }
+}

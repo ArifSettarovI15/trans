@@ -1,0 +1,19 @@
+.modal_reg {
+  .modal__form-item {
+    margin-bottom: 24px;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  .modal__bottom {
+    .modal__form-item {
+      margin-bottom: 14px;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+}

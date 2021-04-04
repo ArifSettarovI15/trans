@@ -1,0 +1,18 @@
+{% import 'frontend/elements/svg/svg_macros.twig' as Svg %}
+<div class="notice-article text-container">
+  <div class="container">
+    <div class="notice-article__wrapper">
+      <div class="notice-article__overflow js-overflow">
+        <div class="text">
+         {{ text|raw }}
+        </div>
+      </div>
+      <div class="notice-article__link">
+        <a href="#" class="link link_underline_hide js-slide-text">
+          <span class="link__icon">{{ Svg.icon('eye', 1) }}</span>
+          <span class="link__text js-overflow-link-text">Читать целиком</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>

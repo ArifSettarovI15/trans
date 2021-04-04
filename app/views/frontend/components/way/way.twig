@@ -1,0 +1,25 @@
+{% import "frontend/elements/svg/svg_macros.twig" as Svg %}
+{% import "frontend/elements/picture/picture_macros.twig" as Picture %}
+
+<div class="way">
+  <div class="way__wrapper">
+    <div class="way__img">
+      {{ Picture.static( item.city_icon_url, 1,'', 'image-fit') }}
+    </div>
+    <div class="way__content">
+      <div class="way__main">
+        <div class="way__palette"></div>
+        <div class="way__title">{{item.city_title}}</div>
+        <div class="way__descr">из аэропорта от {{ item.price_value }} ₽</div>
+{#        <div class="way__descr">из аэропорта от {{ item.where_go_price }} ₽</div>#}
+      </div>
+      <div class="way__button">
+        <a href="{{ global.base_url}}/prices/aeroport-simferopol/{{item.city_url}}/" class="btn btn_sm btn_round_arrow">
+          <span class="btn__icon">
+            {{ Svg.icon('arrow-right', 1) }}
+          </span>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>

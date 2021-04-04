@@ -1,0 +1,125 @@
+{% import "frontend/elements/svg/svg_macros.twig" as Svg %}
+
+<div class="price-table">
+  <div class="price-table__data">
+    <div class="price-table__controls js-slider-controls" data-slider="price">
+      <div class="price-table__controls-elem">
+{#        <div class="select">#}
+{#          <select name="place" id="citySelect" class="select_2 element visually-hidden" data-callback="changeCity">#}
+{#            {% if from_city in [113,114] %}#}
+{#              <option value="{{ cities[from_city] }}"><a href="{{ global.base_url }}/prices/{{ city.city_url }}"> {{ cities[from_city].city_title }}</a></option>#}
+{#            {% else %}#}
+{#              <option value="{{ cities[from_city] }}"><a href="{{ global.base_url }}/prices/{{ city.city_url }}"> {{ cities[from_city].city_title }}</a></option>#}
+{#              {% for city in cities %}#}
+{#                {% if city.city_id != from_city_id %}#}
+{#                  <option value="{{ city.city_id }}">{{ city.city_title }}</option>#}
+{#                {% endif %}#}
+{#              {% endfor %}#}
+{#            {% endif %}#}
+{#          </select>#}
+{#          <div class="select__label">Откуда</div>#}
+{#        </div>#}
+
+        <div class="field field_select
+            {% if not citiesSelect %} disabled {% endif %}">
+
+          <div class="price-table__controls-label">
+              {{cities[from_city].city_title}}
+          </div>
+          <div class="field__input"></div>
+          <div class="serviceSelect">
+            <div class="serviceSelect__data">
+              {% for city in citiesSelect %}
+                {% if city.city_id != cities[from_city].city_id %}
+                  <a class="serviceSelect__link" href="{{ global.base_url }}/prices/{% if city.city_id!=113 %}{{ city.city_url }}/{% endif %}">{{ city.city_title }}</a>
+                {% endif %}
+              {% endfor %}
+            </div>
+          </div>
+        </div>
+
+
+      </div>
+      <div class="slide-btn slide-btn_prev">
+        <div class="slide-btn__icon">
+          {{ Svg.icon('caret-left', 1) }}
+        </div>
+      </div>
+      <div class="slide-btn slide-btn_next">
+        <div class="slide-btn__icon">
+          {{ Svg.icon('caret-right', 1) }}
+        </div>
+      </div>
+    </div>
+    <div class="price-table__body">
+      <div class="price-table__titles">
+        <div class="price-table__item-head">
+          Куда
+        </div>
+        {% for city in cities %}
+          {% if prices[city.city_id] %}
+          {% if city.city_id != from_city_id %}
+              <div class="price-table__item" data-to-name="{{ city.city_title }}">
+                <a href="{{ prices[city.city_id]['url'] }}" class="link link_dotted">
+                  <span class="link__text">{{ city.city_title }}</span>
+                </a>
+              </div>
+          {% endif %}
+          {% endif %}
+
+        {% endfor %}
+      </div>
+      <div class="price-table__main js-price-slider" data-slider="price">
+        {% for class in classes %}
+          <div class="price-table__col">
+            <div class="price-table__item-head">
+              <div class="price-table__value">
+                <div class="price-table__img">
+                  {{ Svg.icon(class.class_icon) }}
+                </div>
+                <div class="price-table__text">{{ class.class_title }}</div>
+              </div>
+            </div>
+
+            {% for city in cities %}
+              {% if prices[city.city_id] %}
+              {% if city.city_id != from_city_id %}
+              <div
+                class="price-table__item {% if prices[city.city_id]['classes'][class.class_id]['price_value'] %}select-order-car{% endif %}"
+                data-mfp-src="#popup-order"
+                data-from={{ from_city_id }}
+                data-from-name={{cities[from_city_id].city_title}}
+                data-from-coord={{cities[from_city_id].city_coor}}
+                data-to="{{ city.city_id }}"
+                data-to-coord="{{ city.city_coor }}"
+                data-to-name="{{ city.city_title }}"
+                data-name="{{ class.class_title }}"
+                data-id="{{ class.class_id }}"
+                data-price="{{ prices[city.city_id]['classes'][class.class_id]['price_value'] }}"
+                data-url="{{ class.class_icon_url }}"
+              >
+
+                <div class="price-table__value price-table__value_dop">
+                  {% if prices[city.city_id]['classes'][class.class_id]['price_value'] %}
+                    {{ prices[city.city_id]['classes'][class.class_id]['price_value'] }}
+                    <div class="price-table__value-icon">{{ Svg.icon('rouble', 1) }}</div>
+                  {% else %}
+                    -
+
+                  {% endif %}
+                </div>
+
+
+              </div>
+              {% endif %}
+              {% endif %}
+            {% endfor %}
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</div>
+<script>
+
+</script>

@@ -1,0 +1,11 @@
+<div class="skills-block">
+  <div class="skills-block__list {% if about_page %}{% else %}js-skills-slider{% endif %}" data-slide="skills">
+    {% for item in advantages %}
+
+    <div class="skills-block__item">
+      {% include 'frontend/components/skills-block/skill.twig' %}
+    </div>
+    {% endfor %}
+  </div>
+  <div class="skills-block__controls js-slider-controls" data-slide="skills"></div>
+</div>

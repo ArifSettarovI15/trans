@@ -1,0 +1,51 @@
+{% import "frontend/elements/svg/svg_macros.twig" as Svg %}
+
+<div class="tabs tabs_nav">
+  <div class="container">
+    <div class="tabs__inner">
+      <div class="tabs__list">
+        <div class="tabs__item">
+
+          <a href="{{ global.base_url }}/cabinet/" class="tabs__link no-js {% if global.header.keywords=="cabinet" %}tabs__link_active{% endif %}">
+            <div class="tabs__icon">
+              {{ Svg.icon('home', 1) }}
+            </div>
+            <div class="tabs__text">
+              Главная
+            </div>
+          </a>
+        </div>
+        <div class="tabs__item">
+          <a href="{{ global.base_url }}/cabinet/trips/" class="tabs__link no-js {% if global.header.keywords=="trips" %}tabs__link_active{% endif %}">
+            <div class="tabs__icon">
+              {{ Svg.icon('way-icon', 1) }}
+            </div>
+            <div class="tabs__text">
+              Поездки
+            </div>
+          </a>
+        </div>
+        <div class="tabs__item">
+          <a href="{{ global.base_url }}/cabinet/profile/" class="tabs__link no-js {% if global.header.keywords=="profile" %}tabs__link_active{% endif %}">
+            <div class="tabs__icon">
+              {{ Svg.icon('user', 1) }}
+            </div>
+            <div class="tabs__text">
+              Профиль
+            </div>
+          </a>
+        </div>
+        <div class="tabs__item">
+          <a href="{{ global.base_url }}/cabinet/sale/" class="tabs__link no-js {% if global.header.keywords=="sale" %}tabs__link_active{% endif %}">
+            <div class="tabs__icon">
+              {{ Svg.icon('badge-icon', 1) }}
+            </div>
+            <div class="tabs__text">
+              Скидки
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,36 @@
+{% import "frontend/elements/svg/svg_macros.twig" as Svg %}
+<div class="page404">
+  <div class="decor_taxi"></div>
+  <div class="page404__inner">
+    <div class="container">
+      <div class="page404__wrapper">
+        <div class="page404__slider-wrapper">
+          <div class="page404__slider js-slide-404">
+            <div class="page404__slide">
+              <div class="page404__slide-text">экономно</div>
+              <div class="page404__slide-image">
+                {{ Svg.icon('econom-car') }}
+              </div>
+            </div>
+            <div class="page404__slide">
+              <div class="page404__slide-text">комфортно</div>
+              <div class="page404__slide-image">
+                {{ Svg.icon('comfort-car') }}
+              </div>
+            </div>
+            <div class="page404__slide">
+              <div class="page404__slide-text">доступно</div>
+              <div class="page404__slide-image">
+                {{ Svg.icon('premium-car') }}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="page404__content">
+        <div class="page404__title">Страница не найдена!</div>
+        <div class="page404__descr">Возможно эта страница удалена, а ссылка устарела. Проверьте правильность написания, может вы ошиблись.</div>
+      </div>
+    </div>
+  </div>
+</div>

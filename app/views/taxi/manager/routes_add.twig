@@ -1,0 +1,64 @@
+{% extends "manager/global.html.twig" %}
+{% block content %}
+    <div class="form">
+        <div class="fields">
+            <div class="line">
+                <div class="label required">
+                    Старт:
+                </div>
+                <div class="value">
+                    <select name="route_start" class="element" data-type="filter_value">
+                        <option value="0">-</option>
+                        {% for city in cities %}
+                            <option value="{{ city.city_id }}" {% if city.city_id==info.route_start %}selected{% endif %}>{{ city.city_title }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+            </div>
+            <div class="line">
+                <div class="label required">
+                    Финиш:
+                </div>
+                <div class="value">
+                    <select name="route_end" class="element" data-type="filter_value">
+                        <option value="0">-</option>
+                        {% for city in cities %}
+                            <option value="{{ city.city_id }}" {% if city.city_id==info.route_end %}selected{% endif %}>{{ city.city_title }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+            </div>
+
+            <div class="line">
+                <div class="label">
+                    Текст до:
+                </div>
+                <div class="value">
+                    <textarea class="rich element" name="text1">{{ info.route_text1 }}</textarea>
+                </div>
+            </div>
+            <div class="line">
+                <div class="label">
+                    Текст после:
+                </div>
+                <div class="value">
+                    <textarea class="rich element" name="text2">{{ info.route_text2 }}</textarea>
+                </div>
+            </div>
+
+            {% if edit==1 %}
+                <input type="hidden" class="element" name="action" value="process_edit">
+                <input type="hidden" class="element" name="route_id" value="{{ info.route_id }}">
+            {% else %}
+                <input type="hidden" class="element" name="action" value="process_add">
+            {% endif %}
+        </div>
+        <div class="submit btn btn-primary">
+            {% if edit==1 %}
+                Сохранить
+            {% else %}
+                Добавить
+            {% endif %}
+        </div>
+    </div>
+{% endblock %}

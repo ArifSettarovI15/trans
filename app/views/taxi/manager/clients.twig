@@ -1,0 +1,26 @@
+{% extends "manager/global.html.twig" %}
+{% block content %}
+{#<div class="actions">#}
+{#    <a class="btn btn-primary" href="{{ global.base_url }}/manager/taxi/clients/add/">Добавить</a>#}
+{#</div>#}
+
+<div class="table_data">
+    <div class="table_data_navigation">
+        {% include 'parts/paging.html.twig' %}
+    </div>
+    <table class="table_bordered table_striped">
+        <thead>
+        <tr>
+            <th style="width: 100px">ID</th>
+            <th style="width: 200px">Имя</th>
+            <th style="width: 200px">Телефон</th>
+            <th style="width: 200px">Кол-во поездок</th>
+            <th class="action_button_3"></th>
+        </tr>
+        </thead>
+        <tbody class="table_content sortable">
+        {% include 'taxi/manager/clients_table.twig' %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

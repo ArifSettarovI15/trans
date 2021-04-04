@@ -1,0 +1,55 @@
+{% extends "manager/global.html.twig" %}
+{% block content %}
+
+    <div class="actions">
+        <a class="btn btn-primary" href="{{ global.base_url }}/manager/taxi/cities/add/">Добавить</a>
+    </div>
+
+    <div class="table_data">
+        <div class="table_data_navigation">
+            {% include 'parts/paging.html.twig' %}
+        </div>
+        <table class="table_bordered table_striped">
+            <thead>
+            <tr>
+                <th style="width: 100px">ID</th>
+                <th style="width: 100px">
+                    Статус
+                </th>
+                <th style="width: 100px">Фото</th>
+                <th>Название</th>
+                <th>Координаты</th>
+                <th>Тип</th>
+                <th class="action_button_3"></th>
+            </tr>
+            <tr>
+                 <th><input data-name="city_id" data-type="filter_value" min="0" type="text"></th>
+                 <th>
+                     <select data-name="city_status" data-type="filter_value">
+                         <option value="-1" {% if variables.city_status==-1 %}selected="selected"{% endif %}>Акт</option>
+                         <option value="0" {% if variables.city_status==0 %}selected="selected"{% endif %}>Выкл</option>
+                         <option value="1" {% if variables.city_status==1 %}selected="selected"{% endif %}>Вкл</option>
+                     </select>
+                 </th>
+                <th></th>
+
+
+                 <th><input data-name="city_title" data-type="filter_value" type="text"></th>
+                <th></th>
+                <th>
+                    <select data-name="city_type" data-type="filter_value">
+                        <option value="" {% if not variables.city_type %}selected="selected"{% endif %}>Все</option>
+                        <option value="1" {% if variables.city_type==1 %}selected="selected"{% endif %}>Город</option>
+                        <option value="2" {% if variables.city_type==2 %}selected="selected"{% endif %}>Гостиница</option>
+                        <option value="3" {% if variables.city_type==3 %}selected="selected"{% endif %}>Место</option>
+                    </select>
+                </th>
+                 <th class="action_button"></th>
+             </tr>
+            </thead>
+            <tbody class="table_content">
+            {% include 'taxi/manager/cities_table.twig' %}
+            </tbody>
+        </table>
+    </div>
+{% endblock %}

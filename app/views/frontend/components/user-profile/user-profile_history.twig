@@ -1,0 +1,31 @@
+{% import "frontend/elements/svg/svg_macros.twig" as Svg %}
+
+<div class="user-card user-card_story text-container">
+  <div class="user-card__head">
+    <div class="user-card__title">История заявки</div>
+  </div>
+  <div class="user-card__list js-overflow">
+    {% for item in order_life %}
+      <div class="user-card__item">
+        <div class="user-card__key">Статус заявки «{{ item.status_name }}»</div>
+        <div class="user-card__value">{{item.life_order_time}}</div>
+      </div>
+    {% endfor %}
+
+    {% if order.order_time %}
+      <div class="user-card__item">
+        <div class="user-card__key">Заявка создана</div>
+        <div class="user-card__value">{{order.order_time}}</div>
+      </div>
+    {% endif %}
+
+  </div>
+  <div class="user-card__bottom">
+    <div class="user-card__link">
+      <a href="#" class="link js-slide-text" data-height="116">
+        <div class="link__icon">{{ Svg.icon('eye', 1) }}</div>
+        <div class="link__text">Показать целиком</div>
+      </a>
+    </div>
+  </div>
+</div>

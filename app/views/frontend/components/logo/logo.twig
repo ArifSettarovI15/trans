@@ -1,0 +1,15 @@
+<div class="logo">
+    <a href="{{ global.base_url }}" class="logo__block">
+        <picture>
+            {% if header_logo %}
+            <source srcset="/assets/images/static/logo.png" type="image/png" media="(max-width: 767px)">
+            {% endif %}
+            <img class="image-contain" src="/assets/images/static/logo.png" alt="{{ global.fields.about.about_title }}">
+        </picture>
+    </a>
+    {% if note %}
+    <div class="logo__note">
+        <div class="logo__text">свобода передвижений</div>
+    </div>
+    {% endif %}
+</div>

@@ -1,0 +1,23 @@
+
+{% for order in list %}
+    {% set data = order.order_data %}
+
+    <tr data-id="{{ order.order_code }}">
+        <td class="data_id">{{ order.order_code}}</td>
+        <td style="text-align: center" >{{ variables.cities[order.order_data.from].city_title }}</td>
+        <td >{{ variables.cities[order.order_data.to].city_title }}</td>
+        <td >{{order.order_data.price }}р.</td>
+        <td >{{order.order_data.date }}</td>
+        <td style="width: 200px" >
+            {{ order.status_name }}
+        </td>
+
+        <td>+{{ order.order_phone }}</td>
+        <td>{{ order.order_time }}</td>
+
+        <td>
+            <a target="_blank" href="{{ global.base_url }}/manager/taxi/orders/edit/{{ order.order_id  }}/" class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></a>
+            <div data-value="{{ order.order_id }}" class="btn btn-danger btn-xs delete"><i class="fa"></i></div>
+        </td>
+    </tr>
+{% endfor %}

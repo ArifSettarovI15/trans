@@ -1,0 +1,33 @@
+.notice-article {
+  &__wrapper {
+    max-width: 770px;
+    margin: 0 auto;
+  }
+
+  &__link {
+    display: none;
+    margin-top: 14px;
+  }
+
+
+  @include media('<md') {
+
+    &__overflow {
+      height: 176px;
+      overflow: hidden;
+
+      &:after {
+        content: '';
+        background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, #FFFFFF 100%);
+        @include size(100%, 36px);
+        position: absolute;
+        left: 0;
+        bottom: 0;
+      }
+    }
+
+    &__link {
+      display: block;
+    }
+  }
+}

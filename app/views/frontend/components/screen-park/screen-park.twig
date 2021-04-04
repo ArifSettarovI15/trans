@@ -1,0 +1,19 @@
+<section class="section">
+
+  <div class="section__title">
+    {% include 'frontend/components/screen-title/screen-title.twig' with {
+      title: 'Наш автопарк',
+      descr: 'У нас только чистые и безопасные автомобили',
+      href: '/autopark/'
+    } %}
+  </div>
+  <div class="section__content">
+    <div class="container">
+      {% include 'frontend/components/screen-slider/screen-slider.twig' with {
+        thumb: 'park-thumb',
+        list: carsForSlider,
+        count: 4
+      } %}
+    </div>
+  </div>
+</section>

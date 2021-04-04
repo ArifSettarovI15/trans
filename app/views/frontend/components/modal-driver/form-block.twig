@@ -1,0 +1,36 @@
+{% import 'frontend/elements/input/input_macro.twig' as Input %}
+{% import 'frontend/elements/svg/svg_macros.twig' as Svg %}
+<div class="form-block">
+  <div class="form-block__wrapper">
+    <div class="form-block__blocks js-block-parent">
+      <div class="form-block__block">
+        <div class="form-block__title">Родственник 1</div>
+        <div class="form-block__form">
+          <div class="form-block__elem form-block__elem_full">
+            {{ Input.field('parent1_name', {
+              label: 'ФИО'
+            }) }}
+          </div>
+          <div class="form-block__elem">
+            {{ Input.field('parent1_parants', {
+              label: 'Родство'
+            }) }}
+          </div>
+          <div class="form-block__elem">
+            {{ Input.field('parent1_phone', {
+              label: 'Телефон',
+              type: 'tel',
+              value: '+7'
+            }) }}
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="form-block__btn">
+      <div class="button button_sm button_outline_1 js-add-form">
+        <div class="button__icon">{{ Svg.icon('plus-icon2', 1) }}</div>
+        <div class="button__text">добавить</div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,12 @@
+{% import 'frontend/elements/svg/svg_macros.twig' as Svg %}
+{% if global.fields.about.about_soc %}
+  <div class="so-block">
+    {% for item in global.fields.about.about_soc %}
+    <div class="so-block__item">
+      <a href="{{item.about_soc_link }}" class="so-link" target="_blank">
+        <span class="so-link__icon">{{ Svg.icon(item.about_soc_icon, 1) }}</span>
+      </a>
+    </div>
+    {% endfor %}
+  </div>
+{% endif %}

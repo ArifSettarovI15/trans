@@ -1,0 +1,27 @@
+<div class="section section_ways">
+    {% if article or article_list %}
+        <div class="decor_taxi"></div>
+    {% endif %}
+    {% if variables.where_go %}
+        {% set where_go = variables.where_go %}
+        {#    <pre>{{ dump(where_go) }}</pre>#}
+    {% endif %}
+
+    <div class="section__title">
+        {% include 'frontend/components/screen-title/screen-title.twig' with {
+            title: 'Смотрите также',
+            descr: 'Популярные маршруты наших клиентов',
+            href: global.base_url~'/prices/places/'
+        } %}
+    </div>
+    <div class="section__content">
+        <div class="container">
+            {% include 'frontend/components/screen-slider/screen-slider.twig' with {
+                thumb: 'way',
+                list: where_go,
+                count: 4,
+                p_count: 1
+            } %}
+        </div>
+    </div>
+</div>

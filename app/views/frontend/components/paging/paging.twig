@@ -1,0 +1,68 @@
+{% import "frontend/elements/svg/svg_macros.twig" as Svg %}
+<div class="pagination">
+  <div class="pagination__wrapper">
+    <ul class="pagination__list">
+      {% for page in paging_data.pages %}
+        {% if page.name=='next' and page.disabled==false %}
+          <li class="pagination__arrow pagination__arrow_right">
+            {% if hide_links %}
+                <a href="{{ paging_data.page_link_main }}page/{{ page.value }}/" class="pagination__link"
+                   data-value="{{ page.value }}" disabled="true">
+                <span class="pagination__icon">
+                  {{ Svg.icon('caret-right', 1) }}
+                </span>
+                </a>
+            {% else %}
+              <a href="{{ paging_data.page_link_main }}page/{{ page.value }}/" class="pagination__link"
+                 data-value="{{ page.value }}">
+                <span class="pagination__icon">
+                  {{ Svg.icon('caret-right', 1) }}
+                </span>
+              </a>
+            {% endif %}
+          </li>
+        {% elseif page.name=='prev' and page.disabled==false %}
+          {% if hide_links %}
+            <li class="pagination__arrow pagination__arrow_left">
+              <div class="pagination__link" data-value="{{ page.value }}">
+                <div class="pagination__icon">
+                  {{ Svg.icon('caret-left', 1) }}
+                </div>
+              </div>
+            </li>
+          {% else %}
+            <li class="pagination__arrow pagination__arrow_left">
+              <a href="{{ paging_data.page_link_main }}{% if page.value>1 %}page/{{ page.value }}/{% endif %}"
+                 class="pagination__link" data-value="{{ page.value }}">
+                <span class="pagination__icon">
+                  {{ Svg.icon('caret-left', 1) }}
+                </span>
+              </a>
+            </li>
+          {% endif %}
+        {% elseif paging_data.current_page==page.value %}
+          <li class="pagination__item pagination__item_active">
+            <span class="pagination__link">{{ page.value }}</span>
+          </li>
+        {% elseif page.value=='...' %}
+          <li class="pagination__item pagination__item_more">
+            <span class="pagination__link">...</span>
+          </li>
+        {% elseif page.value>0 and page.disabled==false %}
+
+          {% if hide_links %}
+            <li class="pagination__item">
+              <div data-value="{{ page.value }}" class="pagination__link">{{ page.value }}</div>
+            </li>
+          {% else %}
+            <li class="pagination__item">
+              <a data-value="{{ page.value }}"
+                 href="{{ paging_data.page_link_main }}{% if page.value!=1 %}page/{{ page.value }}/{% endif %}"
+                 class="pagination__link">{{ page.value }}</a>
+            </li>
+          {% endif %}
+        {% endif %}
+      {% endfor %}
+    </ul>
+  </div>
+</div>

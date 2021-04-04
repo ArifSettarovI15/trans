@@ -1,0 +1,45 @@
+{% extends "manager/global.html.twig" %}
+{% block content %}
+
+    <div class="table_data">
+        <div class="table_data_navigation">
+            {% include 'parts/paging.html.twig' %}
+        </div>
+        <table class="table_bordered table_striped">
+            <thead>
+            <tr>
+                <th style="width: 50px">ID</th>
+                <th style="width: 100px">Имя</th>
+                <th style="width: 200px">Сайт</th>
+                <th style="width: 150px">Телефон</th>
+                <th style="width: 150px">Комментарий</th>
+                <th style="width: 150px">Тип</th>
+                <th style="width: 150px">Время</th>
+                <th class="action_button_3"></th>
+            </tr>
+            <tr>
+                <th><input data-name="partner_id" data-type="filter_value" min="0" type="text"></th>
+                <th><input data-name="partner_uname" data-type="filter_value" min="0" type="text"></th>
+                <th><input data-name="partner_site" data-type="filter_value" min="0" type="text"></th>
+                <th style="width: 200px;"><input data-name="partner_phone" data-type="filter_value" min="0" type="text"></th>
+
+                <th></th>
+                <th>
+                    <select data-name="partner_type" data-type="filter_value">
+                        <option value="">Все</option>
+                        <option value="site_owner">Владелец сайта</option>
+                        <option value="organisation">Организация</option>
+                        <option value="driver">Водитель</option>
+                    </select>
+                </th>
+                <th><input data-name="partner_time" data-type="filter_value" min="0" type="text"></th>
+                <th class="action_button"></th>
+            </tr>
+            </thead>
+            <tbody class="table_content">
+            {% include 'taxi/manager/partners_table.twig' %}
+            </tbody>
+        </table>
+
+    </div>
+{% endblock %}

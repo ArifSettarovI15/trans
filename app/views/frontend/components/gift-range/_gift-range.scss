@@ -1,0 +1,49 @@
+.gift-range {
+  width: calc(100% - 32px);
+  height: 32px;
+
+  &__line {
+    @include size(100%, 10px);
+    background-color: $color__star-1;
+    top: 50%;
+    transform: translateY(-50%);
+    border-radius: 5px;
+
+    &:before {
+      content: '';
+      position: absolute;
+      width: calc(100% + 32px);
+      height: 100%;
+      background-color: $color__star-1;
+    }
+
+    &-active {
+      height: 100%;
+      width: 0;
+      background-color: $color__star;
+      background-image: url('/assets/images/static/gift-pattern.png');
+      background-size: contain;
+    }
+  }
+
+  &__tap {
+    position: absolute;
+    font-size: 0;
+    height: 10px;
+  }
+
+  &__badge {
+    @extend %flex-center;
+    @include size(32px);
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    border-radius: 50%;
+    background: linear-gradient(180deg, #FFCC00 0%, #FF9600 100%);
+    z-index: 1;
+  }
+
+  &__icon {
+    @include size(18px);
+  }
+}

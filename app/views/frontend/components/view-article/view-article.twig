@@ -1,0 +1,116 @@
+
+{% if info %}
+<div class="article">
+  <div class="container">
+
+    {% if info.content_city_id %}
+      <div class="article__form">
+        <div class="article__wrapper">
+          <h4 class="article__form-title">Маршрут на карте</h4>
+        </div>
+        {% include 'frontend/components/order-block/order-block.twig' %}
+      </div>
+    {% endif %}
+    <div class="article__wrapper" {% if info.content_type!='pages' %}itemscope
+         itemtype="http://schema.org/NewsArticle" {% else %}itemscope
+         itemtype="http://schema.org/Article"{% endif %}>
+      {% if info.content_type!='pages' %}
+        <meta itemprop="headline" content="{{ info.content_title }}">
+        <meta itemprop="dateModified" content="{{ info.datetime }}">
+        <meta itemprop="datePublished" content="{{ info.datetime }}">
+        <meta itemprop="author" content="Taxel"/>
+        <meta itemscope itemprop="mainEntityOfPage" itemType="https://schema.org/WebPage"
+              itemid="{{ info.content_full_url }}" content="{{ info.content_title }}"/>
+        <div itemprop="image" itemscope itemtype="https://schema.org/ImageObject">
+          <img itemprop="url image " src="{{ info.sizes_url.large }}" alt="{{ info.content_title }}" style="display: none">
+        </div>
+      {% endif %}
+
+      <div class="article__text text text_article" {% if info.content_type!='pages' %}itemprop="articleBody"{% endif %}>
+
+        {% if info.sizes_url.medium %}
+
+        <div class="img img_solo">
+          <div class="img__container">
+            <div class="img__img">
+              <img src="{{ info.sizes_url.medium }}" alt="123">
+            </div>
+          </div>
+        </div>
+        {% endif %}
+
+        {{info.content_text|raw}}
+
+      </div>
+    </div>
+  </div>
+</div>
+{% else %}
+  <div class="article">
+    <div class="container">
+      <div class="article__wrapper">
+        <div class="article__text text text_article">
+          <p>Пятизвездочный Отель Mriya Resort & Spa - курорт премиум класса расположен в одном из самых живописных мест побережья Крыма. В состав курорта входит отель, зона релакса и отдыха – спа зона, медицинский центр, а также конгресс центр международного уровня.</p>
+        </div>
+      </div>
+      {% if info.conent_type == 'hotels' %}
+        <div class="article__form">
+          <div class="article__wrapper">
+            <h4 class="article__form-title">Маршрут на карте</h4>
+          </div>
+          {% include 'frontend/components/order-block/order-block.twig' %}
+        </div>
+      {% endif %}
+      <div class="article__wrapper">
+        <div class="article__text text text_article" {% if info.content_type=='news' or info.content_type=='articles' %}itemprop="articleBody"{% endif %}>
+          {#      {{ info.content_text|raw }}#}
+          <h4>Размещение:</h4>
+          <p>Отель предлагает несколько вариантов расселения постояльцев, такие как: Делюкс, Семейный Люкс, Королевский люкс, а также отдельно стоящие виллы: Семейная и Президентская. Стоимость каждого из вариантов разная, так что все отдыхающие без исключения смогут поселиться, выбрав наиболее подходящий номер для отдыха.</p>
+          <div class="img img_solo">
+            <div class="img__container">
+{#              <div class="img__img">#}
+{#                <img src="/assets/images/static/article.jpg" alt="123">#}
+{#              </div>#}
+            </div>
+          </div>
+          <ul>
+            <li>Создание отличного сервиса для отдыхающих;</li>
+            <li>Комфортные поездки из аэропорта Симферополя или вокзала прямо к Вашему отелю (санаторию, гостинице, дому отдыха);</li>
+            <li>Высокую скорость работы;</li>
+            <li>Современные автомобили, в которых пассажиры будут чувствовать себя удобно и комфортно;</li>
+            <li>Доступные цены на услуги;</li>
+            <li>Доверие гостей к вашему заведению и желание вновь вернуться сюда на отдых.</li>
+          </ul>
+          <h4>Почему стоит выбрать именно фирму Taxel?</h4>
+          <p>Мы гарантируем:</p>
+          <ul>
+            <li>Качество и скорость выполняемой работы;</li>
+            <li>Комфортные поездки из аэропорта Симферополя или вокзала прямо к Вашему отелю (санаторию, гостинице, дому отдыха);</li>
+            <li>Высокую скорость работы;</li>
+            <li>Современные автомобили, в которых пассажиры будут чувствовать себя удобно и комфортно;</li>
+            <li>Доступные цены на услуги;</li>
+            <li>Доверие гостей к вашему заведению и желание вновь вернуться сюда на отдых.</li>
+          </ul>
+          <h4>Медицинское обслуживание:</h4>
+          <p>На территории комплекса расположен медицинский центр международного класса. Каждый отдыхающий сможет получить здесь индивидуальную профилактическую программу для избавления от стресса, оздоровления на всё время отдыха в отеле. Также в центре можно пройти полное базовое медицинское обследование, клинико-диагностические мероприятия и получить консультацию у высококвалифицированных специалистов.</p>
+          <h4>Гастрономия:</h4>
+          <p>Повара комплекса предлагают своим гостям авторскую и национальную кухни. На территории работают несколько ресторанов и баров. Также присутствует услуга выездного ресторанного обслуживания (кейтеринг), с разработкой индивидуального меню для каждого заказчика. Персонал отеля подстроится под любое место проведения значимого для вас события и сделает этот день настоящим праздником! При желании отлежаться в номере, существует услуга «обслуживание в номере», и ваш обед или ужин подадут горячим, прямо не выходя из комнаты.</p>
+          <div class="img img_duo">
+            <div class="img__wrapper">
+{#              <div class="img__container">#}
+{#                <div class="img__img">#}
+{#                  <img src="/assets/images/static/article.jpg" alt="123">#}
+{#                </div>#}
+{#              </div>#}
+{#              <div class="img__container">#}
+{#                <div class="img__img">#}
+{#                  <img src="/assets/images/static/article.jpg" alt="123">#}
+{#                </div>#}
+{#              </div>#}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endif %}

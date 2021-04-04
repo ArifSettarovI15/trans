@@ -1,0 +1,94 @@
+{% extends "manager/global.html.twig" %}
+{% block content %}
+
+    {% if user_profile.profile_user_id %}
+    <div class="form">
+        <div class="fields">
+            <div class="line">
+                <div class="label">
+                    Имя:
+                </div>
+                <div class="value">
+                    <input name="profile_name" class="element" type="text"  maxlength="250"  value="{{ user_profile.profile_name }}">
+                </div>
+            </div>
+            <div class="line">
+                <div class="label">
+                    Фамилия:
+                </div>
+                <div class="value">
+                    <input name="profile_lastname" class="element" type="text"  maxlength="250"  value="{{ user_profile.profile_lastname }}">
+                </div>
+            </div>
+
+            <div class="line">
+                <div class="label">
+                    Телефон:
+                </div>
+                <div class="value">
+                    <input name="profile_phone" class="element" type="text"  maxlength="250"  value="{{ user_profile.profile_phone }}">
+                </div>
+            </div>
+
+
+            <div class="line">
+                <div class="label">
+                    Email:
+                </div>
+                <div class="value">
+                    <input name="profile_user_email" class="element" type="text"  maxlength="250"  value="{{ user_profile.profile_user_email }}">
+                </div>
+            </div>
+            <div class="line">
+                <div class="label">
+                    Завершено поездок:
+                </div>
+                <div class="value">
+                    <input name="" class="" type="text"  maxlength="250"  value="{{ user_profile.order_count }}">
+                </div>
+            </div>
+            <div class="line">
+                <div class="label">
+                    Крайний заказ:
+                </div>
+                <div class="value">
+                    <a href="{{ global.base_url }}/manager/taxi/orders/edit/{{ user_profile.order_id }}">Заказ №{{user_profile.order_code }}</a>
+                </div>
+            </div>
+            <div class="line">
+                <div class="label">
+                    Предпочитаемый класс:
+                </div>
+                <div class="value">
+                    <select name="profile_car_class" class="element">
+                        {% for class in classes %}
+                            <option value="{{ class.class_id }}" {% if user_profile.class_id == class.class_id %} selected {% endif %}>
+                                {{ class.class_title }}
+                            </option>
+                        {% endfor %}
+                    </select>
+                </div>
+            </div>
+            <div class="line">
+                <div class="label">
+                    Предпочитаемые услуги:
+                </div>
+                <div class="value">
+                    <input name="profile_car_services" class="element" type="text"  maxlength="250"  value="{{ user_profile.profile_car_services }}">
+                </div>
+            </div>
+            <input type="hidden" name="action" class="element" value="process_edit">
+        <div class="submit btn btn-primary">
+            {% if edit==1 %}
+
+                Сохранить
+            {% else %}
+                Добавить
+            {% endif %}
+        </div>
+        </div>
+    </div>
+        {% else %}
+        <div><h3 style="color:red">У клиента нет кабинета!</h3></div>
+    {% endif %}
+{% endblock %}

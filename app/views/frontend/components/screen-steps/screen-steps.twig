@@ -1,0 +1,17 @@
+<div class="section section_steps">
+  {% if about_page %}
+    <div class="decor_taxi"></div>
+  {% else %}
+  <div class="section__title">
+    {% include 'frontend/components/screen-title/screen-title.twig' with {
+      title: 'Всего 3 шага',
+      descr: 'Все предельно просто и удобно'
+    } %}
+  </div>
+  {% endif %}
+  <div class="section__content">
+    <div class="container">
+      {% include 'frontend/components/steps/steps.twig' %}
+    </div>
+  </div>
+</div>

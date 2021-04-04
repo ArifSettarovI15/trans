@@ -1,0 +1,30 @@
+{% extends "global.html.twig" %}
+{% block content %}
+
+  <div class="mtb mtb_2">
+
+    <div class="container">
+      <div class="table-data">
+        <div class="page__filters">
+            {% include 'frontend/components/filters/filters.twig' %}
+        </div>
+         <div class="table-content" data-list="feed">
+          {% include 'frontend/components/table-list/table-list.twig' with {
+            block: 'feed',
+            list: list,
+            mod: 3,
+          } %}
+        </div>
+        {% if paging_data.pages %}
+          <div class="table-list__paging">
+            {% include 'frontend/components/paging/paging.twig' %}
+          </div>
+        {% endif %}
+      </div>
+
+    </div>
+  </div>
+  <div class="mtb">
+    {% include 'frontend/components/screen-callback/screen-callback.twig' %}
+  </div>
+{% endblock %}

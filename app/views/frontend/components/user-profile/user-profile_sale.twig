@@ -1,0 +1,34 @@
+{% import "frontend/elements/svg/svg_macros.twig" as Svg %}
+
+<div class="user-card user-card_sale">
+  <div class="user-card__head">
+    <div class="user-card__title">{% if sale_screen %}Ваш прогресс{% else %}Система скидок{% endif %}</div>
+    <div class="user-card__descr">оплачивайте с сайта и копите поездки.</div>
+  </div>
+  <div class="user-card__range">
+    {% include 'frontend/components/gift-range/gift-range.twig' %}
+  </div>
+
+  <div class="user-card__list">
+    <div class="user-card__item">
+
+      <div class="user-card__key">До подарка:</div>
+      <div class="user-card__value">{{5-global.user_profile.profile_discount}}</div>
+    </div>
+    <div class="user-card__item">
+      <div class="user-card__key">Использовано:</div>
+      <div class="user-card__value">{{ global.user_profile.profile_bonus }}</div>
+    </div>
+  </div>
+  {% if sale_screen %}
+  {% else %}
+    <div class="user-card__bottom">
+      <div class="user-card__link">
+        <a href="{{global.base_url}}/cabinet/sale/" class="link link_underline_hide">
+          <div class="link__text">подробнее</div>
+          <div class="link__icon">{{ Svg.icon('arrow-right', 1) }}</div>
+        </a>
+      </div>
+    </div>
+  {% endif %}
+</div>

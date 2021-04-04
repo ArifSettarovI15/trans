@@ -1,0 +1,4 @@
+<label class="fc">
+    <input type="{% if type %}{{ type }}{% else %}checkbox{% endif %}" name="{{ name }}" class="cbs element {% if req %}required{% endif%} visually-hidden" name="policies" {% if toggle %}data-type="toggle"{% endif %} {% if checked %}checked{% endif %}>
+    {% if label %}<span class="fc__label">{{ label|raw }}</span>{% endif %}
+</label>

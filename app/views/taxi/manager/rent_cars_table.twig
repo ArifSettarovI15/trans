@@ -1,0 +1,30 @@
+
+{% for item in list %}
+    <tr data-id="{{ item.rent_id }}">
+        <td class="data_id">{{ item.rent_id }}</td>
+        <td style="text-align: center;">
+            <a target="_blank" href="{{ global.base_url }}/manager/taxi/cars/edit/{{ item.rent_car_id  }}/">
+                {{ variables.cars[item.rent_car_id].car_title }}
+            </a>
+        </td>
+        <td style="text-align: center;">{{ item.rent_car_year }}</td>
+        <td style="text-align: center;">{{ item.rent_car_run }}</td>
+        <td style="text-align: center;">
+            {{ item.rent_car_engine_capacity }}
+        </td >
+        <td style="text-align: center;">
+            {{ item.rent_car_transmission }}
+        </td>
+        <td style="text-align: center;">
+            {{ item.rent_car_city }}
+        </td >
+
+        <td style="text-align: center;">{% if (item.rent_car_buy) %} Под выкуп {% else %} Нет выкупа {% endif %}</td>
+{#        <td>{{ item.car_title }}</td>#}
+        <td>
+
+            <a target="_blank" href="{{ global.base_url }}/manager/taxi/rent_cars/edit/{{ item.rent_id  }}/" class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></a>
+{#            <div data-value="{{ item.rent_id }}" class="btn btn-danger btn-xs delete"><i class="fa"></i></div>#}
+        </td>
+    </tr>
+{% endfor %}

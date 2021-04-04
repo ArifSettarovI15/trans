@@ -1,0 +1,26 @@
+{% import 'frontend/elements/svg/svg_macros.twig' as Svg %}
+<div id="modal_thx_sub" class="modal modal_thx_sub white-popup animated fast">
+    <div class="modal__wrapper">
+        <div class="modal__head">
+            <div class="modal__close js-modal-close">
+                <div class="modal__close-icon">{{ Svg.icon('close', 1) }}</div>
+            </div>
+        </div>
+        <div class="modal__body">
+            <div class="modal__smile">
+                <div class="feed__smile-img">
+                    <picture>
+                        <img src="/assets/images/static/smiling-face_sunglasses.png">
+                    </picture>
+                </div>
+            </div>
+            <div class="modal__title">{{ title }}</div>
+            <div class="modal__text">
+                {{ text|raw }}
+            </div>
+            <div class="button button_md button_outline_2 close-modal">
+                <div class="button__text">вернуться к сайту</div>
+            </div>
+        </div>
+    </div>
+</div>

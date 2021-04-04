@@ -1,0 +1,33 @@
+.ways {
+  $root: &;
+  &__list {
+    display: flex;
+    flex-wrap: wrap;
+    margin: -16px;
+
+    &_slider {
+      #{$root}__item {
+        display: none;
+
+        &:nth-child(-n + 4) {
+          display: block;
+        }
+      }
+
+      .slick-dots {
+        margin-top: 24px;
+        position: relative;
+        bottom: auto;
+      }
+    }
+  }
+
+  &__item {
+    width: (100%/4);
+    padding: 16px;
+
+    &.slick-slide {
+      display: block;
+    }
+  }
+}

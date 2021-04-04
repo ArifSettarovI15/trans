@@ -1,0 +1,26 @@
+{% import "frontend/elements/svg/svg_macros.twig" as Svg %}
+<div class="feed-controls">
+  <div class="feed-controls__link">
+    {% if prev_next.prev %}
+      <a href="/reviews/{{ prev_next.prev }}" class="link link_underline_hide">
+        <span class="link__icon">{{ Svg.icon('arrow-left', 1) }}</span>
+        <span class="link__text">Предыдущий</span>
+      </a>
+    {% endif %}
+  </div>
+  <div class="feed-controls__btn">
+    <div class="button button_md button_outline_1 popup-open" data-mfp-src="#modal_feed">
+      <div class="button__icon">{{ Svg.icon('dialog', 1) }}</div>
+      <div class="button__text">оставить отзыв</div>
+      {% include 'frontend/components/modal-feed/modal-feed.twig' %}
+    </div>
+  </div>
+  <div class="feed-controls__link">
+    {% if prev_next.next %}
+    <a href="/reviews/{{ prev_next.next }}" class="link link_underline_hide">
+      <span class="link__text">Следующий</span>
+      <span class="link__icon">{{ Svg.icon('arrow-right', 1) }}</span>
+    </a>
+    {% endif %}
+  </div>
+</div>

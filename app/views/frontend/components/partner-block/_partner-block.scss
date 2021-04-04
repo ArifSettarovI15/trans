@@ -1,0 +1,160 @@
+.partner-block {
+  .decor_taxi {
+    top: 50%;
+    transform: translate(-50%, -50%);
+    left: 50%;
+    width: 1920px;
+
+    &:before,
+    &:after {
+      background-image: url('/assets/images/static/pattern_04.png');
+    }
+  }
+
+  &__wrapper {
+    display: flex;
+  }
+
+  &__block {
+    width: 50%;
+  }
+
+  @include media('<=1200px') {
+    .decor_taxi {
+      display: none;
+    }
+  }
+
+  @include media('<md') {
+    &__wrapper {
+      display: flex;
+      flex-direction: column;
+    }
+
+    &__block {
+      width: 100%;
+    }
+  }
+}
+
+.partner-descr {
+  height: 100%;
+  background-color: $color__primary--1;
+  border-radius: 14px;
+  overflow: hidden;
+
+  &__wrapper {
+    padding: 32px;
+  }
+
+  &__text {
+    margin-bottom: 24px;
+  }
+
+  @include media('<lg') {
+    &__wrapper {
+      padding: 24px;
+    }
+  }
+
+  @include media('<md') {
+    &__wrapper {
+      padding: 14px;
+    }
+  }
+}
+
+.partner-form {
+  $root: &;
+  height: 100%;
+  box-shadow: 0 16px 24px rgba(38, 36, 37, 0.2);
+  border-radius: 14px;
+
+  &__wrapper {
+    padding: 32px;
+  }
+
+  &__tabs {
+    margin-bottom: 24px;
+  }
+
+  &__select {
+    display: none;
+  }
+
+  &__elem.hidden {
+    display: none;
+  }
+
+  &__row {
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 24px;
+
+    #{$root}__elem {
+      width: 100%;
+    }
+
+    &_2 {
+      margin: 0 -7px;
+      margin-bottom: 24px;
+      #{$root}__elem {
+        padding: 0 7px;
+        flex: 1;
+      }
+    }
+  }
+
+  &__head {
+    margin-bottom: 24px;
+  }
+
+  &__btn {
+    width: 100%;
+    max-width: 253px;
+  }
+
+  @include media('<lg') {
+    &__tabs {
+      display: none;
+    }
+    
+    &__select {
+      display: block;
+    }
+
+    &__wrapper {
+      padding: 24px;
+    }
+
+    &__row_2 {
+      margin-left: 0;
+      margin-right: 0;
+
+      #{$root}__elem {
+        margin-bottom: 14px;
+        flex: 1 0 100%;
+        width: 100%;
+        padding: 0;
+
+        &:last-child {
+          margin: 0;
+        }
+      }
+    }
+
+    &__btn {
+      max-width: none;
+    }
+  }
+
+  @include media('<md') {
+    &__row {
+      margin-bottom: 14px;
+    }
+
+    &__wrapper {
+      padding: 14px;
+    }
+  }
+}

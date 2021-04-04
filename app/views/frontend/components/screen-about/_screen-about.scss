@@ -1,0 +1,42 @@
+.screen-about {
+  max-width: 770px;
+  margin: 0 auto;
+  box-shadow: 0 16px 24px rgba(38, 36, 37, 0.2);
+  background-color: $color__light;
+  padding: 40px;
+  border-radius: 14px;
+
+  &__logo {
+    margin-bottom: 32px;
+
+    .logo {
+      justify-content: center;
+      &__block {
+        @include size(200px, 40px);
+        flex: 0 0 200px;
+      }
+    }
+  }
+
+  &__text {
+    margin-bottom: 32px;
+    p {
+      color: $color__dark;
+      font-size: 16px;
+      line-height: 1.4;
+      margin-bottom: 20px;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+  
+  &__bottom {
+    text-align: center;
+  }
+
+  &__button {
+    display: inline-block;
+  }
+}

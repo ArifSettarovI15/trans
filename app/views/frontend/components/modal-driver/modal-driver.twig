@@ -1,0 +1,53 @@
+{% import 'frontend/elements/svg/svg_macros.twig' as Svg %}
+<div id="modal_driver" class="modal mfp-hide white-popup animated fast">
+  <div class="modal__wrapper">
+    <div class="modal__head">
+      <div class="modal__title">Персональные данные</div>
+      <div class="modal__close">
+        <div class="btn btn_xxs js-modal-close">
+          <div class="btn__icon">{{ Svg.icon('close', 1) }}</div>
+        </div>
+      </div>
+    </div>
+    <div class="modal__body form" data-url="{{ global.base_url }}/rent/" data-callback="ShowThx">
+      <input type="hidden" name="action" value="process_newRent" class="element">
+      <input type="hidden" name="car_id" class="element">
+      <div class="modal__steps">
+        {% include 'frontend/components/modal-driver/modal-steps.twig' %}
+      </div>
+      <div class="modal__content">
+        <div class="js-step js-step_active" data-id="1">
+          {% include 'frontend/components/modal-driver/modal-driver_data1.twig' %}
+        </div>
+        <div class="js-step" data-id="2">
+          {% include 'frontend/components/modal-driver/modal-driver-data2.twig' %}
+        </div>
+        <div class="js-step" data-id="3">
+          {% include 'frontend/components/modal-driver/modal-driver-data3.twig' %}
+        </div>
+        <div class="js-step" data-id="4">
+          {% include 'frontend/components/modal-driver/modal-driver-data4.twig' %}
+        </div>
+      </div>
+      <div class="modal__bottom">
+        <div class="modal__bottom-row">
+          <div class="modal__button modal__button_prev js-step-prev">
+            <div class="button button_md button_outline_1">
+              <div class="button__text">Назад</div>
+            </div>
+          </div>
+          <div class="modal__button modal__button_next">
+            <div class="button button_md button_primary js-step-next" data-step="1">
+              <div class="button__text">Дальше</div>
+            </div>
+          </div>
+          <div class="modal__button modal__button_submit">
+            <div class="button button_md button_primary submit">
+              <div class="button__text">Отправить</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

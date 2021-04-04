@@ -1,0 +1,54 @@
+{% extends "manager/global.html.twig" %}
+{% block content %}
+    {%  set classes  = variables['classes'] %}
+
+    <div class="actions">
+        <a class="btn btn-primary" href="{{ global.base_url }}/manager/taxi/reviews/add/">Добавить</a>
+    </div>
+
+    <div class="table_data">
+        <div class="table_data_navigation">
+            {% include 'parts/paging.html.twig' %}
+        </div>
+        <table class="table_bordered table_striped">
+            <thead>
+            <tr>
+                <th style="width: 50px">ID</th>
+                <th style="width: 100px">Имя</th>
+                <th style="width: 200px">Email</th>
+                <th style="width: 150px">Комментарий</th>
+                <th style="width: 150px">Класс авто</th>
+                <th style="width: 150px">Рейтинг</th>
+                <th style="width: 150px">Время</th>
+                <th style="width: 150px">Статус</th>
+                <th class="action_button_3"></th>
+            </tr>
+            <tr>
+                <th><input data-name="review_id" data-type="filter_value" min="0" type="text"></th>
+                <th><input data-name="review_uname" data-type="filter_value" min="0" type="text"></th>
+                <th><input data-name="review_uemail" data-type="filter_value" min="0" type="text"></th>
+                <th style="width: 200px;"><input data-name="review_comment" data-type="filter_value" min="0" type="text"></th>
+                <th style="width: 200px;">
+                    <select data-name="review_class" data-type="filter_value" id="">
+                        <option value="">Все</option>
+                        {% for class in classes %}
+                            <option value="{{ class.class_id }}">{{ class.class_title }}</option>
+                        {% endfor %}
+                    </select>
+                </th>
+                <th><input data-name="review_rating" data-type="filter_value" min="0" type="text"></th>
+                <th><input data-name="review_time" data-type="filter_value" min="0" type="text"></th>
+                <th><select data-name="review_status" data-type="filter_value">
+                        <option value="">Все</option>
+                        <option value="1">Модерация</option>
+                        <option value="2">Видимые</option>
+                    </select></th>
+                <th class="action_button"></th>
+            </tr>
+            </thead>
+            <tbody class="table_content">
+            {% include 'taxi/manager/reviews_table.twig' %}
+            </tbody>
+        </table>
+    </div>
+{% endblock %}

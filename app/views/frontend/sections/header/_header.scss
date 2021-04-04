@@ -1,0 +1,138 @@
+.header {
+  $root: &;
+  &__wrapper {
+    @extend %flex-center-between;
+    padding: 24px 0;
+  }
+
+  &__controls {
+    @extend %flex-middle;
+  }
+
+  &__control {
+    & + & {
+      margin-left: 14px;
+    }
+  }
+  &_fixed {
+    padding-top: 94px;
+    #{$root}__top {
+      position: fixed;
+      width: 100%;
+      background-color: $color__gray--1;
+      top: 0;
+      left: 0;
+      right: 0;
+      box-shadow: 0 4px 8px rgba(38, 36, 37, 0.2);
+      opacity: 1;
+      @include transitions(opacity);
+      z-index: 10;
+
+      #{$root}__wrapper {
+        padding: 8px 0;
+      }
+
+      #{$root}__control_burger {
+        display: block;
+      }
+
+      #{$root}__control_login, #{$root}__control_cabinet {
+        display: none;
+      }
+    }
+
+    &.hidden {
+      #{$root}__top {
+        opacity: 0;
+        visibility: hidden;
+      }
+    }
+  }
+
+
+  &__bottom {
+    padding: 24px 0;
+    background-color: $color__gray--1;
+  }
+
+  &__control {
+    &_burger {
+      display: none;
+      .btn__icon {
+        @include size(32px);
+        flex: 0 0 32px;
+      }
+    }
+  }
+
+  @include media('<=1200px') {
+    &_fixed {
+      padding-top: 62px;
+    }
+
+    &__wrapper {
+      padding: 8px 0;
+    }
+
+    &__bottom {
+      display: none;
+    }
+
+    &__control {
+      &_login {
+        display: none;
+      }
+
+      &_burger {
+        display: block;
+      }
+    }
+
+  }
+  &__element{
+    .two_lines{
+      width: 200px;
+      display: inline-block;
+      .link
+      {
+        font-weight: 400;
+        margin-top: 5px;
+        text-align: right;
+        float: right;
+        color: #f0f0f0 !important;
+        &:hover
+        {
+          color: #a2bfc3 !important;
+        }
+      }
+      .icon{
+        color: #f0f0f0;
+        position: absolute;
+        top: 20%;
+        transform: rotateZ(-40deg);
+        font-size: 24px;
+      }
+    }
+  }
+  @include media('<lg') {
+    &__element_city {
+      display: none;
+    }
+  }
+
+  @include media('<md') {
+    &__control {
+      &_order {
+        display: none;
+      }
+    }
+
+    &__element {
+      .link__text {
+        font-size: 14px;
+      }
+    }
+
+    }
+  }
+

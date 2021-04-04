@@ -1,0 +1,11 @@
+{% extends "emails/global.html.twig" %}
+{% block title %}{{ title }}{% endblock %}
+{% block content %}
+    <p><b>Имя:</b> {{ name }}</p>
+    {% if text %} <p><b>Текст:</b> {{ text }}</p>{% endif %}
+    {% if phone %} <p><b>Телефон:</b>+ {{ phone }}</p>{% endif %}
+    {% if email %}<p><b>Email:</b> {{ email }}</p>{% endif %}
+    {% if brand %}<p><b>Марка:</b> {{ brand }}</p>{% endif %}
+    {% if model %}<p><b>Модель:</b> {{ model }}</p>{% endif %}
+    {% if text %}<p><b>Комментарий:</b> {{ text|nl2br }}</p>{% endif %}
+{% endblock %}

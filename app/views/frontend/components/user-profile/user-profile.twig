@@ -1,0 +1,16 @@
+{% import "frontend/elements/svg/svg_macros.twig" as Svg %}
+<div class="user-profile">
+  <div class="container">
+    <div class="user-profile__list">
+      <div class="user-profile__item">
+        {% include 'frontend/components/user-profile/user-profile_trips.twig' %}
+      </div>
+      <div class="user-profile__item">
+        {% include 'frontend/components/user-profile/user-profile_info.twig' %}
+      </div>
+      <div class="user-profile__item">
+        {% include 'frontend/components/user-profile/user-profile_sale.twig' %}
+      </div>
+    </div>
+  </div>
+</div>

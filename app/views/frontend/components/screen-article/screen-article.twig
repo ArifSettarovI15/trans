@@ -1,0 +1,23 @@
+
+
+<div class="section section_pub">
+  <div class="decor_taxi"></div>
+  <div class="section__title">
+    {% include 'frontend/components/screen-title/screen-title.twig' with {
+      title: 'Публикации',
+      descr: 'Свежие публикации на сайте',
+      href: '/blog/'
+    } %}
+  </div>
+  <div class="section__content">
+    <div class="container">
+      {% include 'frontend/components/screen-slider/screen-slider.twig' with {
+        thumb: 'article',
+        list: articles,
+        count: 4,
+        mod: 'type2',
+        p_count: 1
+      } %}
+    </div>
+  </div>
+</div>

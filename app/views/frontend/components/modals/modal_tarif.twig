@@ -1,0 +1,86 @@
+{% import 'frontend/elements/svg/svg_macros.twig' as Svg %}
+{% import 'frontend/elements/input/input_macro.twig' as Input %}
+<div id="modal_tarif" class="modal modal_tarif mfp-hide white-popup animated fast">
+    <div class="modal__wrapper modal-tariff">
+        <div class="modal__head">
+            <div class="modal__title">Тариф <span class="modal-tariff__provider"></span> «<span class="modal-tariff__title"></span>»</div>
+            <div class="modal__close js-modal-close">
+                <div class="modal__close-icon">{{ Svg.icon('close', 1) }}</div>
+            </div>
+        </div>
+        <div class="modal__body">
+            <div class="modal__fieldset">
+                <div class="modal__text">
+                    <strong>Телефон  <a href="tel:{{ global.fields.about.about_phone2 }}">{{ global.fields.about.about_phone2 }}</a>
+                        или <a href="tel:{{ global.fields.about.about_phone }}">{{ global.fields.about.about_phone }}</a></strong>
+                    <p>или оставьте заявку на подключение к <span class="modal-tariff__title"></span> на нашем сайте</p>
+                </div>
+            </div>
+            <div class="modal__fieldset">
+                <div class="modal-params">
+                        <div class="modal-params__item">
+                            <div class="modal-params__icon">
+                                {{ Svg.icon('subs', 1) }}
+                            </div>
+                            <div class="modal-params__content">
+                                <div class="modal-params__block">
+                                    <div class="modal-params__text">Абонентская плата</div>
+                                    <div class="modal-params__dop">подключение <span class="modal-tariff__connect"></span> руб.</div>
+                                </div>
+                                <div class="modal-params__block">
+                                    <div class="modal-params__text modal-tariff__price"></div>
+                                    <div class="modal-params__dop">руб/мес</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-params__item">
+                            <div class="modal-params__icon">
+                                {{ Svg.icon('laptop', 1) }}
+                            </div>
+                            <div class="modal-params__content">
+                                <div class="modal-params__block">
+                                    <div class="modal-params__text">Домашний интернет</div>
+                                    <div class="modal-params__dop">тариф безлимит</div>
+                                </div>
+                                <div class="modal-params__block">
+                                    <div class="modal-params__text modal-tariff__speed"></div>
+                                    <div class="modal-params__dop">мбит/c</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-params__item">
+                            <div class="modal-params__icon">
+                                {{ Svg.icon('iptv', 1) }}
+                            </div>
+                            <div class="modal-params__content">
+                                <div class="modal-params__block">
+                                    <div class="modal-params__text">Цифровое TV</div>
+                                </div>
+                                <div class="modal-params__block">
+                                    <div class="modal-params__text modal-tariff__tv"></div>
+                                    <div class="modal-params__dop">каналов</div>
+                                </div>
+                            </div>
+                        </div>
+            </div>
+            </div>
+            <div class="modal__fieldset">
+                <div class="modal__form form" data-callback="ShowThx">
+                    <input type="hidden" name="action" class="element" value="process_order">
+                    <input type="hidden" name="tariff_id" class="modal-tariff__id element" value="">
+                    <div class="modal__form-item">
+                        {{ Input.field('name', 'Ваше имя', 1, 0, 0, 'field__input_outline') }}
+                    </div>
+                    <div class="modal__form-item">
+                        {{ Input.field('phone', 'Ваш телефон', 1, 0, 0, 'field__input_outline', 'tel', 1, '+7') }}
+                    </div>
+                    <div class="modal__form-item">
+                        <div class="button button_md button_secondary submit">
+                            <div class="button__text">Отправить заявку</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

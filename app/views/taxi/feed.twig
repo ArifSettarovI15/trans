@@ -1,0 +1,17 @@
+{% extends "global.html.twig" %}
+{% block content %}
+
+
+  <div class="mtb mtb_2">
+    <div class="container">
+      {% include 'frontend/components/full-feed/full-feed.twig' %}
+    </div>
+  </div>
+  <div class="mtb">
+    {% include 'frontend/components/screen-feeds/screen-feeds.twig' %}
+  </div>
+  <div class="mtb">
+    {% include 'frontend/components/screen-callback/screen-callback.twig' %}
+
+  </div>
+{% endblock %}

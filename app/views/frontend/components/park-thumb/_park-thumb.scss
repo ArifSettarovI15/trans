@@ -1,0 +1,95 @@
+.park-thumb {
+  $root: &;
+  padding-bottom: 75%;
+
+  &:hover {
+    &:before {
+      background-color: $color__primary--lightest;
+    }
+
+    &:after {
+      opacity: 1;
+    }
+
+    .badge_park {
+      background-color: $color__light;
+      color: $color__primary;
+    }
+
+    #{$root}__image:before {
+      opacity: 0;
+    }
+  }
+
+  &:after {
+    content: '';
+    @extend %absolute-full;
+    @include size(100%);
+    background: linear-gradient(180deg, rgba(57, 85, 254, 0.3) 0%, rgba(57, 85, 254, 0.7) 100%);
+    opacity: 0;
+    border-radius: 8px;
+    overflow: hidden;
+    @include transitions(opacity);
+  }
+
+  &__content,
+  &__image {
+    @extend %absolute-full;
+    @include size(100%);
+    border-radius: 8px;
+    overflow: hidden;
+  }
+
+  &__image {
+    background: linear-gradient(180deg, rgba(38, 36, 37, 0.1) 0%, rgba(38, 36, 37, 0.3) 100%), #77798C;
+
+    &:before {
+      content: '';
+      background: linear-gradient(180deg, rgba(38, 36, 37, 0.1) 0%, rgba(38, 36, 37, 0.3) 100%);
+      @extend %absolute-full;
+      @include size(100%);
+      opacity: .1;
+      @include transitions(opacity);
+    }
+
+    img {
+      @include object-fit(cover);
+      @include size(100%);
+    }
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 14px;
+    z-index: 1;
+  }
+
+  &__head {
+    @extend %flex-center-between;
+  }
+
+  &__title {
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 1.15;
+    color: $color__light;
+  }
+
+  &__feature {
+    @extend %flex-middle;
+    &-icon {
+      flex: 0 0 20px;
+      @include size(20px);
+      margin-right: 4px;
+    }
+
+    &-value {
+      font-weight: 500;
+      font-size: 14px;
+      line-height: 1.45;
+      color: $color__light;
+    }
+  }
+}

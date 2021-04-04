@@ -1,0 +1,65 @@
+<div class="rentcar-thumb">
+  <div class="rentcar-thumb__badge">
+    {% include 'frontend/components/badge/badge.twig' with {
+      badge_text: item.class_title,
+      badge_theme: 'park'
+    } %}
+  </div>
+  <div class="rentcar-thumb__image">
+    <div class="rentcar-thumb__slider js-thumb-slider">
+{#      {% for item in list %}#}
+        <div class="rentcar-thumb__slide">
+          <div class="rentcar-thumb__img">
+            <img src="{{ variables.cars_icons[item.rent_car_id].car_icon_url }}" alt="">
+          </div>
+        </div>
+{#      {% endfor %}#}
+    </div>
+  </div>
+  <div class="rentcar-thumb__content">
+    <div class="rentcar-thumb__title">{{item.car_title }}</div>
+    <div class="rentcar-thumb__params">
+      <ul class="rentcar-thumb__p-list">
+        {% if item.rent_car_year and item.rent_car_year!='' %}
+        <li class="rentcar-thumb__p-item">
+          <div class="rentcar-thumb__p-key">Год выпуска:</div>
+          <div class="rentcar-thumb__p-value">{{ item.rent_car_year }} г.</div>
+        </li>
+        {% endif %}
+        {% if item.rent_car_run and item.rent_car_run!='' %}
+        <li class="rentcar-thumb__p-item">
+          <div class="rentcar-thumb__p-key">Пробег:</div>
+          <div class="rentcar-thumb__p-value">{{ item.rent_car_run }} км</div>
+        </li>
+        {% endif %}
+        {% if item.rent_car_engine_capacity and item.rent_car_engine_capacity!='' %}
+        <li class="rentcar-thumb__p-item">
+          <div class="rentcar-thumb__p-key">Двигатель:</div>
+          <div class="rentcar-thumb__p-value">{{ item.rent_car_engine_capacity }} л./
+            {% if variables.cars[item.rent_car_id].car_power and variables.cars[item.rent_car_id].car_power!=''  %}
+              {{ variables.cars[item.rent_car_id].car_power }} л.с.
+            {% endif %}
+          </div>
+        </li>
+        {% endif %}
+        {% if item.rent_car_transmission and item.rent_car_transmission!='' %}
+        <li class="rentcar-thumb__p-item">
+          <div class="rentcar-thumb__p-key">Трансмиссия:</div>
+          <div class="rentcar-thumb__p-value">{{item.rent_car_transmission}}</div>
+        </li>
+        {% endif %}
+        {% if item.rent_car_city and item.rent_car_city!='' %}
+        <li class="rentcar-thumb__p-item">
+          <div class="rentcar-thumb__p-key">Город:</div>
+          <div class="rentcar-thumb__p-value">{{item.rent_car_city}}</div>
+        </li>
+        {% endif %}
+      </ul>
+    </div>
+    <div class="rentcar-thumb__btn">
+      <div class="button button_sm button_outline_1 popup-open" data-mfp-src="#modal_driver" data-before="getCarId" data-id="{{ item.rent_car_id }}">
+        <div class="button__text">Оставить заявку</div>
+      </div>
+    </div>
+  </div>
+</div>

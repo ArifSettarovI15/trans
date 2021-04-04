@@ -1,0 +1,43 @@
+{% extends "manager/global.html.twig" %}
+{% block content %}
+    {%  set classes  = variables['classes'] %}
+
+    <div class="table_data">
+        <div class="table_data_navigation">
+            {% include 'parts/paging.html.twig' %}
+        </div>
+        <table class="table_bordered table_striped">
+            <thead>
+            <tr>
+                <th style="width: 100px">ID</th>
+                <th style="width: 100px">
+                    Авто
+                </th>
+                <th style="width: 200px">Год выпуска</th>
+                <th style="width: 150px">Пробег</th>
+                <th style="width: 200px;">Объем ДВС</th>
+                <th style="width: 200px;">Тип КПП</th>
+                <th style="width: 200px;">Город</th>
+                <th style="width: 100px;">Возм. выкупа</th>
+
+                <th class="action_button_3"></th>
+            </tr>
+            <tr>
+                <th style="width: 100px"><input data-name="car_id" data-type="filter_value" min="0" type="text"></th>
+                <th style="width: 100px"></th>
+                <th style="width: 200px;"></th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+
+                <th class="action_button"></th>
+            </tr>
+            </thead>
+            <tbody class="table_content">
+            {% include 'taxi/manager/rent_cars_table.twig' %}
+            </tbody>
+        </table>
+    </div>
+{% endblock %}

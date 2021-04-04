@@ -1,0 +1,28 @@
+{% import "frontend/elements/svg/svg_macros.twig" as Svg %}
+
+<div class="serviceSelect">
+    <div class="serviceSelect__data">
+        {% set arr = user_settings|split(', ') %}
+        {% for item in list %}
+            <div class="serviceSelect__item {% if item.dop_services_title in arr %}serviceSelect__item_active {% endif %}" data-x data-price="0" data-id="1"
+                 data-title="{{ item.dop_services_title }}">
+                <div class="serviceSelect__left">
+                    <div class="serviceSelect__title">{{ item.dop_services_title }}</div>
+                    <div class="serviceSelect__price" data-price="{% if item.dop_services_price>0 %}{{ item.dop_services_price }}{% else %}0{% endif %}">{% if item.dop_services_price>0 %}{{ item.dop_services_price }} ₽{% else %}Бесплатно{% endif %}</div>
+                </div>
+                <div class="serviceSelect__right">
+                    <div class="fc">
+                        <div class="icheckbox">
+                            <div class="fc__icon">
+                                {{ Svg.icon('check', 1) }}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+    <div class="serviceSelect__close">
+        Готово
+    </div>
+</div>

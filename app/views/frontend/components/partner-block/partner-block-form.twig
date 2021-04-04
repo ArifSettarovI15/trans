@@ -1,0 +1,80 @@
+{% import 'frontend/elements/input/input_macro.twig' as Input %}
+<div class="partner-form">
+  <div class="partner-form__wrapper form" data-callback="ShowThx">
+    <div class="partner-form__head">
+      <input type="hidden" class="element" name="action" value="process_partner_add">
+      <div class="partner-form__tabs">
+        <div class="tabs tabs_2" data-chain="partners">
+          <div class="tabs__inner">
+            <div class="tabs__list">
+              <div class="tabs__item">
+                <div class="tabs__link2 tabs__link2_active js-trigger-select" data-select="user_type" data-val="site_owner">
+                  Владелец сайта
+                </div>
+              </div>
+              <div class="tabs__item">
+                <div class="tabs__link2 js-trigger-select" data-select="user_type" data-val="organisation">Организация</div>
+              </div>
+              <div class="tabs__item">
+                <div class="tabs__link2 js-trigger-select" data-select="user_type" data-val="driver">Водитель</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="partner-form__select">
+        <div class="select select-2">
+          <select name="user_type" class="select_2 element visually-hidden">
+            <option value="site_owner">Владелец сайта</option>
+            <option value="organisation">Организация</option>
+            <option value="driver">Водитель</option>
+          </select>
+        </div>
+      </div>
+    </div>
+    <div class="partner-form__main">
+      <div class="partner-form__row">
+        <div class="partner-form__elem">
+          {{ Input.field('name', {
+            required: 1,
+            parent_mod: '2',
+            label: 'Ваше имя'
+          }) }}
+        </div>
+      </div>
+      <div class="partner-form__row partner-form__row_2">
+        <div class="partner-form__elem input-toggle">
+          {{ Input.field('addr', {
+            required: 1,
+            parent_mod: '2',
+            label: 'Адрес сайта'
+          }) }}
+        </div>
+        <div class="partner-form__elem">
+          {{ Input.field('phone', {
+            required: 1,
+            parent_mod: '2',
+            label: 'Телефон',
+            type: 'tel',
+            value: '+7'
+          }) }}
+        </div>
+      </div>
+      <div class="partner-form__row">
+        <div class="partner-form__elem">
+          <div class="textfield">
+            <label class="textfield__label" for="partner_msg">Комментарий</label>
+            <textarea class="textfield__field element" name="message" id="partner_msg"></textarea>
+          </div>
+        </div>
+      </div>
+      <div class="partner-form__row">
+        <div class="partner-form__btn">
+          <div class="button button_md submit">
+            <div class="button__text">Отправить</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

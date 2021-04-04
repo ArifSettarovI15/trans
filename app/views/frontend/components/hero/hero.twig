@@ -1,0 +1,27 @@
+{% import 'frontend/elements/svg/svg_macros.twig' as Svg %}
+<div class="hero">
+  <div class="container">
+    <div class="hero__slider js-hero">
+      {% for item in main_slider %}
+
+        <div class="hero__slide">
+
+          <div class="hero__image">
+            <img src="{{ item.mainpage_slider_image.sizes_url.large }}" alt="">
+          </div>
+          <div class="hero__content">
+            <div class="hero__badge">
+              {% include 'frontend/components/badge/badge.twig' with {
+                badge_text: 'класс комфорт',
+                badge_theme: 'new'
+              } %}
+            </div>
+            <div class="hero__descr">{{ item.mainpage_slider_title }}</div>
+            <div class="hero__price">от {{ item.mainpage_slider_text }}<div class="hero__price-icon">{{ Svg.icon('rouble', 1) }}</div></div>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+    <div class="hero__controls js-slider-controls"></div>
+  </div>
+</div>

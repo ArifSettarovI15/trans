@@ -1,0 +1,51 @@
+{% import 'frontend/elements/input/input_macro.twig' as Input %}
+{% import "frontend/elements/svg/svg_macros.twig" as Svg %}
+<div class="settings-card">
+  <div class="settings-card__wrapper">
+    <div class="form" data-url="{{ global.base_url }}/cabinet/profile/" data-callback="profileSaveDone">
+      <input type="hidden" class="element" name="action" value="process_editName">
+      <div class="settings-card__head">
+        <div class="settings-card__title">Ваши данные</div>
+      </div>
+      <div class="settings-card__list">
+        <div class="settings-card__item">
+          {%if(global.user_profile.profile_name) %}
+          {% set name = global.user_profile.profile_name %}
+          {% else %}
+          {% set name = '' %}
+          {% endif %}
+          {%if(global.user_profile.profile_lastname) %}
+          {% set lastname = global.user_profile.profile_lastname %}
+          {% else %}
+          {% set lastname = '' %}
+          {% endif %}
+
+          {{ Input.field('user_name', {
+            required: 1,
+            value:  name,
+            label: 'Ваше имя',
+            disabled: 1
+          }) }}
+        </div>
+        <div class="settings-card__item">
+          {{ Input.field('user_lastname', {
+            required: 1,
+            value: lastname,
+            label: 'Ваша фамилия',
+            disabled: 1
+          }) }}
+        </div>
+      </div>
+      <div class="settings-card__link">
+          <span class="link link_underline_hide js-input-active show">
+            <span class="link__icon">{{ Svg.icon('pen', 1) }}</span>
+            <span class="link__text">изменить</span>
+          </span>
+        <span class="link link_underline_hide js-input-save submit hide">
+            <span class="link__icon">{{ Svg.icon('pen', 1) }}</span>
+            <span class="link__text">сохранить</span>
+          </span>
+      </div>
+    </div>
+  </div>
+</div>

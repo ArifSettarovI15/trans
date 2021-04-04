@@ -1,0 +1,53 @@
+.search-line {
+  &__wrapper {
+    @extend %flex-middle;
+  }
+
+  &__search {
+    width: 100%;
+
+    .field__input {
+      border-color: $color__primary;
+    }
+  }
+
+  &__or {
+    display: inline-flex;
+    font-size: 12px;
+    line-height: 1.15;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: $color__gray--darkest;
+    width: 33px;
+    flex: 0 0 33px;
+    margin: 0 32px;
+  }
+
+  &__dop {
+    width: 100%;
+    max-width: 268px;
+  }
+
+  @include media('<=1200px') {
+    &__or {
+      margin: 0 16px;
+    }
+
+    &__dop {
+      max-width: 260px;
+    }
+  }
+
+  @include media('<lg') {
+    &__dop {
+      max-width: 232px;
+    }
+  }
+
+  @include media('<md') {
+    &__or,
+    &__dop {
+      display: none;
+    }
+  }
+}

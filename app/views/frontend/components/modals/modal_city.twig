@@ -1,0 +1,46 @@
+{% import 'frontend/elements/svg/svg_macros.twig' as Svg %}
+{% import 'frontend/elements/input/input_macro.twig' as Input %}
+<div id="modal_city" class="modal mfp-hide white-popup animated fast">
+    <div class="modal__wrapper">
+        <div class="modal__head">
+            <div class="modal__title">Выбрать город</div>
+            <div class="modal__close js-modal-close">
+                <div class="modal__close-icon">{{ Svg.icon('close', 1) }}</div>
+            </div>
+        </div>
+        <div class="modal__body">
+            <div class="modal__form form">
+                <div class="modal__search">
+                    <div class="modal-search">
+                        <div class="modal-search__input">
+                            {{ Input.field('search_city', 'Начните вводить название', 0, 'search', 0, 'field__input_outline filter-cities') }}
+                        </div>
+                        <div class="modal-search__wrapper">
+                            <div class="modal-search__list">
+                                {% for city in global.cities %}
+                                    <div class="modal-search__item">
+                                        <div class="check-btn">
+                                            <input type="radio" name="rr_city" value="{{ city.city_id }}" data-name="{{ city.city_title }}" {% if global.cc_city_id==city.city_id %}checked{% endif %}>
+                                        </div>
+                                    </div>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal__buttons">
+                    <div class="modal__buttons-elem">
+                        <div class="button button_md button_secondary submit-city">
+                            <div class="button__text">да, мой город</div>
+                        </div>
+                    </div>
+                    <div class="modal__buttons-elem">
+                        <div class="button button_md button_outline_2 cancel-city">
+                            <div class="button__text">не нашел, свой город</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

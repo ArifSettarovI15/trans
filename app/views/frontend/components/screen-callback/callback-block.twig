@@ -1,0 +1,41 @@
+{% import 'frontend/elements/input/input_macro.twig' as Input %}
+<div class="callback-block">
+  <div class="callback-block__wrapper">
+    <div class="callback-block__content">
+      <div class="callback-block__title">Быстрый заказ такси</div>
+      <div class="callback-block__text">Просто оставьте заявку. Наши менеджеры составят самый удобный для Вас маршрут, рассчитают его стоимость и перезвонят через 3 минуты.</div>
+      <div class="callback-block__form form" data-url="{{ global.base_url }}/callback/" data-callback="ShowThx">
+        <input name="action" class="element" type="hidden" value="process_callback">
+        <div class="callback-block__list">
+          <div class="callback-block__elem">
+            {{ Input.field('name', {
+              label: 'Ваше имя',
+              required: 1,
+              clear: 1
+            }) }}
+          </div>
+          <div class="callback-block__elem">
+            {{ Input.field('phone', {
+              label: 'Ваш телефон',
+              required: 1,
+              clear: 1,
+              type: 'tel',
+              value: '+7'
+            }) }}
+          </div>
+          <div class="callback-block__elem">
+            <div class="button button_md button_secondary submit">
+              <div class="button__text">перезвоните мне</div>
+            </div>
+          </div>
+          <div class="callback-block__elem">
+            {% include 'frontend/components/toggler/toggler.twig' with {
+              label: 'с правилами согласен',
+              checked: 1
+            } %}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

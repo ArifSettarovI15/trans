@@ -1,0 +1,35 @@
+{% extends "global.html.twig" %}
+{% block content %}
+<div class="cabinet">
+  <div class="cabinet__block">
+   {% include 'frontend/components/cabinet-nav/cabinet-nav.twig' %}
+  </div>
+  <div class="cabinet__block">
+    <div class="container">
+      {% if list %}
+      <div class="table-data">
+        <div class="cabinet__block-filters">
+          {% include 'frontend/components/filters/filters_cabinet.twig' %}
+        </div>
+        <div class="table-content" data-list="order">
+          {% include 'frontend/components/table-list/table-list.twig' with {
+            block: 'order',
+            mod: 3,
+            list: list
+          } %}
+        </div>
+        {% if paging_data.pages %}
+          <div class="table-list__paging">
+            {% include 'frontend/components/paging/paging.twig' %}
+          </div>
+        {% endif %}
+      </div>
+      {% else %}
+          <div class="empty">
+              <span>У вас пока нет поездок!</span>
+          </div>
+      {% endif %}
+    </div>
+  </div>
+</div>
+{% endblock %}

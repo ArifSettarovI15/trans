@@ -1,0 +1,32 @@
+{% import 'frontend/elements/svg/svg_macros.twig' as Svg %}
+{% import 'frontend/elements/input/input_macro.twig' as Input %}
+<div id="modal_thx2" class="modal white-popup animated fast">
+    <div class="modal__wrapper">
+        <div class="modal__head">
+            <div class="modal__close">
+                <div class="btn btn_xxs js-modal-close">
+                    <div class="btn__icon">{{ Svg.icon('close', 1) }}</div>
+                </div>
+            </div>
+        </div>
+        <div class="modal__body">
+            <div class="modal__smile">
+                <div class="modal__smile-img"></div>
+            </div>
+            <div class="modal__content">
+                <div class="modal__title">Спасибо за заявку!</div>
+                <div class="modal__text">
+                    <p>Данные по заявке отправлены на обработку. В ближейшее время с вами свяжется наш оператор и уточнит детали заявки.</p>
+                    <p>Если возникли проблемы или вам не перезвонили, позвоните по номеру:<br>
+                        <a href="tel:{{global.fields.about.about_phone2|replace({'(':'',')':'',' ':'','-':''})}}">{{ global.fields.about.about_phone2 }}</a>
+                        или
+                        <a href="tel:{{global.fields.about.about_phone|replace({'(':'',')':'',' ':'','-':''})}}">{{ global.fields.about.about_phone }}</a>
+                    </p>
+                </div>
+            </div>
+            <div class="button button_md button_outline_1 js-modal-close">
+                <div class="button__text">обратно к сайту</div>
+            </div>
+        </div>
+    </div>
+</div>

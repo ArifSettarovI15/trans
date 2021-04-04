@@ -1,0 +1,9 @@
+<div class="ways">
+  <div class="ways__list ways__list_slider js-way-slider">
+    {% for item in 1..5 %}
+    <div class="ways__item">
+      {% include 'frontend/components/way/way.twig' %}
+    </div>
+    {% endfor %}
+  </div>
+</div>

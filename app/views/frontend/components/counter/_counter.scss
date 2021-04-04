@@ -1,0 +1,33 @@
+.counter {
+  display: flex;
+
+  &__btn {
+    width: 20px;
+    height: 20px;
+    flex: 0 0 20px;
+    font-size: 20px;
+    transition: color .3s;
+    cursor: pointer;
+
+    &:not(.disabled):hover {
+
+    }
+
+    &.disabled {
+      svg * {
+        fill: $color__gray--6;
+      }
+    }
+  }
+
+  &__value {
+    width: 32px;
+    flex: 0 0 32px;
+    max-width: 32px;
+    height: 20px;
+    border: 0;
+    box-shadow: none;
+    text-align: center;
+    background-color: transparent;
+  }
+}

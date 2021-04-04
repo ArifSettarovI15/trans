@@ -1,0 +1,18 @@
+{% extends "global.html.twig"%}
+{% block content %}
+{% set about_page = 1 %}
+
+  <div class="mtb mtb_2">
+    {% include 'frontend/components/about-block/about-block.twig' with {
+      'text':about.company_text,
+      'img':about.image.file_url
+    } %}
+    {% include 'frontend/components/screen-steps/screen-steps.twig' %}
+    <div class="mt">
+      {% include 'frontend/components/screen-feeds/screen-feeds.twig' %}
+    </div>
+  </div>
+  <div class="mtb">
+    {% include 'frontend/components/screen-callback/screen-callback.twig' %}
+  </div>
+{% endblock %}

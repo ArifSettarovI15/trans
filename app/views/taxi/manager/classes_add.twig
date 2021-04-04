@@ -1,0 +1,73 @@
+{% extends "manager/global.html.twig" %}
+{% block content %}
+    <div class="form">
+        <div class="fields">
+
+            <div class="line">
+                <div class="label required">
+                    Название:
+                </div>
+                <div class="value">
+                    <input name="class_title" class="element required" type="text"  maxlength="250"  value="{{ info.class_title }}">
+                </div>
+            </div>
+
+            <div class="line">
+                <div class="label">
+                    Кол-во мест:
+                </div>
+                <div class="value">
+                    <input name="class_places" class="element" type="text"  maxlength="250"  value="{{ info.class_places }}">
+                </div>
+            </div>
+            <div class="line">
+                <div class="label">
+                    Мин цена:
+                </div>
+                <div class="value">
+                    <input name="class_min_price" class="element" type="text"  maxlength="250"  value="{{ info.class_min_price }}">
+                </div>
+            </div>
+            <div class="line">
+                <div class="label">
+                    Цена/км:
+                </div>
+                <div class="value">
+                    <input name="class_price_km" class="element" type="text"  maxlength="250"  value="{{ info.class_price_km }}">
+                </div>
+            </div>
+            <div class="line">
+                <div class="label">
+                    Описание:
+                </div>
+                <div class="value">
+                    <input name="class_desc" class="element" type="text"  maxlength="250"  value="{{ info.class_desc }}">
+                </div>
+            </div>
+            <div class="line">
+                <div class="label">
+                    Иконка:
+                </div>
+                <div class="value">
+                    <input name="class_icon" class="element" type="text"  maxlength="250"  value="{{ info.class_icon }}">
+{#                    {% set image_data=image_data1 %}#}
+{#                    {% include 'files/upload_image.html.twig' %}#}
+                </div>
+            </div>
+            
+            {% if edit==1 %}
+                <input type="hidden" class="element" name="action" value="process_edit">
+                <input type="hidden" class="element" name="class_id" value="{{ info.class_id }}">
+            {% else %}
+                <input type="hidden" class="element" name="action" value="process_add">
+            {% endif %}
+        </div>
+        <div class="submit btn btn-primary">
+            {% if edit==1 %}
+                Сохранить
+            {% else %}
+                Добавить
+            {% endif %}
+        </div>
+    </div>
+{% endblock %}

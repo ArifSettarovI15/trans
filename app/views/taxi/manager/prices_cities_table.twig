@@ -1,0 +1,15 @@
+{% for item in list %}
+    <tr data-id="{{ item.city_id }}">
+        <td class="data_id">{{ item.city_id }}</td>
+        <td><a href="{{ global.base_url }}/manager/taxi/prices/{{ item.city_id }}/">{{ item.city_title }}</a></td>
+        <td>{% if item.city_type ==1 %}
+                Город
+            {% elseif item.city_type ==2 %}
+                Гостиница
+            {% elseif  item.city_type ==3 %}
+                Место
+            {% endif %}
+
+        </td>
+    </tr>
+{% endfor %}

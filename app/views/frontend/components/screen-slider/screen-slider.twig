@@ -1,0 +1,12 @@
+<div class="screen-slider {% if count %}screen-slider_{{ count }}{% endif %}">
+  <div class="screen-slider__list {% if count %}js-slider-{{ count }}{% else %}js-slider{% endif %}" {% if p_count %}data-p-count="{{ p_count }}{% endif %}">
+    {% for item in list %}
+      <div class="screen-slider__item">
+        {% include 'frontend/components/' ~ thumb ~ '/' ~ thumb ~ '.twig' with {
+          item: item
+        } %}
+      </div>
+    {% endfor %}
+  </div>
+  <div class="screen-slider__controls js-slider-controls"></div>
+</div>

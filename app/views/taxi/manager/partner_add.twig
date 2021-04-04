@@ -1,0 +1,59 @@
+{% extends "manager/global.html.twig" %}
+{% block content %}
+
+
+    <div class="partner-form">
+        <div class="partner-form__wrapper form">
+            <div class="partner-form__head">
+                <input type="hidden" class="element" name="action" value="process_partner_edit">
+                <label class="textfield__label" for="partner_msg">Тип партнера</label>
+                <div class="partner-form__select">
+                    <div class="select select-2">
+                        <select name="user_type" class="select_2 element visually-hidden">
+                            <option value="site_owner" {% if(partner.partner_type == 'site_owner') %} selected {% endif %}>Владелец сайта</option>
+                            <option value="organisation" {% if(partner.partner_type == 'organisation') %} selected {% endif %}>Организация</option>
+                            <option value="driver"{% if(partner.partner_type == 'driver') %} selected {% endif %}>Водитель</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="partner-form__main">
+                <div class="partner-form__row">
+                    <span class="textfield__label">Имя</span>
+                    <div class="partner-form__elem">
+                        <input type="text" class="element" name="name" value="{{ partner.partner_uname }}">
+
+                    </div>
+                </div>
+                <div class="partner-form__row partner-form__row_2">
+                    <label class="textfield__label" for="partner_msg">Адрес сайта</label>
+                    <div class="partner-form__elem">
+                        <input type="text" class="element" name="addr" value="{{ partner.partner_site }}">
+                    </div>
+                </div><div class="partner-form__row">
+                    <label class="textfield__label" for="partner_msg">Номер телефона</label>
+                    <div class="partner-form__elem">
+                        <input type="text" class="element" name="phone" value="{{ partner.partner_phone }}">
+                    </div>
+                </div>
+                <div class="partner-form__row">
+                    <div class="partner-form__elem">
+                        <div class="textfield">
+                            <label class="textfield__label" for="partner_msg">Комментарий</label>
+                            <textarea class="textfield__field element" name="message" id="partner_msg">{{ partner.partner_coment }}</textarea>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="submit btn btn-primary">
+                {% if edit==1 %}
+                    Сохранить
+                {% else %}
+                    Добавить
+                {% endif %}
+            </div>
+        </div>
+
+    </div>
+{% endblock %}

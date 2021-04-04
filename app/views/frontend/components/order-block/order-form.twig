@@ -1,0 +1,108 @@
+{% import 'frontend/elements/input/input_macro.twig' as Input %}
+{% import "frontend/elements/svg/svg_macros.twig" as Svg %}
+
+<div class="order-form form" data-url="{{ global.base_url }}/callback/" data-callback="beforeConfirmOrderForm">
+    <input type="hidden" name="action" class="element" value="process_checkCode">
+    <div class="order-form__body">
+        {% if not article and not modal_calc %}
+            <div class="order-form__title">Закажите онлайн</div>
+        {% endif %}
+        <div class="order-form__fieldset">
+            <div class="order-form__fieldset-inner">
+                <div class="order-form__elem full">
+                    <div class="select">
+                        {% if info.content_city_id %}
+                            {% set from_info = global.cities[info.content_city_id] %}
+                        {% endif %}
+                        <select name="from" class="select_2 element required visually-hidden" data-search="1" {% if from_info %}data-coord="{{ from_info.city_coor }}{% endif %}">
+                            <option></option>
+                            {% for city in global.cities %}
+                                {% if  city.city_id==113 or city.city_id==98 or city.city_id==114%}
+                                    <option value="{{ city.city_id }}"  {% if from_info.city_id==city.city_id %}selected{% endif %} data-coord="{{ city.city_coor }}" data-value="{{ city.city_title }}">{{ city.city_title }}</option>
+                                {% endif %}
+                            {% endfor %}
+                            {% for city in global.cities %}
+                                {% if  city.city_id==113 or city.city_id==98 or city.city_id==114%}{% else %}
+                                    <option value="{{ city.city_id }}"  {% if from_info.city_id==city.city_id %}selected{% endif %} data-coord="{{ city.city_coor }}" data-value="{{ city.city_title }}">{{ city.city_title }}</option>
+                                {% endif %}
+                            {% endfor %}
+                        </select>
+                        <div class="select__label">Откуда</div>
+                    </div>
+                </div>
+                {% if info.content_city_id2 %}
+                    {% set to_info = global.cities[info.content_city_id2] %}
+                {% endif %}
+
+                <div class="order-form__elem full">
+                    <div class="select">
+                        <select name="to" class="select_2 element required visually-hidden" data-search="1" {% if to_info %}data-coord="{{ to_info.city_coor }}{% endif %}">
+                            <option></option>
+                            {% for city in global.cities %}
+                                <option value="{{ city.city_id }}" data-coord="{{ city.city_coor }}"    {% if to_info.city_id==city.city_id %}selected{% endif %} data-value="{{ city.city_title }}">{{ city.city_title }}</option>
+                            {% endfor %}
+                        </select>
+                        <div class="select__label">Куда</div>
+                    </div>
+                </div>
+
+{#                <div class="order-form__elem full">#}
+{#                    {% include 'frontend/components/order-block/order-type-slider.twig' %}#}
+{#                </div>#}
+            </div>
+        </div>
+
+        <div class="order-form__fieldset">
+            <div class="order-form__fieldset-inner">
+                <div class="order-form__elem">
+                    {{ Input.field('date', {
+                        label: 'Дата поездки',
+                        required: 1,
+                        clear: 1,
+                        classes: 'js-calendar-trigger',
+                        value: 'now'|date('Y-m-d H:i'),
+                        data_name: 'main'
+                    }) }}
+                    {% include 'frontend/components/modal-calendar/modal-calendar.twig' with {
+                        time_block: 'main'
+                    } %}
+                </div>
+                {% if global.user_profile.profile_phone %}
+                    {% set user_phone='+'~global.user_profile.profile_phone %}
+                {% else %}
+                    {% set user_phone='+7'%}
+                {% endif %}
+                <div class="order-form__elem">
+                    {{ Input.field('phone', {
+                        label: 'Телефон',
+                        required: 1,
+                        clear: 1,
+                        type: 'tel',
+                        value: user_phone
+                    }) }}
+                </div>
+                <div class="order-form__elem full">
+                    <div class="js-block-show">
+                        <label class="textfield">
+                            <span class="textfield__label">Комментарий</span>
+                            <textarea name="comment" class="textfield__field element"></textarea>
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="order-form__bottom">
+        <div class="order-form__bottom-wrapper">
+            <div class="order-form__bottom-elem">
+                <div class="button button_md submit disabled" >
+                    <div class="button__icon"><i class="far fa-check-circle"></i></div>
+                    <div class="button__text">заказать</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

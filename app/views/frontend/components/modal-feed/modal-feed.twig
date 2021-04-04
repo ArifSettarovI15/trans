@@ -1,0 +1,111 @@
+{% import 'frontend/elements/svg/svg_macros.twig' as Svg %}
+{% import 'frontend/elements/input/input_macro.twig' as Input %}
+<div id="modal_feed" class="modal modal_feed mfp-hide white-popup animated fast">
+    <div class="modal__wrapper">
+        <div class="modal__head">
+            <div class="modal__title">Оставить отзыв</div>
+            <div class="modal__close">
+                <div class="btn btn_xxs js-modal-close">
+                    <div class="btn__icon">{{ Svg.icon('close', 1) }}</div>
+                </div>
+            </div>
+        </div>
+        <div class="modal__body">
+            <div class="modal__form form" data-url="{{ global.base_url }}/reviews/" data-callback="ShowThx">
+                <input name="action" type="hidden" value="process_review" class="element">
+                <fieldset class="modal__fieldset">
+                    <div class="modal__select">
+                        <div class="select">
+                            <select class="select_2 element" name="class">
+                                <option></option>
+                                {% for item in global.classes %}
+                                    <option value="{{ item.class_id }}">{{ item.class_title  }}</option>
+                                {% endfor %}
+                            </select>
+                            <div class="select__label">Класс авто</div>
+                        </div>
+                    </div>
+                </fieldset>
+                <fieldset class="modal__fieldset">
+                    <div class="modal__feed-rating">
+                        <div class="feed-rating">
+                            <div class="feed-rating__list">
+                                <div class="feed-rating__item radio-label">
+                                    <div class="feed-rating__item-title">Комфорт поездки</div>
+                                    <div class="feed-rating__item-stars">
+                                        {% include 'frontend/components/stars/stars.twig' with {
+                                            type: 'comfort'
+                                        } %}
+                                    </div>
+                                </div>
+                                <div class="feed-rating__item radio-label">
+                                    <div class="feed-rating__item-title">Вежливость водителя</div>
+                                    <div class="feed-rating__item-stars">
+                                        {% include 'frontend/components/stars/stars.twig' with {
+                                            type: 'driver'
+                                        } %}
+                                    </div>
+                                </div>
+                                <div class="feed-rating__item radio-label">
+                                    <div class="feed-rating__item-title">Чистота салона</div>
+                                    <div class="feed-rating__item-stars">
+                                        {% include 'frontend/components/stars/stars.twig' with {
+                                            type: 'clean'
+                                        } %}
+                                    </div>
+                                </div>
+                                <div class="feed-rating__item radio-label">
+                                    <div class="feed-rating__item-title">Стоимость поездки</div>
+                                    <div class="feed-rating__item-stars">
+                                        {% include 'frontend/components/stars/stars.twig' with {
+                                            type: 'price'
+                                        } %}
+                                    </div>
+                                </div>
+                                <div class="feed-rating__item radio-label">
+                                    <div class="feed-rating__item-title">Знание маршрута</div>
+                                    <div class="feed-rating__item-stars">
+                                        {% include 'frontend/components/stars/stars.twig' with {
+                                            type: 'route_know'
+                                        } %}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </fieldset>
+                <fieldset class="modal__fieldset js-search-block">
+                    <div class="modal__fieldset-item">
+                        {{ Input.field('uname', {
+                            label: 'Ваше имя',
+                            required: 1
+                        }) }}
+                    </div>
+                    <div class="modal__fieldset-item">
+                        <div class="modal__fieldset-elem">
+                            {{ Input.field('uemail', {
+                                label: 'Ваш e-mail'
+                            }) }}
+                        </div>
+                    </div>
+                    <div class="modal__fieldset-item">
+                        <label class="textfield textfield_req">
+                            <span class="textfield__label">Комментарий</span>
+                            <textarea name="comment" class="textfield__field element required"></textarea>
+                        </label>
+                    </div>
+                    <div class="modal__fieldset-item">
+                        {% set image_data=variables.image_data %}
+{#                        {% include 'files/upload_image.html.twig' %}#}
+                        {% include 'frontend/components/upload-image/upload-image.twig' %}
+                    </div>
+                    <div class="modal__fieldset-item">
+                        <div class="button button_md button_primary submit ">
+                            <div class="button__text">отправить отзыв</div>
+                        </div>
+                    </div>
+                </fieldset>
+            </div>
+        </div>
+    </div>
+</div>

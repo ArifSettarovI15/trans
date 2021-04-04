@@ -1,0 +1,17 @@
+{% import "frontend/elements/svg/svg_macros.twig" as Svg %}
+<div class="section section_about">
+  <div class="section__decor"></div>
+  <div class="section__title">
+    {% include 'frontend/components/screen-title/screen-title.twig' with {
+      title: 'О нас',
+      descr: 'Давайте станем чуть ближе',
+      href: '/about/'
+    } %}
+  </div>
+  <div class="section__content">
+    <div class="container">
+      {% include 'frontend/components/screen-about/about-content.twig' %}
+    </div>
+  </div>
+  {% include 'frontend/components/modal-fast-order/modal-fast-order.twig' %}
+</div>

@@ -1,0 +1,222 @@
+.hero {
+  padding-bottom: 40px;
+  &__slider {
+    display: flex;
+    flex-wrap: wrap;
+
+    .slick-list {
+      overflow: visible;
+    }
+
+    .slide-btn {
+      position: absolute;
+      top: 169px;
+      z-index: 1;
+
+      &_prev {
+        left: 0;
+      }
+
+      &_next {
+        right: 0;
+      }
+    }
+  }
+
+  .slide-btn {
+    @include size(46px);
+    flex: 0 0 46px;
+
+    &__icon {
+      @include size(36px);
+      transform: none;
+
+      svg * {
+        fill: $color__light;
+      }
+    }
+  }
+
+  &__controls {
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 0;
+    @extend %flex-center;
+    .slide-btn_next {
+      order: 1;
+    }
+
+    .slick-dots {
+      display: inline-flex !important;
+      position: relative;
+      height: 10px;
+      bottom: auto;
+      margin: 0 24px;
+      width: auto;
+    }
+  }
+
+  &__slide {
+    display: none;
+    width: 100%;
+    //min-height: 564px;
+
+    &:first-child {
+      display: block;
+    }
+  }
+
+  &__image {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    @include size(1920px, calc(100% + 141px));
+    overflow: hidden;
+
+    &:after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      @include size(1920px, 70px);
+      background-image: url('/assets/images/static/hero-palette.png');
+      @extend %background__cover;
+      z-index: 1;
+    }
+
+    &:before {
+      content: '';
+      @extend %absolute-full;
+      @include size(100%);
+      background-color: rgba(38, 36, 37, 0.5);
+      z-index: 1;
+    }
+
+    img {
+      object-position: 0 100%;
+      object-fit: cover;
+      @include size(100%);
+    //  transform: scale(-1, 1);
+    }
+  }
+
+  &__content {
+    padding-top: 80px;
+    padding-bottom: 110px;
+    max-width: 770px;
+    margin: 0 auto;
+  }
+
+  &__badge {
+    margin-bottom: 24px;
+
+    .badge {
+      font-weight: bold;
+      font-size: 12px;
+      line-height: 1.15;
+      letter-spacing: 0.1em;
+      border-color: transparent;
+    }
+  }
+
+  &__descr {
+    font-size: 42px;
+    line-height: 1.1;
+    font-weight: 700;
+    color: $color__light;
+    margin-bottom: 24px;
+    max-width: 465px;
+  }
+
+  &__price {
+    display: inline-flex;
+    align-items: center;
+    font-size: 52px;
+    font-weight: 700;
+    line-height: 1.1;
+    color: $color__light;
+    border-bottom: 6px solid transparent;
+
+    &-icon {
+      @include size(40px);
+      flex: 0 0 40px;
+      svg * {
+        fill: $color__light;
+      }
+    }
+
+    &:before {
+      content: '';
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      @include size(100%,6px);
+      background-color: $color__warning--2;
+      border-radius: 2px;
+    }
+  }
+
+  @include media('<=1200px') {
+    &__content {
+      padding: 60px 0;
+    }
+
+    &__image {
+      height: calc(100% + 221px);
+    }
+  }
+
+  @include media('<lg') {
+    &__content {
+      max-width: 486px;
+    }
+  }
+
+  @include media('<md') {
+    padding-bottom: 24px;
+    &__image {
+      height: calc(100% + 146px);
+    }
+
+    &__content {
+      text-align: center;
+      padding: 40px 0;
+    }
+
+    &__slide {
+    }
+
+    &__badge {
+      margin-bottom: 14px;
+    }
+
+    &__descr {
+      font-size: 32px;
+      line-height: 1.15;
+      margin: 0 auto 14px;
+      max-width: 455px;
+    }
+
+    &__price {
+      font-size: 42px;
+      line-height: 1.1;
+    }
+
+    &__controls {
+      //bottom: 100px;
+    }
+  }
+
+  @include media('<sm') {
+    &__descr {
+      font-size: 24px;
+    }
+
+    &__price {
+      font-size: 32px;
+    }
+  }
+}

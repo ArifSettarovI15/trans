@@ -1,0 +1,94 @@
+{% extends "manager/global.html.twig" %}
+{% block content %}
+
+    <div class="form">
+        <div class="fields">
+            <table style="width: 220px">
+                <tr>
+                    <th style="max-width:100px !important;"></th>
+                    <th style="max-width:100px !important;"></th></tr>
+                <tr>
+                    <td>Автомобиль:</td>
+                    <td><a href="{{ global.base_url }}/manager/taxi/cars/edit/{{ car.car_id  }}/">
+                            {{ car.car_title }}
+                        </a></td>
+                </tr>
+                <tr>
+                    <td>Класс:</td>
+                    <td>{{ class.class_title }}</td>
+                </tr>
+            </table>
+            <div class="line">
+                <div class="label required">
+                   Годы выпуска:
+                </div>
+                <div class="value">
+                    <input name="rent_car_year" class="element required " type="text"  maxlength="250"  value="{{ rent.rent_car_year }}">
+                </div>
+            </div>
+            <div class="line">
+                <div class="label required">
+                   Пробег:
+                </div>
+                <div class="value">
+                    <input name="rent_car_run" class="element required " type="text"  maxlength="250"  value="{{ rent.rent_car_run }}">
+                </div>
+            </div>
+            <div class="line">
+                <div class="label required">
+                    Объем двигателя (л):
+                </div>
+                <div class="value">
+                    <input name="rent_car_engine_capacity" class="element required " type="text"  maxlength="250"  value="{{ rent.rent_car_engine_capacity }}">
+                </div>
+            </div>
+            <div class="line">
+                <div class="label required">
+                    Тип КПП (МКПП, АКПП, РКПП):
+                </div>
+                <div class="value">
+                    <select name="rent_car_transmission" class="element" >
+                        <option value="МКПП" {% if(rent.rent_car_transmission == "МКПП") %} selected {% endif %}>МКПП</option>
+                        <option value="АКПП" {% if(rent.rent_car_transmission == "АКПП") %} selected {% endif %} >АКПП</option>
+                        <option value="РКПП" {% if(rent.rent_car_transmission == "РКПП") %} selected {% endif %}>РКПП</option>
+                    </select>
+{#                    <input name="rent_car_transmission" class="element required " type="text"  maxlength="250"  value="{{ rent.rent_car_transmission }}">#}
+                </div>
+            </div>
+            <div class="line">
+                <div class="label required">
+                    Город:
+                </div>
+                <div class="value">
+                    <input name="rent_car_city" class="element required " type="text"  maxlength="250"  value="{{ rent.rent_car_city }}">
+                </div>
+            </div>
+
+            <div class="line">
+                <div class="label required">
+                    Возможность выкупа этого авто:
+                </div>
+                <div class="value">
+                    <select name="rent_car_buy" class="element" >
+                        <option value="0" {% if( not rent.rent_car_buy)%} selected {% endif%} >Нет выкупа</option>
+                        <option value="1" {% if(rent.rent_car_buy)%} selected {% endif%} >Выкупается</option>
+                    </select>
+                </div>
+            </div>
+
+            {% if edit==1 %}
+                <input type="hidden" class="element" name="action" value="process_edit">
+                <input type="hidden" class="element" name="rent_id" value="{{ rent.rent_id }}">
+            {% else %}
+                <input type="hidden" class="element" name="action" value="process_add">
+            {% endif %}
+        </div>
+        <div class="submit btn btn-primary">
+            {% if edit==1 %}
+                Сохранить
+            {% else %}
+                Добавить
+            {% endif %}
+        </div>
+    </div>
+{% endblock %}

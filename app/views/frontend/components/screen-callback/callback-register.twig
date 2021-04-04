@@ -1,0 +1,29 @@
+{% import 'frontend/elements/input/input_macro.twig' as Input %}
+
+<aside class="callback-register">
+  <div class="callback-register__bg"  ></div>
+
+  <div class="callback-register__wrapper">
+    <h3 class="callback-register__title">Копи поездки</h3>
+    <div class="callback-register__text">Регистрируйтесь на сайте и получайте бонусы. Каждая 5 поездка — за <b>полцены!</b></div>
+    <div class="callback-register__form form" data-url="{{global.base_url}}/login/" data-callback="ShowThx">
+      <input type="hidden" class="element" name="action" value="process_register">
+      <input type="hidden" class="element" name="fromCallback" value="1">
+      <div class="callback-register__elem">
+        {{ Input.field('phone', {
+          label: 'Ваш телефон',
+          required: 1,
+          clear: 1,
+          type: 'tel',
+          value: '+7',
+        }) }}
+      </div>
+      <div class="callback-register__elem">
+        <div class="button button_md button_outline_2 submit">
+          <div class="button__text">зарегистрировать</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</aside>

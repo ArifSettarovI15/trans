@@ -1,0 +1,7 @@
+.image-cover {
+  @include object-fit(cover);
+}
+
+.image-contain {
+  @include object-fit(contain);
+}

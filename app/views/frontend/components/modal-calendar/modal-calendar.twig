@@ -1,0 +1,62 @@
+{% import "frontend/elements/svg/svg_macros.twig" as Svg %}
+<div id="modal_calendar{{ dop_id }}" class="modal modal_calendar mfp-hide">
+  <div class="event-calendar">
+    <div class="event-calendar__wrapper">
+      <div class="event-calendar__main">
+        <div class="event-calendar__calendar">
+          <div id="event_calendar{{ dop_id }}"></div>
+        </div>
+        <div class="event-calendar__legend">
+          <div class="event-calendar__legend-item">
+            <div class="event-calendar__legend-icon" style="background-color: #218CFE"></div>
+            <div class="event-calendar__legend-text">Сегодня</div>
+          </div>
+          <div class="event-calendar__legend-item">
+            <div class="event-calendar__legend-icon" style="background-color: #3955FE"></div>
+            <div class="event-calendar__legend-text">Дата поездки</div>
+          </div>
+          <div class="event-calendar__legend-item">
+            <div class="event-calendar__legend-icon" style="background-color: #C2C2CB"></div>
+            <div class="event-calendar__legend-text">Недоступно</div>
+          </div>
+        </div>
+      </div>
+      <div class="event-calendar__side">
+        <div class="event-calendar__side-head">
+          <div class="event-calendar__side-title">Время рейса</div>
+{#          <div class="event-calendar__side-close js-modal-close">#}
+{#            {{ Svg.icon('close') }}#}
+{#          </div>#}
+        </div>
+          {% set nnn = {
+              0:'00',
+              1:'05',
+              2:10,
+              3:15,
+              4:20,
+              5:25,
+              6:30,
+              7:35,
+              8:40,
+              9:45,
+              10:50,
+              11:55
+          }
+          %}
+
+        <div class="event-calendar__side-body cell-content">
+          {% for item in 0..23 %}
+            {% for item2 in nnn %}
+          <div class="event-calendar__side-elem">
+            <div class="button button_sm button_min place-time" data-block="{{ time_block }}" data-time="{{ item }}:{{ item2 }}" data-date="">
+              <div class="button__icon">{{ Svg.icon('check-icon2', 1) }}</div>
+              <div class="button__text">{{ item }}:{{ item2 }}</div>
+            </div>
+          </div>
+            {% endfor %}
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

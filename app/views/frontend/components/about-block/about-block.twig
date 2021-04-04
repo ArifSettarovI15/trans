@@ -1,0 +1,22 @@
+<div class="about-block">
+  <div class="container">
+    <div class="about-block__wrapper">
+
+      <div class="about-block__text text">
+          {{ about.about_text1|raw }}
+      </div>
+      <div class="about-block__logo">
+        {% include 'frontend/components/logo/logo.twig' %}
+      </div>
+      <div class="about-block__text text">
+        {{ about.company_text|raw }}
+      </div>
+      <div class="about-block__skills">
+        {% include 'frontend/components/skills-block/skills-block.twig' %}
+      </div>
+      <div class="about-block__text text">
+          {{ about.about_text2|raw }}
+      </div>
+    </div>
+  </div>
+</div>

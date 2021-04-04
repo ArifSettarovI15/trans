@@ -1,0 +1,231 @@
+{% extends "manager/global.html.twig" %}
+{% block content %}
+
+    <div class="form">
+        <div class="fields">
+
+            <div class="label">
+                <span style="font-size: 16px">Основные данные:</span>
+            </div>
+            <div class="line">
+                <div class="label required">
+                    ФИО:
+                </div>
+                <div class="value">
+                    <input name="name" class="element required" type="text"  maxlength="250"  value="{{ info.rent_req_name }}">
+                </div>
+            </div>
+
+            <div class="line">
+                <div class="label">
+                    Дата и место рождения:
+                </div>
+                <div class="value">
+                    <input name="place" class="element" type="text"  maxlength="250"  value="{{ info.rent_req_data.place }}">
+                </div>
+            </div>
+            <div class="line">
+                <div class="label">
+                    Телефон:
+                </div>
+                <div class="value">
+                    <input name="phone" class="element" type="text"  maxlength="250"  value="{{ info.rent_req_phone }}">
+                </div>
+            </div>
+            <div class="line">
+                <div class="label">
+                    Адрес:
+                </div>
+                <div class="value">
+                    <input name="adress" class="element" type="text"  maxlength="250"  value="{{ info.rent_req_data.adress }}">
+                </div>
+            </div>
+            <div class="line">
+                <div class="label">
+                    Прописка:
+                </div>
+                <div class="value">
+                    <input name="adress2" class="element" type="text"  maxlength="250"  value="{{ info.rent_req_data.adress2 }}">
+                </div>
+            </div>
+            <div class="label">
+                <span style="font-size: 16px">Родственники:</span>
+            </div>
+            <div class="line">
+                <div class="label">
+                    <table>
+                        <tr>
+                            <td style="width: 200px !important;">
+                                <div style="width: 200px !important;">ФИО:</div>
+                            </td>
+                            <td style="width: 200px !important;">
+                                <div style="max-width: 200px !important;"> Степеть родства:</div>
+                            </td>
+                            <td style="max-width: 200px !important;">
+                                <span style="max-width: 200px !important;">Телефон:</span>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                {% set index = 1 %}
+                {% set condition =1  %}
+                {% for index in 1..10  %}
+                    {% if condition %}
+                        <div class="value">
+                            <input style="max-width: 200px !important;" name="parent{{index}}_name" class="element" type="text"  maxlength="250"  value="{{ info.rent_req_data['parent'~index~'_name'] }}">
+                            <input style="max-width: 200px !important;" name="parent{{index}}_parants" class="element" type="text"  maxlength="250"  value="{{ info.rent_req_data ['parent'~index~'_parants']}}">
+                            <input style="max-width: 200px !important;" name="parent{{index}}_phone" class="element" type="text"  maxlength="250"  value="{{ info.rent_req_data ['parent'~index~'_phone']}}">
+                        </div>
+                    {% endif %}
+                    {% if info.rent_req_data['parent'~index+1~'_name'] %}
+                        {% set condition = 1%}
+                        {% else %}
+                            {% set condition = 0%}
+                    {% endif %}
+                {% endfor %}
+            </div>
+            <div class="line">
+                <div class="label"><table>
+                        <tr>
+                            <td style="width: 200px !important;">
+                                <div style="width: 200px !important;">Семейное положение:</div>
+                            </td>
+                            <td style="max-width: 200px !important;">
+                                <div style="max-width: 200px !important;">Дети:</div>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="value">
+                    <input style="max-width: 200px" name="family" class="element" type="text"  maxlength="250"  value="{{ info.rent_req_data.family }}">
+                    <input  style="max-width: 500px" name="children" class="element" type="text"  maxlength="250"  value="{{ info.rent_req_data.children }}">
+                </div>
+            </div>
+
+            <div class="label">
+                <span style="font-size: 16px">Водительское удостоверение:</span>
+            </div>
+            <div class="line">
+                <div class="label">
+                    <table>
+                        <tr>
+                            <td style="width: 80px !important;">
+                                <div style="width: 80px !important;">Серия:</div>
+                            </td>
+                            <td style="width: 100px !important;">
+                                <div style="width: 100px !important;">Номер:</div>
+                            </td>
+                            <td style="max-width: 70px !important;">
+                                <div style="max-width: 70px !important;">Стаж:</div>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="value">
+                    <input style="max-width: 80px" name="driver_lisence" class="element" type="text"  maxlength="250"  value="{{ info.rent_req_data.driver_lisence }}">
+                    <input  style="max-width: 100px" name="driver_number" class="element" type="text"  maxlength="250"  value="{{ info.rent_req_data.driver_number }}">
+                    <input  style="max-width: 70px" name="driver_exp" class="element" type="text"  maxlength="250"  value="{{ info.rent_req_data.driver_exp }}">
+                </div>
+            </div>
+            <div class="line">
+                <div class="label">
+                    <table>
+                        <tr>
+                            <td style="width: 120px !important;">
+                                <div style="width: 120px !important;">Категория:</div>
+                            </td>
+                            <td style="max-width: 130px !important;">
+                                <div style="max-width: 130px !important;">Действует до:</div>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="value">
+                    <input style="max-width: 120px" name="driver_cat" class="element" type="text"  maxlength="250"  value="{{ info.rent_req_data.driver_cat }}">
+                    <input  style="max-width: 130px" name="driver_time" class="element" type="text"  maxlength="250"  value="{{ info.rent_req_data.driver_time }}">
+                </div>
+            </div>
+
+            <div class="label">
+                <span style="font-size: 16px">Дополнительные данные:</span>
+            </div>
+            <div class="line">
+                <div class="label">
+                    Навыки работы с радиостанциями:
+                </div>
+                <div class="value">
+                    <input name="android_skills" class="element" type="text"  maxlength="250"  value="{{ info.rent_req_data.android_skills }}">
+                </div>
+            </div>
+            <div class="line">
+                <div class="label">
+                    Знание города:
+                </div>
+                <div class="value">
+                    <input  name="city_skills" class="element" type="text"  maxlength="250"  value="{{ info.rent_req_data.city_skills }}">
+                </div>
+            </div>
+            <div class="line">
+                <div class="label">
+                    Образование:
+                </div>
+                <div class="value">
+                    <input  name="education" class="element" type="text"  maxlength="250"  value="{{ info.rent_req_data.education }}">
+                </div>
+            </div>
+            <div class="line">
+                <div class="label">
+                    Специальность:
+                </div>
+                <div class="value">
+                    <input  name="spec" class="element" type="text"  maxlength="250"  value="{{ info.rent_req_data.spec }}">
+                </div>
+            </div>
+            <div class="line">
+                <div class="label">
+                    Желаемый доход:
+                </div>
+                <div class="value">
+                    <input  name="finance" class="element" type="text"  maxlength="250"  value="{{ info.rent_req_data.finance }}">
+                </div>
+            </div>
+            <div class="line">
+                <div class="label">
+                    Планируемый график:
+                </div>
+                <div class="value">
+                    <input  name="graph" class="element" type="text"  maxlength="250"  value="{{ info.rent_req_data.graph }}">
+                </div>
+            </div>
+            <div class="line">
+                <div class="label">
+                    Автомобиль:
+                </div>
+                <div class="value">
+
+                    <select name="car_id" class="element" >
+                        {% for car in cars %}
+                            <option value="{{ car.car_id }}" {% if info.rent_req_car_id == car.car_id %} selected {% endif %}>{{ car.car_title }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+            </div>
+
+            {% if edit==1 %}
+                <input type="hidden" class="element" name="action" value="process_edit">
+                <input type="hidden" class="element" name="rent_req_id" value="{{ info.rent_req_id }}">
+            {% else %}
+                <input type="hidden" class="element" name="action" value="process_add">
+            {% endif %}
+        </div>
+        <div class="submit btn btn-primary">
+            {% if edit==1 %}
+                Сохранить
+            {% else %}
+                Добавить
+            {% endif %}
+        </div>
+    </div>
+
+
+{% endblock %}

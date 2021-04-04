@@ -1,0 +1,10 @@
+{% import "frontend/elements/svg/svg_macros.twig" as Svg %}
+<div class="counter">
+    <div class="counter__btn counter-minus disabled">
+        {{ Svg.icon('minus-icon', 1) }}
+    </div>
+    <input class="counter__value counter-val" value="0" disabled="disabled">
+    <div class="counter__btn counter-plus">
+        {{ Svg.icon('plus-icon', 1) }}
+    </div>
+</div>

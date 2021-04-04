@@ -1,0 +1,121 @@
+.fc {
+  $root: &;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+
+  &__label {
+    display: inline-block;
+    font-size: 14px;
+    line-height: 1.15;
+    color: $color__dark;
+    margin-left: 8px;
+
+    a {
+      color: inherit;
+      font-size: inherit;
+      line-height: inherit;
+    }
+  }
+
+  // toggler
+  .itoggle {
+    flex: 0 0 40px;
+    @include size(40px, 20px);
+    box-shadow: 0 0 0 2px $color__primary inset;
+    border-radius: 50px;
+    overflow: hidden;
+    background-color: $color__light;
+    @include transitions(background-color);
+    position: relative;
+
+    &:before {
+      content: '';
+      @include size(15px, 10px);
+      background-color: $color__primary;
+      position: absolute;
+      top: 50%;
+      left: 5px;
+      transform: translate3d(0, -50%, 0);
+      border-radius: 50px;
+      @include transitions(background-color, transform);
+    }
+
+    &.checked {
+      background-color: $color__primary;
+
+      &:before {
+        background-color: $color__light;
+        transform: translate3d(100%, -50%, 0);
+      }
+    }
+
+    &.disabled {
+      box-shadow: 0 0 0 2px $color__gray--2;
+      background-color: $color__gray--3;
+
+      &:before {
+        background-color: $color__gray--2;
+      }
+    }
+  }
+
+  .icheckbox {
+    @include size(20px);
+    @extend %flex-center;
+    min-width: 20px;
+    border-radius: 4px;
+    background-color: transparent;
+    border: 2px solid $color__primary;
+    @include transitions(background-color);
+
+    .fc__icon {
+      @include size(16px);
+      transform: scale(0);
+      @include transitions(transform);
+
+      svg * {
+        fill: $color__light;
+        @include transitions(fill);
+      }
+    }
+
+    &.hover {
+      .fc__icon {
+        transform: scale(1);
+
+        svg * {
+          fill: $color__primary--lightest;
+        }
+      }
+    }
+
+    &.checked {
+      background-color: $color__primary;
+
+      .fc__icon {
+        transform: scale(1);
+
+        svg * {
+          fill: $color__light;
+        }
+      }
+    }
+  }
+
+  .iradio {
+    cursor: pointer;
+    .fc__icon {
+      @include size(20px);
+      flex: 0 0 20px;
+      opacity: 0;
+      @include transitions(opacity);
+    }
+
+    &.checked {
+      #{$root}__icon {
+        opacity: 1;
+      }
+    }
+  }
+}

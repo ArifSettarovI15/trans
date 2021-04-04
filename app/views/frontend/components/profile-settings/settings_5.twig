@@ -1,0 +1,76 @@
+{% import 'frontend/elements/input/input_macro.twig' as Input %}
+{% import "frontend/elements/svg/svg_macros.twig" as Svg %}
+
+<div class="settings-card">
+  <div class="settings-card__wrapper">
+    <div class="form" data-url="{{ global.base_url }}/cabinet/profile/">
+      <input type="hidden" name="action" class="element" value="process_preferences">
+      <div class="settings-card__head">
+        <div class="settings-card__title">Предпочтения</div>
+        <div class="settings-card__descr">
+          Укажите ваш выбор:
+        </div>
+      </div>
+      <div class="settings-card__list">
+        <div class="settings-card__item">
+          <div class="select">
+            <select name="auto_class" class="select_2 element visually-hidden">
+              {% if global.user_profile.profile_car_class %}
+                {% for class in global.classes %}
+                  <option value="{{ class.class_id }}" {% if global.user_profile.profile_car_class == class.class_id %} selected {% endif %}>{{ class.class_title }}</option>
+                {% endfor %}
+              {%else%}
+                <option></option>
+                {% for class in global.classes %}
+                  <option value="{{ class.class_id }}">{{ class.class_title }}</option>
+                {% endfor %}
+              {% endif %}
+            </select>
+            <div class="select__label">Класс авто</div>
+          </div>
+        </div>
+
+        <div class="settings-card__item">
+          <div class="field field_select {% if global.user_profile.profile_car_services %}field_ok{% endif %}">
+            <div class="field__input">{{ global.user_profile.profile_car_services }}</div>
+            <input type="hidden" name="user_services" class="input-vv element" value="{{ global.user_profile.profile_car_services }}">
+            <span class="field__label">Доп. услуги</span>
+            <div class="serviceSelect">
+              <div class="serviceSelect__data">
+                {% set arr = global.user_profile.profile_car_services|split(', ') %}
+                {% for item in global.fields.about.dop_services %}
+                  <div class="serviceSelect__item {% if item.dop_services_title in arr %}serviceSelect__item_active {% endif %}" data-x data-price="0" data-id="1" data-title="{{ item.dop_services_title }}">
+                    <div class="serviceSelect__left">
+                      <div class="serviceSelect__title">{{ item.dop_services_title }}</div>
+                      <div class="serviceSelect__price">{% if item.dop_services_price>0 %}{{ item.dop_services_price }} ₽{% else %}Бесплатно{% endif %}</div>
+                    </div>
+                    <div class="serviceSelect__right">
+                      <div class="fc">
+                        <div class="icheckbox">
+                          <div class="fc__icon">
+                            {{ Svg.icon('check', 1) }}
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                {% endfor %}
+              </div>
+              <div class="serviceSelect__submit">
+                Готово
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="settings-card__bottom">
+        <div class="settings-card__link">
+          <span class="link link_underline_hide submit">
+            <span class="link__icon">{{ Svg.icon('save-icon', 1) }}</span>
+            <span class="link__text">сохранить</span>
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

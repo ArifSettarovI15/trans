@@ -1,0 +1,45 @@
+{% import "frontend/elements/svg/svg_macros.twig" as Svg %}
+<div class="cabinet-menu">
+  <canvas class="cabinet-menu__canvas" id="cabinetMenuCanvas">
+    Ваш браузер не поддерживает Canvas
+  </canvas>
+  <div class="cabinet-menu__wrapper">
+    <div class="container">
+      <div class="cabinet-menu__list">
+        <div class="cabinet-menu__item">
+          <a href="{{ global.base_url }}/cabinet/" class="cabinet-menu__link">
+          <span class="cabinet-menu__icon">
+            {{ Svg.icon('order-icon', 1) }}
+          </span>
+          </a>
+        </div>
+        <div class="cabinet-menu__item">
+          <a href="{{ global.base_url }}/cabinet/trips/" class="cabinet-menu__link">
+          <span class="cabinet-menu__icon">
+            {{ Svg.icon('way-icon', 1) }}
+          </span>
+          </a>
+        </div>
+        <a href="{{ global.base_url }}" class="cabinet-menu__item">
+        <span class="cabinet-menu__logo">
+          <img src="/assets/images/static/logo-mobile.png" alt="главная">
+        </span>
+        </a>
+        <div class="cabinet-menu__item">
+          <a href="{{ global.base_url }}/cabinet/profile/" class="cabinet-menu__link">
+          <span class="cabinet-menu__icon">
+            {{ Svg.icon('user', 1) }}
+          </span>
+          </a>
+        </div>
+        <div class="cabinet-menu__item">
+          <span class="cabinet-menu__link js-burger" data-menu="cabinet">
+            <span class="cabinet-menu__icon">
+              {{ Svg.icon('burger', 1) }}
+            </span>
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

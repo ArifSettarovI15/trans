@@ -1,0 +1,66 @@
+.st-block {
+  $root: &;
+
+  &__content {
+    max-width: 770px;
+    margin: 0 auto;
+  }
+
+  &__overflow {
+    height: 228px;
+    overflow: hidden;
+
+    &:before {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      left: 0;
+      @include size(100%, 36px);
+      background-image: linear-gradient(0deg,#fff 0,rgba(255,255,255,0) 100%);
+      z-index: 1;
+    }
+
+    &_show {
+      &:before {
+        opacity: 0;
+      }
+
+      & + #{$root}__link {
+        .link__icon {
+          transform: rotate(180deg);
+        }
+      }
+    }
+  }
+
+  &__link {
+    margin-top: 24px;
+
+    .link__text {
+      font-size: 14px;
+    }
+
+    .link_show {
+      .link__icon {
+        transform: rotate(180deg);
+      }
+    }
+  }
+
+  @include media('<=1200px') {
+    &__wrapper {
+      padding: 40px 0;
+    }
+  }
+
+  @include media('<md') {
+    &__wrapper {
+      padding: 32px 0;
+    }
+
+    &__link {
+      margin-top: 14px;
+    }
+  }
+}

@@ -1,0 +1,29 @@
+{% import "frontend/elements/svg/svg_macros.twig" as Svg %}
+{% if variables %}
+  {% set classes = variables.classes %}
+{% endif %}
+
+<div class="park-thumb">
+  <div class="park-thumb__image">
+    <picture>
+      <img src="{{ item.car_icon_url }}" alt="{{ item.car_title }}">
+    </picture>
+  </div>
+  <div class="park-thumb__content">
+    <div class="park-thumb__head">
+      <div class="park-thumb__badge">
+        {% include 'frontend/components/badge/badge.twig' with {
+          badge_theme: 'park',
+          badge_text: item.class_title
+        } %}
+      </div>
+      <div class="park-thumb__feature">
+        <div class="park-thumb__feature-icon">{{ Svg.icon('hpower') }}</div>
+        <div class="park-thumb__feature-value">{{ item.car_power }} л.с.</div>
+      </div>
+    </div>
+    <div class="park-thumb__bottom">
+      <div class="park-thumb__title">{{ item.car_title }}</div>
+    </div>
+  </div>
+</div>

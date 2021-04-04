@@ -1,0 +1,77 @@
+.badge {
+  display: inline-block;
+  font-weight: 500;
+  font-size: 11px;
+  line-height: 1.1;
+  border: 1px solid transparent;
+  padding: 8px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  background-color: $color__light;
+  border-radius: 4px;
+  overflow: hidden;
+  @include transitions(background-color, color);
+
+  &_new {
+    color: $color__primary;
+    border-color: $color__primary;
+    padding: 6px 8px;
+  }
+
+  &_park {
+    border-color: $color__light;
+    background-color: transparent;
+    color: $color__light;
+  }
+
+  &_feed {
+    background-color: $color__primary--1;
+    color: $color__primary;
+  }
+
+  &_feed2 {
+    background-color: $color__light;
+    color: $color__primary;
+  }
+
+  &_order_0{
+    padding: 6px 8px;
+    background-color: #ECECEF;
+    color: #77798C;
+  }
+  &_order_1{
+    padding: 6px 8px;
+    background-color:#E9EFFF;
+    color: #3955FE;
+  }
+  &_order_2 {
+    padding: 6px 8px;
+    background-color: $color__star;
+    color: $color__light;
+  }
+  &_order_3 {
+    padding: 6px 8px;
+    background-color: #FF9600;
+    color: #FFFFFF;
+  }
+
+
+  &_order_4 {
+    padding: 6px 8px;
+    background-color: $color__primary;
+    color: $color__light;
+  }
+}
+
+.badge-check {
+  @include size(32px);
+  @extend %flex-center;
+  background-color: $color__light;
+  background: linear-gradient(180deg, #FFCC00 0%, #FF9600 100%);
+  box-shadow: 0 4px 8px rgba(255, 150, 0, 0.3);
+  border-radius: 50%;
+
+  &__icon {
+    @include size(24px);
+  }
+}

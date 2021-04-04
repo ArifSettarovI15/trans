@@ -1,0 +1,57 @@
+{% import "frontend/elements/svg/svg_macros.twig" as Svg %}
+{% if variables.classes %}
+  {% set classes = variables.classes %}
+{% endif %}
+{% if variables.orders_statuses %}
+  {% set orders_statuses = variables.orders_statuses %}
+{% endif %}
+
+<div class="order">
+  <div class="order__wrapper">
+    <div class="order__badge">
+      {# order-pending #}
+      {# order-complete #}
+      {% include 'frontend/components/badge/badge.twig' with {
+        badge_theme: 'order_'~item.status_id,
+        badge_text: item.status_name
+      } %}
+    </div>
+
+    <div class="order__title">Заявка №{{ item.order_code }}</div>
+    <div class="order__list">
+      <div class="order__item">
+        <div class="order__key">Откуда:</div>
+        <div class="order__val">{{ item.city_from }}</div>
+      </div>
+      <div class="order__item">
+        <div class="order__key">Куда:</div>
+        <div class="order__val">{{item.city_to}}</div>
+      </div>
+      <div class="order__item">
+        <div class="order__key">Класс авто:</div>
+        <div class="order__val">{{item.class_title}}</div>
+      </div>
+      <div class="order__item">
+        <div class="order__key">Цена:</div>
+        <div class="order__val">{{ item.order_data.price }}₽</div>
+      </div>
+      <div class="order__item">
+        <div class="order__key">Дата и время:</div>
+        <div class="order__val">{{ item.order_data.date }}</div>
+      </div>
+    </div>
+    <div class="order__bottom">
+      <div class="order__bottom-part">
+        Дата заявки:<br>
+        {{item.order_time}}
+      </div>
+      <div class="order__bottom-part">
+        <div class="btn btn_xxs btn_2">
+          <a href="{{ global.base_url }}/cabinet/order/{{ item.order_id }}/">
+            <div class="btn__icon">{{ Svg.icon('eye', 1) }}</div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

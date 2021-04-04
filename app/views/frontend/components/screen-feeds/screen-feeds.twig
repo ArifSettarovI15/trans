@@ -1,0 +1,20 @@
+{#<pre>{{ dump(reviewsForSlider) }}</pre>#}
+
+<div class="section">
+  <div class="section__title">
+    {% include 'frontend/components/screen-title/screen-title.twig' with {
+      title: 'Отзывы',
+      descr: 'Что говорят наши клиенты о поездках',
+      href: '/reviews/'
+    } %}
+  </div>
+  <div class="section__content">
+    <div class="container">
+      {% include 'frontend/components/screen-slider/screen-slider.twig' with {
+        thumb: 'feed',
+        list: reviewsForSlider,
+        p_count: 1
+      } %}
+    </div>
+  </div>
+</div>

@@ -1,0 +1,19 @@
+{% for item in list %}
+    <tr data-id="{{ item.class_id }}">
+        <td class="data_id">{{ item.class_id }}</td>
+        <td>
+            <div class="object_status  {% if item.class_status!=1%}no{% else %}yes{% endif %}" data-value="{{ item.class_id }}">
+                <span class="badge badge-danger">нет</span>
+                <span class="badge badge-success">да</span>
+            </div>
+        </td>
+        <td class="image"><img src="{{ item.class_icon_url }}"></td>
+        <td>{{ item.class_title }}</td>
+        <td>{{ item.class_price_km }}</td>
+        <td>
+            <a target="_blank" class="btn btn-success btn-xs" href="{{ item.class_full_url }}"><i class="fa fa-external-link" aria-hidden="true"></i></a>
+            <a target="_blank" href="{{ global.base_url }}/manager/taxi/classes/edit/{{ item.class_id  }}/" class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></a>
+            <div data-value="{{ item.class_id }}" class="btn btn-danger btn-xs delete"><i class="fa"></i></div>
+        </td>
+    </tr>
+{% endfor %}

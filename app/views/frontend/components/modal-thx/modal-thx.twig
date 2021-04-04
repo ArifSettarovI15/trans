@@ -1,0 +1,25 @@
+{% import 'frontend/elements/svg/svg_macros.twig' as Svg %}
+{% import 'frontend/elements/input/input_macro.twig' as Input %}
+<div id="modal_thx" class="modal white-popup animated fast">
+    <div class="modal__wrapper">
+        <div class="modal__head">
+            <div class="modal__close">
+                <div class="btn btn_xxs js-modal-close">
+                    <div class="btn__icon">{{ Svg.icon('close', 1) }}</div>
+                </div>
+            </div>
+        </div>
+        <div class="modal__body">
+            <div class="modal__smile">
+                <div class="modal__smile-img"></div>
+            </div>
+            <div class="modal__content">
+                <div class="modal__title">Спасибо<br> за подписку!</div>
+                <div class="modal__text">Теперь мы точно знаем, {{email}} — ваш email адрес. Чтобы письма от Taxel не попали в спам, добавьте {{ global.fields.about.about_email}} в адресную книгу.</div>
+            </div>
+            <div class="button button_md button_outline_1 js-modal-close">
+                <div class="button__text">обратно к сайту</div>
+            </div>
+        </div>
+    </div>
+</div>

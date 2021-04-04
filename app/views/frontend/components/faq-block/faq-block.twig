@@ -1,0 +1,29 @@
+{% import "frontend/elements/svg/svg_macros.twig" as Svg %}
+<section class="faq-block">
+  <div class="faq-block__wrapper">
+    <h4 class="faq-block__title">Часто задаваемые вопросы</h4>
+    <div class="faq-block__list">
+
+      {% for item in fields.faq_list %}
+
+        <div class="faq-block__item">
+          <div class="faq-item">
+            <div class="faq-item__head-wrapper js-acc-2">
+              <div class="faq-item__head">
+                <div class="faq-item__title">{{item.faq_ask}}</div>
+                <div class="faq-item__icon">{{ Svg.icon('chevron-down', 1) }}</div>
+              </div>
+            </div>
+            <div class="faq-item__content js-acc2-content">
+              <div class="faq-item__text text text_text2">
+                <p>
+                  {{ item.faq_answer }}
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>

@@ -1,0 +1,41 @@
+{% import "frontend/elements/svg/svg_macros.twig" as Svg %}
+<div class="user-card user-card_trips">
+  <div class="user-card__head">
+    <div class="user-card__title">Поездки</div>
+  </div>
+  <div class="user-card__list">
+    <div class="user-card__item">
+      <div class="user-card__key">Ближайшая:</div>
+      <div class="user-card__value">
+        {% if last_order %}
+          Заявка №{{last_order.order_code}}
+          {% else %}
+          -
+        {% endif %}
+
+      </div>
+    </div>
+    <div class="user-card__item">
+      <div class="user-card__key">Всего поездок:</div>
+      <div class="user-card__value">
+        {% if count %}
+          {{ count }}
+        {% else %} 0
+        {% endif %}</div>
+    </div>
+    <div class="user-card__item">
+      <div class="user-card__key">Километраж:</div>
+      <div class="user-card__value">{% if distance %}
+          {{ distance }} {% else %} 0
+        {% endif %} км</div>
+    </div>
+  </div>
+  <div class="user-card__bottom">
+    <div class="user-card__link">
+      <a href="{{global.base_url}}/cabinet/trips/" class="link link_underline_hide">
+        <div class="link__text">подробнее</div>
+        <div class="link__icon">{{ Svg.icon('arrow-right', 1) }}</div>
+      </a>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,46 @@
+{% extends "global.html.twig" %}
+{% block content %}
+  <div class="mtb mtb_2">
+      {% include 'frontend/components/notice-article/notice-article_rent.twig' with {
+          'text': variables.fields.rent_text
+      } %}
+  </div>
+
+  <div class="price-block__main">
+    <div class="container">
+      <div class="table-data">
+        <div class="page__tabs-wrapper">
+          <div class="tabs" data-url="{{ global.base_url }}/rent/" data-list="rent">
+            <input type="hidden" name="action" value="get_filter">
+            <div class="tabs__inner">
+              <div class="tabs__list">
+                <div class="tabs__item">
+                  <div class="tabs__link ajax-tab tabs__link_active" data-active="0" data-type="filter_value" data-name="id" data-value="1" data-id="1">C правом выкупа</div>
+                </div>
+                <div class="tabs__item">
+                  <div class="tabs__link ajax-tab" data-active="0" data-type="filter_value" data-name="id" data-value="0" data-id="0">Без права выкупа</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="table-content" data-list="rent">
+            {% include 'frontend/components/table-list/table-list.twig' with {
+                block: 'rentcar-thumb',
+                list: list
+            } %}
+        </div>
+          {% if paging_data.pages %}
+            <div class="table-list__paging">
+                {% include 'frontend/components/paging/paging.twig' %}
+            </div>
+          {% endif %}
+      </div>
+    </div>
+  </div>
+  <div class="mtb">
+      {% include 'frontend/components/screen-callback/screen-callback.twig' %}
+  </div>
+    {# {% include 'frontend/components/st-block/st-block.twig' %} #}
+    {% include 'frontend/components/modal-driver/modal-driver.twig' %}
+{% endblock %}

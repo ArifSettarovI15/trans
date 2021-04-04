@@ -1,0 +1,13 @@
+{% import "frontend/elements/svg/svg_macros.twig" as Svg %}
+<div class="gift-range">
+  <div class="gift-range__line">
+    <div class="gift-range__line-active" style="width: {{ global.user_profile.profile_discount*20 }}%"></div>
+  </div>
+  <div class="gift-range__tap" style="left:  {{global.user_profile.profile_discount*20}}%">
+    <div class="gift-range__badge">
+      <div class="gift-range__icon">
+        {{ Svg.icon('gift') }}
+      </div>
+    </div>
+  </div>
+</div>

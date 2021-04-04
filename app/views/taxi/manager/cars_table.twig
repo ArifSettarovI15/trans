@@ -1,0 +1,19 @@
+
+{% for item in list %}
+    <tr data-id="{{ item.car_id }}">
+        <td class="data_id">{{ item.car_id }}</td>
+        <td>{{ item.car_power }}</td>
+        <td><img src="{{ item.car_icon_url }}" style="height:50px;"></td>
+        <td>
+            {{ item.class_title }}
+        </td>
+        <td>{{ item.car_title }}</td>
+        <td>{% if (item.car_rent) %} Сдается {% else %} Не сдается {% endif %}</td>
+
+        <td>
+
+            <a target="_blank" href="{{ global.base_url }}/manager/taxi/cars/edit/{{ item.car_id  }}/" class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></a>
+            <div data-value="{{ item.car_id }}" class="btn btn-danger btn-xs delete"><i class="fa"></i></div>
+        </td>
+    </tr>
+{% endfor %}

@@ -1,0 +1,59 @@
+{% extends "manager/global.html.twig" %}
+{% block content %}
+    {%  set classes  = variables['classes'] %}
+
+    <div class="actions">
+        <a class="btn btn-primary" href="{{ global.base_url }}/manager/taxi/orders/add/">Добавить</a>
+    </div>
+
+    <div class="table_data">
+        <div class="table_data_navigation">
+            {% include 'parts/paging.html.twig' %}
+        </div>
+        <table class="table_bordered table_striped">
+            <thead>
+            <tr>
+                <th style="width: 100px">Код заказа</th>
+                <th style="width: 100px">Маршрут из</th>
+                <th style="width: 100px">Маршрут в</th>
+                <th style="width: 100px">Стоимость</th>
+                <th style="width: 100px">Посадка</th>
+                <th style="width: 200px">Статус</th>
+                <th style="width: 150px">Телефон</th>
+                <th style="width: 200px">Время</th>
+{#                <th style="width: 200px;">Название</th>#}
+                <th class="action_button_3"></th>
+            </tr>
+            <tr>
+
+                <th><input data-name="order_code" data-type="filter_value" min="0" type="text"></th>
+                <th><input data-name="order_code" data-type="filter_value" min="0" type="text"></th>
+                <th><input data-name="order_code" data-type="filter_value" min="0" type="text"></th>
+                <th><input data-name="order_code" data-type="filter_value" min="0" type="text"></th>
+                <th><input data-name="order_code" data-type="filter_value" min="0" type="text"></th>
+
+                <th style="width: 200px">
+                    <select data-name="order_status" data-type="filter_value">
+                        <option value="">Все</option>
+                        {% for status in variables.orders_statuses %}
+                            <option value="{{ status.status_id }}">{{status.status_name}}</option>
+                        {% endfor %}
+                    </select>
+                </th>
+                <th><input data-name="order_phone" data-type="filter_value" min="0" type="text"></th>
+{#                <th><input data-name="order_time" data-type="filter_value" min="0" type="text"></th>#}
+                <th> От: <input type="datetime-local" id="appt" data-name="order_time_up" data-type="filter_value">
+                    До: <input type="datetime-local" id="appt" data-name="order_time_to" data-type="filter_value">
+                </th>
+
+
+
+                <th class="action_button"></th>
+            </tr>
+            </thead>
+            <tbody class="table_content">
+            {% include 'taxi/manager/order_table.twig' %}
+            </tbody>
+        </table>
+    </div>
+{% endblock %}

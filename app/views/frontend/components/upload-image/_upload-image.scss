@@ -1,0 +1,99 @@
+.upload-image {
+  $root: &;
+  display: flex;
+  align-items: center;
+  &__btn {
+    max-width: 227px;
+  }
+
+  &__upload {
+    @extend %absolute-full;
+    @include size(100%);
+    opacity: 0;
+    font-size: 0;
+    z-index: 5;
+    cursor: pointer;
+  }
+
+  .loader {
+    margin-left: 16px;
+    display: none;
+  }
+
+  &__result {
+    display: none;
+    @include size(46px);
+    flex: 0 0 46px;
+    margin-left: 16px;
+    border: 1px solid $color__light;
+    overflow: hidden;
+
+    box-shadow: 0 2px 4px rgba(38, 36, 37, 0.24);
+    border-radius: 8px;
+
+    img {
+      @include size(100%);
+      @include object-fit(contain);
+    }
+
+    &-inner {
+      opacity: 0;
+      @extend %absolute-full;
+      @extend %flex-center;
+      background-color: rgba($color__primary, .5);
+      z-index: 1;
+      @include transitions(opacity);
+      cursor: pointer;
+    }
+
+    &-icon {
+      @include size(24px);
+      flex: 0 0 24px;
+
+      svg * {
+        fill: $color__light;
+      }
+    }
+
+    &:hover {
+      #{$root}__result-inner {
+        opacity: 1;
+      }
+    }
+  }
+}
+
+.lds-ring {
+  display: inline-block;
+  position: relative;
+  width: 46px;
+  height: 46px;
+}
+.lds-ring div {
+  box-sizing: border-box;
+  display: block;
+  position: absolute;
+  width: 46px;
+  height: 46px;
+  border: 4px solid $color__primary;
+  border-radius: 50%;
+  animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+  border-color: $color__primary transparent transparent transparent;
+}
+.lds-ring div:nth-child(1) {
+  animation-delay: -0.45s;
+}
+.lds-ring div:nth-child(2) {
+  animation-delay: -0.3s;
+}
+.lds-ring div:nth-child(3) {
+  animation-delay: -0.15s;
+}
+@keyframes lds-ring {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

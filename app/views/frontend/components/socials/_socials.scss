@@ -1,0 +1,25 @@
+.so-block {
+  display: flex;
+  margin: -7px;
+  &__item {
+    padding: 7px;
+  }
+}
+
+.so-link {
+  @extend %flex-center;
+  @include size(32px);
+  flex: 0 0 32px;
+  border-radius: 4px;
+  overflow: hidden;
+  @include transitions(background-color);
+  
+  &__icon {
+    display: block;
+    @include size(20px);
+  }
+
+  &:hover {
+    background-color: $color__primary;
+  }
+}

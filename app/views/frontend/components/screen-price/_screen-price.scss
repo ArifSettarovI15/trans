@@ -1,0 +1,25 @@
+.price-block {
+  &__search {
+    margin-bottom: 32px;
+  }
+
+  &__article {
+    margin-top: 40px;
+  }
+
+  @include media('<=1200px') {
+    &__article {
+      margin-top: 32px;
+    }
+  }
+
+  @include media('<md') {
+    &__article {
+      margin-top: 24px;
+    }
+
+    &__search {
+      margin-bottom: 14px;
+    }
+  }
+}

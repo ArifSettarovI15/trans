@@ -1,0 +1,191 @@
+{% extends "manager/global.html.twig" %}
+{% block content %}
+
+    <div class="form">
+        <div class="fields">
+
+            <div class="label">
+                <span style="font-size: 16px">Основные данные:</span>
+            </div>
+            <div class="line">
+                <div class="label">
+                    Статус заказа:
+                </div>
+                <div class="value">
+                    <select name="order_status" class="element">
+                        {% for status in orders_statuses %}
+                            {% if edit %}
+                                <option value="{{ status.status_id }}" {% if info.order_status ==status.status_id %} selected {% endif %}>{{ status.status_name }}</option>
+                            {% else %}
+                                {% if status.status_id !=0 %}
+                                    <option value="{{ status.status_id }}" {% if info.order_status ==status.status_id %} selected {% endif %}>{{ status.status_name }}</option>
+                                {% endif %}
+                            {% endif %}
+
+                        {% endfor %}
+                    </select>
+                </div>
+            </div>
+            <div class="line">
+                <div class="label">
+                    Телефон:
+                </div>
+                <div class="value">
+                    <input name="phone" class="element" type="text"  maxlength="250"  value="+{{info.order_phone }}">
+                </div>
+                <input type="hidden" name="user_id" class="element" value="{{ info.order_data.user_id}}">
+            </div>
+            <div class="line">
+                <div class="label">
+                    Время посадки:
+                </div>
+                <div class="value">
+                    <input name="date" class="element" type="text"  maxlength="250"  value="{{ info.order_data.date }}">
+                </div>
+            </div>
+            <div class="line">
+                <div class="label">
+                    Адрес отправления:
+                </div>
+                <div class="value">
+                    <select name="from" class="element change">
+                        {% for city in cities %}
+                            <option value="{{ city.city_id }}" {% if info.order_data.from == city.city_id %} selected {% endif %}>
+                                {{ city.city_title }}
+                            </option>
+                        {% endfor %}
+                    </select>
+
+                </div>
+            </div>
+            <div class="line">
+                <div class="label">
+                    Адрес назначения:
+                </div>
+                <div class="value">
+                    <select name="to" class="element change">
+                        {% for city in cities %}
+                            <option value="{{ city.city_id }}" {% if info.order_data.to == city.city_id %} selected {% endif %}>
+                                {{ city.city_title }}
+                            </option>
+                        {% endfor %}
+                    </select>
+                </div>
+            </div>
+            <div class="line">
+                <div class="label">
+                    Стоимость заказа:
+                </div>
+                <div class="value">
+                    <div class="price_div" style="display: none">
+                        <span class=".price_span" style="color:red"><b>В базе нет цены. Укажите вручную!</b></span>
+                    </div>
+                    <input name="price" class="element" type="text"  maxlength="250"  value="{{info.order_data.price }}">
+                </div>
+            </div>
+            <div class="line">
+                <div class="label">
+                    Класс авто:
+                </div>
+                <div class="value">
+                    <select name="car_id" class="element change">
+                        {% for class in classes %}
+                            <option value="{{ class.class_id }}" {% if info.order_data.car_id == class.class_id %} selected {% endif %}>
+                                {{ class.class_title }}
+                            </option>
+                        {% endfor %}
+                    </select>
+                </div>
+            </div>
+            <div class="line">
+                <div class="label">
+                    Расстояние:
+                </div>
+                <div class="value">
+                    <div class="distance_div" style="display: none">
+                        <span class=".distance_span" disabled style="color:red"><b>Укажите расстояние!</b></span>
+                    </div>
+                    <input name="router-length" class="element distance" type="text"  maxlength="250"  value="{{info.order_data['router-length'] }}">
+                </div>
+            </div>
+
+            <div class="line">
+                <div class="label">
+                    Дополнительные услуги:
+
+                </div>
+                <div class="value">
+                    {% for service in info.services %}
+
+
+                        <span>{{ service }}</span>
+                    {% endfor %}
+                    <input type="hidden">
+                    <select style="height: 200px;" class="element" name="services" id="" multiple>
+                        {% for service in global.fields.about.dop_services %}
+                                <option value="{{service.dop_services_title}}"
+                                    {% if service.dop_services_title in info.services %}
+                                        selected
+                                    {% endif %}>
+                                    {{service.dop_services_title}}
+                                </option>
+
+                        {% endfor %}
+                    </select>
+
+                </div>
+            </div>
+            <div class="line">
+                <div class="label">
+                    Пассажиры:
+                </div>
+                <div class="value">
+                    {% if info.order_data.passengers %}
+                        {% set passengers = passengers_to_array(info.order_data.passengers) %}
+                    {% endif %}
+
+                        <input type="hidden" class="element select_multiple" name="passengers">
+                        <label for="passengers1">Взрослые</label> <br>
+                        <input data-name="Взрослые" type="number"  maxlength="250"  value="{{passengers['adult'] }}"><br>
+                        <label for="passengers2">Дети до 7 лет</label><br>
+                        <input data-name="Дети до 7 лет" type="number"  maxlength="250"  value="{{passengers['kidsTo7'] }}"><br>
+                        <label for="passengers3">Дети от 3 до 5 лет</label><br>
+                        <input data-name="Дети от 3 до 5 лет" type="number" maxlength="250"  value="{{passengers['kids3to7'] }}"><br>
+                        <label for="passengers4">Дети до 1 годика</label><br>
+                        <input data-name="Дети до 1 годика" type="number"  maxlength="250"  value="{{passengers['babies'] }}"><br>
+                </div>
+            </div>
+            <div class="line">
+                <div class="label">
+                    Обратный трансфер:
+                </div>
+                <div class="value">
+                    <input name="date2" class="element" type="text"  maxlength="250"  value="{{ info.order_data.date2 }}">
+{#                    <select name="date2" class="element" >#}
+{#                        <option value="0" {% if not info.order_data.reverse %} selected {% endif %}>Нет обратного трансфера</option>#}
+{#                        <option value="1" {% if info.order_data.reverse %} selected {% endif %}>Есть обратный трансфер</option>#}
+{#                    </select>#}
+                </div>
+            </div>
+
+            <div class="line">
+                <div class="label">
+                    Комментарий к заказу:
+                </div>
+                <div class="value">
+                    <textarea name="comment" class="element" type="text"  maxlength="250" >{{info.order_data.comment }}</textarea>
+                </div>
+            </div>
+            <input type="hidden" class="element" name="action" value="process_edit">
+        <div class="submit btn btn-primary">
+
+            {% if edit==1 %}
+                Сохранить
+            {% else %}
+                Добавить
+            {% endif %}
+        </div>
+    </div>
+
+
+{% endblock %}

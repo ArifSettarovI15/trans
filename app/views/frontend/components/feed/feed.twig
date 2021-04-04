@@ -1,0 +1,83 @@
+{% import "frontend/elements/svg/svg_macros.twig" as Svg %}
+{% if variables.classes %}
+    {% set classes = variables.classes %}
+{% endif %}
+{% if variables.isArticles %}
+
+  <div class="feed {% if mod %}feed_{{ mod }}{% endif %}">
+    <div class="feed__wrapper">
+      <div class="feed__top">
+{#        <div class="feed__badge">#}
+{#          {% include 'frontend/components/badge/badge.twig' with {#}
+{#            badge_theme: 'feed',#}
+{#            badge_text: item.content_type#}
+{#          } %}#}
+{#        </div>#}
+        <div class="feed__block">
+          {% if item.review_rating %}
+            {% include 'frontend/components/stars/stars.twig' with {
+              rating: item.review_rating|round
+            } %}
+          {% elseif item.review_time %}
+            <div class="feed__date">{{ item.review_time }}</div>
+          {% endif %}
+        </div>
+      </div>
+      <div class="feed__main">
+{#        {% if item.content_title %}#}
+{#          <div class="feed__title">{{ item.content_title }}</div>#}
+{#        {% endif %}#}
+        {% if item.content_title %}
+          <div class="feed__text ">
+            {{ item.content_title }}
+          </div>
+        {% endif %}
+      </div>
+      <div class="feed__bottom">
+        <a href="/news/{{ item.content_id }}/" class="link link_underline_hide">
+          <span class="link__icon">{{ Svg.icon('eye', 1) }}</span>
+          <span class="link__text">Читать целиком</span>
+        </a>
+      </div>
+    </div>
+  </div>
+{% else %}
+
+    <div class="feed {% if mod %}feed_{{ mod }}{% endif %}">
+      <div class="feed__wrapper">
+        <div class="feed__top">
+          <div class="feed__badge">
+            {% include 'frontend/components/badge/badge.twig' with {
+              badge_theme: 'feed',
+              badge_text: item.class_title
+            } %}
+          </div>
+          <div class="feed__block">
+            {% if item.review_rating %}
+              {% include 'frontend/components/stars/stars.twig' with {
+                rating: item.review_rating|round
+              } %}
+            {% elseif item.review_time %}
+              <div class="feed__date">{{ item.review_time }}</div>
+            {% endif %}
+          </div>
+        </div>
+        <div class="feed__main">
+          {% if item.review_uname %}
+            <div class="feed__title">{{ item.review_uname }}</div>
+          {% endif %}
+          {% if item.review_comment %}
+            <div class="feed__text">
+              {{ item.review_comment }}
+            </div>
+          {% endif %}
+        </div>
+        <div class="feed__bottom">
+          <a href="/reviews/{{ item.review_id }}/" class="link link_underline_hide">
+            <span class="link__icon">{{ Svg.icon('eye', 1) }}</span>
+            <span class="link__text">Читать целиком</span>
+          </a>
+        </div>
+      </div>
+    </div>
+{% endif %}

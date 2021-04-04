@@ -1,0 +1,93 @@
+.serviceSelect,
+.passagersSelect {
+  margin-top: 4px;
+  display: none;
+  box-shadow: 0 8px 16px rgba(38, 36, 37, 0.2);
+  position: absolute;
+  border-radius: 8px;
+  top: 46px;
+  left: 0;
+  right: 0;
+  background-color: $color__light;
+  z-index: 10;
+
+  &__close {
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    background: #3955FE;
+    color: #fff;
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+  }
+  &__data {
+    position: relative;
+    display: block;
+    max-height: 252px;
+  }
+  &__link, &__item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 6px 14px;
+    box-shadow: inset 0px -1px 0px $color__primary--1;
+    min-height: 36px;
+    color: $color__dark;
+
+    .ps-active-y & {
+      padding-right: 22px;
+    }
+
+    &_active {
+      background-color: $color__primary--1;
+
+      .fc {
+        .icheckbox {
+          background-color: $color__primary;
+
+          .fc__icon {
+            transform: scale(1);
+          }
+        }
+      }
+    }
+  }
+  &__left,
+  &__right {
+    display: block;
+  }
+
+  &__right {
+    flex: 0 0 20px;
+    width: 20px;
+    margin-left: 5px;
+  }
+
+  &__title {
+    display: block;
+    font-size: 14px;
+    line-height: 1.25;
+    color: $color__dark;
+  }
+
+  &__price {
+    display: block;
+    color: $color__warning--2;
+    font-size: 12px;
+    line-height: 1.25;
+    margin-top: 3px;
+  }
+
+  .field_open & {
+    display: block;
+  }
+}
+
+.passagersSelect {
+  &__right {
+    width: 72px;
+    flex: 0 0 72px;
+  }
+}

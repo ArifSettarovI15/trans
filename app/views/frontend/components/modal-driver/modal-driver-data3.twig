@@ -1,0 +1,31 @@
+{% import 'frontend/elements/input/input_macro.twig' as Input %}
+<div class="driver-data">
+  <div class="driver-data__title">Личные навыки</div>
+  <div class="driver-data__main">
+    <div class="driver-data__elem">
+      {% include 'frontend/components/modal-driver/form-block2.twig' %}
+    </div>
+    <div class="driver-data__elem">
+      <div class="range-input">
+        <div class="range-input__label">Навыки работы с радиостанцией, android</div>
+        <input type="hidden" name="android_skills" class="element range-value">
+        <div class="range-input__wrapper">
+          <div class="range-input__val range-input__val_min">1</div>
+          <div class="range" data-min="1" data-max="10"></div>
+          <div class="range-input__val range-input__val_min">10</div>
+        </div>
+      </div>
+    </div>
+    <div class="driver-data__elem">
+      <div class="range-input">
+        <div class="range-input__label">Знание города</div>
+        <input type="hidden" name="city_skills" class="element range-value">
+        <div class="range-input__wrapper">
+          <div class="range-input__val range-input__val_min">1</div>
+          <div class="range" data-min="1" data-max="10"></div>
+          <div class="range-input__val range-input__val_min">10</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

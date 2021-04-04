@@ -1,0 +1,48 @@
+{% extends "global.html.twig" %}
+{% block content %}
+
+  <div class="mtb mtb_2">
+    {% include 'frontend/components/notice-article/notice-article_autopark.twig' with {
+        'text':variables.fields.avtopark_text
+    }%}
+  </div>
+
+  <div class="container">
+    <div class="table-data">
+      <div class="page__tabs-wrapper">
+        <div class="tabs" data-url="{{ global.base_url }}/autopark/" data-list="autopark">
+            <div class="tabs__inner">
+              <div class="tabs__list">
+                <div class="tabs__item">
+                  <div class="tabs__link tabs__link_active ajax-tab" data-active="0" data-name="class_id" data-type="filter_value" data-value="0" data-id="0">Все</div>
+                </div>
+                {% for class in variables.classes %}
+                  {% if variables.classHas[class.class_title] %}
+                    <div class="tabs__item">
+                      <div class="tabs__link ajax-tab" data-active="0" data-name="class_id" data-type="filter_value" data-value="{{ class.class_id }}" data-id="{{ class.class_id }}">{{class.class_title}}</div>
+                    </div>
+                  {% endif %}
+                {% endfor %}
+              </div>
+            </div>
+
+        </div>
+      </div>
+      <div class="table-content" data-list="autopark">
+        {% include 'frontend/components/table-list/table-list.twig' with {
+          block: 'park-thumb',
+          list: list,
+        } %}
+      </div>
+      {% if paging_data.pages %}
+        <div class="table-list__paging">
+          {% include 'frontend/components/paging/paging.twig' %}
+        </div>
+      {% endif %}
+    </div>
+  </div>
+  <div class="mtb">
+    {% include 'frontend/components/screen-callback/screen-callback.twig' %}
+  </div>
+
+{% endblock %}

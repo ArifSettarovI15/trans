@@ -1,0 +1,35 @@
+{% import 'frontend/elements/input/input_macro.twig' as Input %}
+<div class="driver-data">
+  <div class="driver-data__title">Персональные данные</div>
+  <div class="driver-data__main">
+    <div class="driver-data__elem">
+      {{ Input.field('name', {
+        label: 'ФИО',
+        required: 1
+      }) }}
+    </div>
+    <div class="driver-data__elem">
+      {{ Input.field('place', {
+        label: 'Дата и место рождения',
+        required: 1
+      }) }}
+    </div>
+    <div class="driver-data__elem">
+      {{ Input.field('phone', {
+        label: 'Моб телефон',
+        required: 1,
+        type: 'tel'
+      }) }}
+    </div>
+    <div class="driver-data__elem">
+      {{ Input.field('adress', {
+        label: 'Домашний адрес',
+      }) }}
+    </div>
+    <div class="driver-data__elem">
+      {{ Input.field('adress2', {
+        label: 'Адрес по прописке',
+      }) }}
+    </div>
+  </div>
+</div>

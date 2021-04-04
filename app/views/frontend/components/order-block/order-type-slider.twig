@@ -1,0 +1,43 @@
+{% import "frontend/elements/svg/svg_macros.twig" as Svg %}
+
+{% if global.user_profile.profile_car_class %}
+  {% set selected_class = global.user_profile.profile_car_class %}
+{% else %}
+  {% set selected_class=3%}
+{% endif %}
+
+<div class="order-type">
+  <div class="order-type__slider">
+    <input type="hidden" name="car_id" class="element" value="{{ selected_class }}">
+    <div class="order-type__list js-type-slider" data-slide="type">
+      {% for class in global.classes %}
+        <div class="order-type__slide" data-type-id="{{ class.class_id }}">
+          <input type="radio" name="price" id="car_type_{{ class.class_id }}" class="element required visually-hidden no-icheck" {% if class.class_id == selected_class %}checked{% endif%} disabled>
+          <label class="order-type__slide-label" for="car_type_{{ class.class_id }}">
+            <div class="order-type__slide-wrapper">
+              <div class="order-type__slide-img">
+                {{ Svg.icon(class.class_icon) }}
+                <div class="order-type__slide-check">
+                  {% include 'frontend/components/badge/badge-check.twig' %}
+                </div>
+              </div>
+              <div class="order-type__slide-content">
+                <div class="order-type__slide-title">{{ class.class_title }}</div>
+                <div class="order-type__slide-price">
+                  <div class="order-type__price-wrapper">
+                    <span class="type-price" data-value="0"></span>
+                    <div class="order-type__price-icon">{{ Svg.icon('rouble', 1) }}</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </label>
+        </div>
+      {% endfor %}
+    </div>
+
+
+
+  </div>
+
+</div>

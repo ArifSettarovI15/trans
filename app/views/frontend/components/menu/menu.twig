@@ -1,0 +1,133 @@
+{% import 'frontend/elements/svg/svg_macros.twig' as Svg %}
+<div class="menu">
+  <div class="menu__wrapper-top">
+    <div class="menu__top">
+      <div class="container">
+
+        <div class="menu__list">
+          {% if global.user_info.user_id %}
+          <div class="menu__item">
+            <a href="{{ global.base_url }}/cabinet/trips/" class="link link_underline_hide" >
+              <span class="link__text">Поездки</span>
+            </a>
+          </div>
+            <div class="menu__item">
+              <a href="{{ global.base_url }}/cabinet/profile/" class="link link_underline_hide" >
+                <span class="link__text">Профиль</span>
+              </a>
+            </div>
+          <div class="menu__item">
+            <a href="{{ global.base_url }}/cabinet/discount/" class="link link_underline_hide" >
+              <span class="link__text">Скидки</span>
+            </a>
+          </div>
+          <div class="menu__item">
+            <a href="{{ global.base_url }}/logout/" class="link link_underline_hide" >
+              <span class="link__text">Выйти</span>
+            </a>
+          </div>
+
+            {% else %}
+          <div class="menu__item">
+            <a href="#" class="link link_underline_hide popup-open" data-mfp-src="#modal_login">
+              <span class="link__text">Войти в кабинет</span>
+            </a>
+          </div>
+          <div class="menu__item">
+            <a href="#" class="link link_underline_hide popup-open" data-mfp-src="#modal_reg">
+              <span class="link__text">Регистрация</span>
+            </a>
+          </div>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+    <div class="menu__middle">
+      <div class="container">
+        <div class="menu__list">
+          <div class="menu__item">
+            <a href="{{global.base_url}}" class="link link_underline_hide">
+              <span class="link__text">Главная</span>
+            </a>
+          </div>
+          <div class="menu__item">
+            <a href="{{global.base_url}}/about/" class="link link_underline_hide">
+              <span class="link__text">О нас</span>
+            </a>
+          </div>
+          <div class="menu__item">
+            <a href="{{global.base_url}}/reviews/" class="link link_underline_hide">
+              <span class="link__text">Отзывы</span>
+            </a>
+          </div>
+          <div class="menu__item">
+            <a href="{{global.base_url}}/partners/" class="link link_underline_hide">
+              <span class="link__text">Сотрудничество</span>
+            </a>
+          </div>
+          <div class="menu__item">
+            <a href="{{global.base_url}}/blog/" class="link link_underline_hide">
+              <span class="link__text">Статьи</span>
+            </a>
+          </div>
+          <div class="menu__item">
+            <a href="{{global.base_url}}/prices/" class="link link_underline_hide">
+              <span class="link__text">Тарифы</span>
+            </a>
+          </div>
+          <div class="menu__item">
+            <a href="{{global.base_url}}/autopark/" class="link link_underline_hide">
+              <span class="link__text">Автопарк</span>
+            </a>
+          </div>
+          <div class="menu__item">
+            <a href="{{global.base_url}}/rent/" class="link link_underline_hide">
+              <span class="link__text">Аренда</span>
+            </a>
+          </div>
+          <div class="menu__item">
+            <a href="{{global.base_url}}/faq/" class="link link_underline_hide">
+              <span class="link__text">Помощь</span>
+            </a>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+  </div>
+  <div class="menu__wrapper-bottom">
+    <div class="container">
+      <div class="menu__bottom">
+        <div class="menu__list">
+          <div class="menu__item">
+            <div class="menu-contact">
+              <div class="menu-contact__title">Круглосуточно</div>
+              <div class="menu-contact__link">
+                <a href="tel:{{global.fields.about.about_phone2|replace({'(':'',')':'',' ':'','-':''})}}">{{ global.fields.about.about_phone2 }}</a>
+              </div>
+            </div>
+          </div>
+          <div class="menu__item">
+            <div class="menu-contact">
+              <div class="menu-contact__title">Круглосуточно</div>
+              <div class="menu-contact__link">
+                <a href="tel:{{global.fields.about.about_phone|replace({'(':'',')':'',' ':'','-':''})}}">{{ global.fields.about.about_phone }}</a>
+              </div>
+            </div>
+          </div>
+          <div class="menu__item">
+            <div class="menu-contact">
+              <div class="menu-contact__title">Техническая поддержка</div>
+              <div class="menu-contact__link"><a href="mailto:{{ global.fields.about.about_email }}">{{ global.fields.about.about_email }}</a></div>
+            </div>
+          </div>
+          <div class="menu__item">
+            {% include 'frontend/components/socials/socials.twig' %}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

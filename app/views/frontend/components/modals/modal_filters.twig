@@ -1,0 +1,30 @@
+{% import 'frontend/elements/svg/svg_macros.twig' as Svg %}
+<div id="modal_filters" class="modal mfp-hide white-popup animated fast">
+    <div class="modal__wrapper">
+        <div class="modal__head">
+            <div class="modal__title">Фильтры</div>
+            <div class="modal__close js-modal-close">
+                <div class="modal__close-icon">{{ Svg.icon('close', 1) }}</div>
+            </div>
+        </div>
+        <div class="modal__body">
+            <div class="modal__form form">
+                <div class="modal__content js-modal-filter">
+
+                </div>
+                <div class="modal__buttons">
+                    <div class="modal__buttons-elem">
+                        <div class="button button_md button_secondary submit">
+                            <div class="button__text">Фильтровать</div>
+                        </div>
+                    </div>
+                    <div class="modal__buttons-elem">
+                        <div class="button button_md button_outline_2">
+                            <div class="button__text">сбросить</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

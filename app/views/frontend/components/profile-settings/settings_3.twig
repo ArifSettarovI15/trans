@@ -1,0 +1,43 @@
+{% import 'frontend/elements/input/input_macro.twig' as Input %}
+{% import "frontend/elements/svg/svg_macros.twig" as Svg %}
+<div class="settings-card">
+  <div class="settings-card__wrapper">
+    <div class="form">
+      <div class="settings-card__head">
+        <div class="settings-card__title">Аватарка</div>
+      </div>
+      <div class="settings-card__ava">
+        {% if global.user_profile.profile_icon_path %}
+        <img src="{{ global.user_profile.profile_icon_path }}" alt="">
+        {% else %}
+        <div class="settings-card__ava-img">
+          {{ Svg.icon('user', 1) }}
+        </div>
+        {% endif %}
+      </div>
+      <div class="settings-card__bottom">
+        <div class="settings-card__link">
+          <span class="link link_underline_hide">
+            <input type="file" class="upload-image__upload element js-upload" name="user_file"
+                   data-url="{{ global.base_url }}/files/upload/"
+                   data-callback="process_image"
+                   data-form-data='{
+                 "action": "upload_image",
+                 "input_name":"user_file"
+                }' tabindex="-1" data-form="1">
+            <span class="link__icon">{{ Svg.icon('upload-icon', 1) }}</span>
+            <span class="link__text">загрузить фото</span>
+          </span>
+        </div>
+        {% if not global.user_profile.profile_image %}
+          <div class="settings-card__link">
+          <span class="link link_underline_hide reset-avatar">
+            <span class="link__icon">{{ Svg.icon('basket-icon', 1) }}</span>
+            <span class="link__text">очистить</span>
+          </span>
+        </div>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</div>

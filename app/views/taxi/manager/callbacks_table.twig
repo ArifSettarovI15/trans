@@ -1,0 +1,17 @@
+
+{% for callback in list %}
+    <tr data-id="{{ callback.callback_id }}">
+        <td class="data_id">{{ callback.callback_id }}</td>
+        <td class="data_id">
+        <div class="object_status  {% if callback.callback_status!=1%}no{% else %}yes{% endif %}" data-value="{{ callback.callback_id }}" >
+
+            <span class="badge badge-danger">Не просмотрена</span>
+            <span class="badge badge-success">Просмотрена</span>
+        </div>
+        </td>
+        <td >{{ callback.callback_name }}</td>
+        <td>{{ callback.callback_phone }}</td>
+        <td>{{ callback.callback_time }}</td>
+
+    </tr>
+{% endfor %}

@@ -1,0 +1,26 @@
+{% import 'frontend/elements/input/input_macro.twig' as Input %}
+<div class="driver-data">
+  <div class="driver-data__title">Финишная прямая</div>
+  <div class="driver-data__main">
+    <div class="driver-data__elem">
+      {{ Input.field('education', {
+        label: 'Образование'
+      }) }}
+    </div>
+    <div class="driver-data__elem">
+      {{ Input.field('spec', {
+        label: 'Специальность',
+      }) }}
+    </div>
+    <div class="driver-data__elem">
+      {{ Input.field('finance', {
+        label: 'Желаемый доход'
+      }) }}
+    </div>
+    <div class="driver-data__elem">
+      {{ Input.field('graph', {
+        label: 'Планируемый график',
+      }) }}
+    </div>
+  </div>
+</div>

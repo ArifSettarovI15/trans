@@ -1,0 +1,44 @@
+.feed-controls {
+  @extend %flex-center;
+
+  &__btn {
+    width: 268px;
+    margin: 0 32px;
+  }
+
+  &__link {
+    width: 152px;
+    flex: 0 0 152px;
+  }
+
+  @include media('<md') {
+    &__btn {
+      width: 100%;
+      margin: 0 24px;
+    }
+
+    &__link {
+      width: 24px;
+      flex: 0 0 24px;
+      .link {
+        &__icon {
+          margin: 0;
+        }
+
+        &__text {
+          display: none;
+        }
+      }
+    }
+  }
+
+  @include media('<sm') {
+    &__btn {
+      margin: 0;
+    }
+
+    &__link {
+      display: none;
+    }
+  }
+}

@@ -1,0 +1,209 @@
+.screen-callback {
+
+  &__wrapper {
+    display: flex;
+  }
+
+  &__callback {
+    width: 100%;
+  }
+
+  &__registration {
+    width: 389px;
+    flex: 0 0 389px;
+    max-width: 389px;
+    margin-left: 32px;
+  }
+
+  @include media('<=1200px') {
+    &__registration {
+      width: 309px;
+      flex: 0 0 309px;
+      max-width: 309px;
+      margin-left: 16px;
+    }
+  }
+
+  @include media('<lg') {
+    &__registration {
+      display: none;
+    }
+  }
+}
+
+.callback-block {
+  height: 100%;
+  border-radius: 14px;
+  background: linear-gradient(180deg, #F7F7F8 0%, #ECECEF 100%);
+  overflow: hidden;
+
+  &:before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%) translateX(260px);
+    width: 400px;
+    height: 262px;
+    background-image: url('/assets/images/static/car-back.png');
+    @extend %background__cover;
+  }
+
+  &__wrapper {
+    height: 100%;
+    padding: 32px;
+  }
+
+  &__title {
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 1.15;
+    color: $color__dark;
+    margin-bottom: 14px;
+  }
+
+  &__text {
+    font-size: 16px;
+    line-height: 1.4;
+    color: $color__gray--darkest;
+    margin-bottom: 24px;
+    flex: 1;
+  }
+
+  &__content {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    max-width: 537px;
+  }
+
+  &__list {
+    @extend %flex-middle;
+    flex-wrap: wrap;
+    margin: -7px;
+  }
+
+  &__elem {
+    width: (100%/2);
+    padding: 7px;
+  }
+
+  @include media('<=1200px') {
+    &__wrapper {
+      padding: 24px;
+    }
+  }
+
+  @include media('<md') {
+    &:before {
+      content: none;
+    }
+
+    &__content {
+      max-width: none;
+    }
+
+    &__list {
+      margin: 0;
+    }
+
+    &__title {
+      font-size: 20px;
+      font-weight: 500;
+      line-height: 1.4;
+    }
+
+    &__text {
+      font-size: 14px;
+      line-height: 1.45;
+      margin-bottom: 14px;
+    }
+
+    &__elem {
+      display: flex;
+      justify-content: center;
+      padding: 0;
+      margin-bottom: 14px;
+      width: 100%;
+
+      .field {
+        width: 100%;
+      }
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+
+      &:first-child {
+        margin-bottom: 8px;
+      }
+    }
+  }
+
+  @include media('<sm') {
+    &__wrapper {
+      padding: 14px;
+    }
+
+    &__text {
+      display: none;
+    }
+  }
+}
+
+.callback-register {
+  border-radius: 14px;
+  overflow: hidden;
+  background: linear-gradient(90deg, #E9EFFF -8.54%, rgba(233, 239, 255, 0) 73.04%), #E9EFFF;
+
+  &__bg {
+    @include size(100%);
+    @extend %absolute-full;
+    @extend %background__cover;
+    border-radius: 14px;
+    background-image: url('/assets/images/static/callback-bg.jpg');
+    opacity: .2;
+
+    &:before {
+      content: '';
+      background: linear-gradient(90deg, #E9EFFF -8.54%, rgba(233, 239, 255, 0) 73.04%);
+      @include size(100%);
+      @extend %absolute-full;
+    }
+  }
+
+  &__wrapper {
+    padding: 32px;
+  }
+
+  &__title {
+    @extend .callback-block__title;
+  }
+
+  &__text {
+    @extend .callback-block__text;
+    color: $color__dark;
+
+    b {
+      font-weight: 500;
+    }
+  }
+
+  &__form {
+
+  }
+
+  &__elem {
+    margin-bottom: 14px;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  @include media('<=1200px') {
+    &__wrapper {
+      padding: 24px;
+    }
+  }
+}

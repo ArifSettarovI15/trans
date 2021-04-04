@@ -1,0 +1,34 @@
+{% import "frontend/elements/svg/svg_macros.twig" as Svg %}
+{#<pre>{{ dump(global.user_info) }}</pre>#}
+<div class="user-card user-card_info">
+  <div class="user-card__head">
+    <div class="user-card__ava">
+      <div class="user-card__ava-icon">{{ Svg.icon('user', 1) }}</div>
+    </div>
+    <div class="user-card__title">{{global.user_profile.profile_name}} {{ global.user_profile.profile_lastname }}</div>
+  </div>
+  <div class="user-card__list">
+    <div class="user-card__item">
+      <div class="user-card__key">E-mail:</div>
+      <div class="user-card__value">{{ global.user_profile.profile_user_email }}</div>
+    </div>
+    <div class="user-card__item">
+      <div class="user-card__key">Телефон:</div>
+      <div class="user-card__value">{% if global.user_profile.profile_phone %}+{% endif %}{{ global.user_profile.profile_phone }}</div>
+    </div>
+  </div>
+  <div class="user-card__bottom">
+    <div class="user-card__link">
+      <a href="{{global.base_url }}/cabinet/profile/" class="link link_underline_hide">
+        <div class="link__text">подробнее</div>
+        <div class="link__icon">{{ Svg.icon('arrow-right', 1) }}</div>
+      </a>
+    </div>
+    <div class="user-card__link">
+      <a href="{{global.base_url }}/logout/" class="link link_underline_hide">
+        <div class="link__text">выйти</div>
+        <div class="link__icon">{{ Svg.icon('logout-icon', 1) }}</div>
+      </a>
+    </div>
+  </div>
+</div>

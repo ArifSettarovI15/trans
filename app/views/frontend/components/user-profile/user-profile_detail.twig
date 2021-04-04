@@ -1,0 +1,88 @@
+{% import "frontend/elements/svg/svg_macros.twig" as Svg %}
+
+<div class="user-card user-card_detail">
+  <div class="user-card__head">
+    <div class="user-card__badge">
+      {% include 'frontend/components/badge/badge.twig' with {
+        badge_theme: 'order_'~order.status_id,
+        badge_text: order.status_name
+      } %}
+    </div>
+  </div>
+  <div class="user-card__list">
+    <div class="user-card__item">
+      <div class="user-card__key">Откуда:</div>
+      <div class="user-card__value">{{order.city_from}}</div>
+    </div>
+    <div class="user-card__item">
+      <div class="user-card__key">Куда:</div>
+      <div class="user-card__value">{{order.city_to}}</div>
+    </div>
+    <div class="user-card__item">
+      <div class="user-card__key">Класс авто:</div>
+      <div class="user-card__value">{{order.class_title}}</div>
+    </div>
+    <div class="user-card__item">
+      <div class="user-card__key">Цена:</div>
+      <div class="user-card__value">{{ order.order_data.price }}₽</div>
+    </div>
+    <div class="user-card__item">
+      <div class="user-card__key">Дата и время:</div>
+      <div class="user-card__value user-card__value_date">{{ order.order_data.date }}</div>
+    </div>
+    <div class="user-card__item">
+      <div class="user-card__key">Телефон:</div>
+      <div class="user-card__value">{{ order.order_data.phone }}</div>
+    </div>
+    {% if order.order_data.services %}
+    <div class="user-card__item">
+      <div class="user-card__key">Доп. услуги:</div>
+      <div class="user-card__value">{{ order.order_data.services}}</div>
+    </div>
+    {% endif %}
+    {% if order.order_data.passengers %}
+    <div class="user-card__item">
+      <div class="user-card__key">Пассажиров:</div>
+      <div class="user-card__value">{{ order.order_data.passengers }}</div>
+    </div>
+    {% endif %}
+    {% if order.order_data.comment %}
+    <div class="user-card__item user-card__item_full">
+      <div class="user-card__key">Комментарий:</div>
+      <div class="user-card__value">{{ order.order_data.comment }}</div>
+    </div>
+    {% endif %}
+  </div>
+  <div class="user-card__bottom">
+    <div class="user-card__block">
+      Дата заявки: {{order.order_time}}
+    </div>
+
+    <div class="user-card__block">
+      {% if order.order_status!=0 %}
+      <div class="user-card__block-elem">
+        <div class="button button_sm button_outline_1">
+          <div class="button__icon">{{ Svg.icon('card-icon', 1) }}</div>
+          <div class="button__text">оплатить</div>
+        </div>
+
+      </div>
+      {% endif %}
+      {% if order.order_status!=3 and order.order_status!=4 and order.order_status!=0 %}
+        <div class="form" data-url="{{ global.base_url }}/cabinet/order/" data-callback="profileSaveDone">
+
+          <input type="hidden" name="action" class="element" value="process_deleteOrder">
+          <input type="hidden" name="id" class="element" value="{{ order.order_id }}">
+          <div class="user-card__block-elem">
+            <div class="button button_sm button_outline_4 submit">
+              <div class="button__icon">{{ Svg.icon('basket-icon', 1) }}</div>
+              <div class="button__text">отменить</div>
+            </div>
+          </div>
+
+        </div>
+      {% endif %}
+
+    </div>
+  </div>
+</div>

@@ -1,0 +1,44 @@
+.filters {
+  &__list {
+    margin: 0 -16px;
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  &__item {
+    width: (100%/4);
+    padding: 0 16px;
+  }
+
+  @include media('<=1200px') {
+    &__list {
+      margin: 0 -8px;
+    }
+
+    &__item {
+      padding: 0 8px;
+    }
+  }
+
+  @include media('<lg') {
+    &__item {
+      width: (100%/3);
+    }
+  }
+
+  @include media('<md') {
+    &__list {
+      margin: 0;
+    }
+
+    &__item {
+      width: 100%;
+      margin-bottom: 14px;
+      padding: 0;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+}

@@ -1,0 +1,24 @@
+{% import "frontend/elements/svg/svg_macros.twig" as Svg %}
+<div class="filters">
+  <div class="filters__list">
+    <div class="filters__item">
+      <div class="select select-3">
+        <select class="select_2 element" name="status" data-select="status" data-type="filter_value" data-name="id">
+          <option value="0" selected>Все статусы</option>
+          {% for status in variables.statuses %}
+             <option value="{{ status.status_id }}">{{ status.status_name }}</option>
+          {% endfor %}
+
+
+        </select>
+      </div>
+    </div>
+    <div class="filters__item">
+      <div class="button button_md button_outline_1 popup-open" data-mfp-src="#modal_calc" data-before="destroySliderBefore" data-after="initModalSlider">
+        <div class="button__icon">{{ Svg.icon('order-icon', 1) }}</div>
+        <div class="button__text">оставить заявку</div>
+      </div>
+    </div>
+  </div>
+  {% include 'frontend/components/modal-calc/modal-calc.twig' %}
+</div>

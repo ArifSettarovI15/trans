@@ -1,0 +1,26 @@
+#map {
+  overflow: hidden;
+  border-radius: 14px;
+  height: 400px;
+  min-height: 100%;
+  background-color: $color__dark;
+}
+
+.map-wrapper {
+  min-height: 100%;
+  height: 400px;
+
+  @include transitions(height);
+
+  .map-slide & {
+    height: 240px !important;
+  }
+
+  @include media('<=1200px') {
+    height: 120px;
+  }
+
+  @include media('<md') {
+    height: 88px;
+  }
+}

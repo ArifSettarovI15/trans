@@ -1,0 +1,35 @@
+{% import "frontend/elements/svg/svg_macros.twig" as Svg %}
+
+
+  <div class="feed {% if mod %}feed_{{ mod }}{% endif %}">
+    <div class="feed__wrapper">
+      <div class="feed__top">
+        <div class="feed__badge">
+          {% include 'frontend/components/badge/badge.twig' with {
+            badge_theme: 'feed',
+            badge_text: item.art_cat_title
+          } %}
+        </div>
+        <div class="feed__block">
+          {% set month = item.content_time|date('m')  %}
+{#        <div class="feed__date"><b>{{ item.content_time|date('d')}} {{ month|rus_month}}</b> {{ item.content_time|date('Y')}}</div>#}
+
+          <div class="feed__date"><b>{{ item.content_time|rus_date['dm'] }}</b> {{ item.content_time|rus_date['y'] }}</div>
+
+        </div>
+      </div>
+      <div class="feed__main">
+        {% if item.content_title %}
+          <div class="feed__text ">
+            {{ item.content_title }}
+          </div>
+        {% endif %}
+      </div>
+      <div class="feed__bottom">
+        <a href="/{{ item.content_type }}/{{ item.content_url }}.html" class="link link_underline_hide">
+          <span class="link__icon">{{ Svg.icon('eye', 1) }}</span>
+          <span class="link__text">Читать целиком</span>
+        </a>
+      </div>
+    </div>
+  </div>

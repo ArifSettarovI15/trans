@@ -1,0 +1,36 @@
+.logo {
+  @extend %flex-middle;
+  &__block {
+    display: block;
+    @include size(194px, 38px);
+    flex: 0 0 194px;
+  }
+
+  &__note {
+    max-width: 128px;
+    font-size: 14px;
+    line-height: 1.45;
+    color: $color__gray--darkest;
+    margin-left: 14px;
+    padding-left: 15px;
+    border-left: 1px solid #D7D7DD;
+  }
+
+  @include media('<=1200px') {
+    &__block {
+      @include size(143px, 28px);
+      flex: 0 0 143px;
+    }
+
+    &__note {
+      display: none;
+    }
+  }
+
+  @include media('<md') {
+    &__block {
+      @include size(46px);
+      flex: 0 0 46px;
+    }
+  }
+}

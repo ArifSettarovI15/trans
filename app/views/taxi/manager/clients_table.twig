@@ -1,0 +1,12 @@
+{% for item in list %}
+
+    <tr data-id="{{ item.user_id }}">
+        <td style="text-align: center" class="data_id">{{ item.user_id }}</td>
+        <td style="text-align: center">{{ item.profile_name }} {{ item.profile_lastname }}</td>
+        <td style="text-align: center">{{ item.profile_phone }}</td>
+        <td style="text-align: center">{{ item.orders_count }}</td>
+        <td>
+            <a target="_blank" href="{{ global.base_url }}/manager/taxi/clients/edit/{{ item.user_id  }}/" class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></a>
+        </td>
+    </tr>
+{% endfor %}

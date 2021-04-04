@@ -1,0 +1,14 @@
+
+{% for item in list %}
+    <tr data-id="{{ item.article_id }}">
+        <td style="width: 50px" class="data_id">{{ item.article_id }}</td>
+        <td style="width: 100px">{{ item.article_title }}</td>
+        <td style="width: 50px"><img src="{{ item.article_icon_url }}" style="height:50px;"></td>
+        <td style="width: 100px">{{ item.article_category }}</td>
+        <td>{{ item.article_text }}</td>
+        <td>
+            <a target="_blank" href="{{ global.base_url }}/manager/taxi/articles/edit/{{ item.article_id  }}/" class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></a>
+            <div data-value="{{ item.article_id }}" class="btn btn-danger btn-xs delete"><i class="fa"></i></div>
+        </td>
+    </tr>
+{% endfor %}

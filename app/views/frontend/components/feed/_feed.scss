@@ -1,0 +1,138 @@
+.feed {
+  height: 100%;
+  $root: &;
+  border-radius: 8px;
+  background-color: $color__light;
+  border: 1px solid $color__gray--4;
+  @include transitions(border-color, box-shadow);
+
+  &:hover {
+    border-color: transparent;
+    box-shadow: 0 0 0 2px $color__primary inset;
+
+    &:before {
+      background-color: $color__primary--lightest;
+    }
+  }
+
+  &:before {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    width: calc(100% - 20px);
+    transform: translateX(-50%);
+    background-color: $color__gray--3;
+    height: 6px;
+    border-radius: 0 0 6px 6px;
+    @include transitions(background-color);
+  }
+
+  &__wrapper {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    padding: 24px;
+  }
+
+  &__head {
+    margin-bottom: 24px;
+  }
+
+  &__main {
+    margin-bottom: 24px;
+  }
+
+  &__title {
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 1.4;
+    color: $color__dark;
+    margin-bottom: 8px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+  }
+
+  &__text {
+    font-size: 14px;
+    line-height: 1.45;
+    color: $color__gray--darkest;
+    height: 100px;
+    @include line-clamp(5, 20px);
+  }
+
+  &__top {
+    @extend %flex-center-between;
+    margin-bottom: 24px;
+  }
+
+  &__bottom {
+    margin-top: auto;
+
+    .link__text {
+      font-weight: 500;
+      font-size: 14px;
+      line-height: 1.15;
+    }
+  }
+
+  &__date {
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 1.45;
+    color: $color__gray--2;
+
+    b {
+      text-transform: uppercase;
+      font-size: inherit;
+      font-weight: inherit;
+      color: $color__gray--darkest;
+    }
+  }
+
+  &_type2 {
+    #{$root}__text {
+      font-weight: 500;
+      font-size: 16px;
+      line-height: 1.15;
+      color: $color__dark;
+      @include line-clamp(3, 18px);
+    }
+  }
+
+  @include media('<lg') {
+    &__top {
+      flex-direction: column;
+      align-items: flex-start;
+      margin-bottom: 14px;
+    }
+
+    &__badge {
+      margin-bottom: 14px;
+    }
+
+    &__text {
+      @include line-clamp(8, 20px);
+    }
+  }
+
+  @include media('<md') {
+    &__wrapper {
+      padding: 14px;
+    }
+
+    &__top {
+      flex-direction: row;
+      align-items: center;
+    }
+
+    &__badge {
+      margin: 0;
+    }
+
+    &__title {
+      font-size: 16px;
+    }
+  }
+}

@@ -1,0 +1,21 @@
+{% import "frontend/elements/svg/svg_macros.twig" as Svg %}
+<div class="filters">
+  <div class="filters__list">
+    <div class="filters__item">
+      <div class="select select-3">
+        <select class="select_2 element visually-hidden" name="score" data-select="score" data-type="filter_value" data-name="id">
+          <option value="0" selected>Без сортировки</option>
+          <option value="1">По убыванию</option>
+          <option value="2">По возрастанию</option>
+        </select>
+      </div>
+    </div>
+    <div class="filters__item">
+      <div class="button button_md button_outline_1 popup-open" data-mfp-src="#modal_feed">
+        <div class="button__icon">{{ Svg.icon('dialog', 1) }}</div>
+        <div class="button__text">оставить отзыв</div>
+      </div>
+    </div>
+  </div>
+  {% include 'frontend/components/modal-feed/modal-feed.twig' %}
+</div>

@@ -1,0 +1,29 @@
+{% import 'frontend/elements/svg/svg_macros.twig' as Svg %}
+{% import 'frontend/elements/input/input_macro.twig' as Input %}
+<div id="modal_app" class="modal mfp-hide white-popup animated fast">
+    <div class="modal__wrapper">
+        <div class="modal__head">
+            <div class="modal__title">Оставить заявку</div>
+            <div class="modal__close js-modal-close">
+                <div class="modal__close-icon">{{ Svg.icon('close', 1) }}</div>
+            </div>
+        </div>
+        <div class="modal__body">
+            <div class="modal__form form" data-url="{{ global.base_url }}/callback/" data-callback="ShowThx">
+                <input type="hidden" name="provider_id" value="0" class="element order-pp-id">
+                <input type="hidden" name="action" value="process_callback" class="element">
+                <div class="modal__form-item">
+                    {{ Input.field('name', 'Ваше имя', 1, 0, 0, 'field__input_outline') }}
+                </div>
+                <div class="modal__form-item">
+                    {{ Input.field('phone', 'Ваш телефон', 1, 0, '', 'field__input_outline', 'tel', 1, '+7') }}
+                </div>
+                <div class="modal__form-item">
+                    <div class="button button_md button_secondary submit">
+                        <div class="button__text">отправить заявку</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
