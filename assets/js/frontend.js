@@ -19880,6 +19880,13 @@ $('input[name="reverse"]').on('ifChecked', function(event) {
 })
 
 
+$(document).on('click', '.slide_down_content', function() {
+    var vheight = $(window).height();
+    $('html, body').animate({
+        scrollTop: (Math.floor($(window).scrollTop() / vheight)+1) * vheight
+    }, 500);
+})
+
 
 // Filter
 $( document ).on( "change keyup", ".table-data [data-type='filter_value']", function() {
@@ -20721,6 +20728,7 @@ function initTypeSlider3() {
         })
     }
 }
+
 
 
 function FilterTableData(page,obj) {

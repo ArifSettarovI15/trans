@@ -1,0 +1,61 @@
+{% import 'frontend/elements/input/input_macro.twig' as Input %}
+{% import "frontend/elements/svg/svg_macros.twig" as Svg %}
+{% import 'frontend/elements/input/input_macro.twig' as Input %}
+{% import "frontend/elements/svg/svg_macros.twig" as Svg %}
+
+{% if global.user_profile.profile_car_class %}
+    {% set selected_class = global.user_profile.profile_car_class %}
+{% else %}
+    {% set selected_class=4%}
+{% endif %}
+
+<div class="order-form form" data-url="{{ global.base_url }}/callback/" data-callback="beforeConfirmOrderForm">
+    <input type="hidden" name="action" class="element" value="process_checkCode">
+    <div class="order-form__body">
+        {% if not article and not modal_calc %}
+            <div class="order-form__title">Выберите класс</div>
+        {% endif %}
+        <div class="order-form__fieldset">
+            <div class="order-form__fieldset-inner">
+                <input type="hidden" name="car_id" class="element" value="{{ selected_class }}">
+                 {% for class in global.classes %}
+                    <div class="order-form__elem {% if loop.index == 3 %} full {% endif %}">
+                        <div class="order-type__slide" data-type-id="{{ class.class_id }}">
+                        <input type="radio" name="price" id="car_type_{{ class.class_id }}" class="element required visually-hidden no-icheck" {% if class.class_id == selected_class %}checked{% endif%} disabled>
+
+                        <label class="order-type__slide-label" for="car_type_{{ class.class_id }}">
+                            <div class="order-type__slide-wrapper">
+                                <div class="order-type__slide-img"
+                                     style="background-image: url('/assets/images/svg/{{ class.class_icon }}.svg'); background-repeat: no-repeat; background-position: center; background-size: contain">
+                                </div>
+                                <div class="order-type__slide-content">
+                                    <div class="order-type__slide-title" style="font-size:10px">{{ class.class_title }}</div>
+                                    <div class="order-type__slide-price">
+                                        <div class="order-type__price-wrapper">
+                                            <span class="type-price" data-value="0"></span>
+                                            <div class="order-type__price-icon">{{ Svg.icon('rouble', 1) }}</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </label>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+
+    <div class="order-form__bottom">
+        <div class="order-form__bottom-wrapper">
+            <div class="order-form__bottom-elem"></div>
+            <div class="order-form__bottom-elem">
+                <div class="button button_md submit disabled" >
+                    <div class="button__text">Далее</div>
+                    <div class="button__icon_orderForm"><i class="fas fa-arrow-right"></i></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

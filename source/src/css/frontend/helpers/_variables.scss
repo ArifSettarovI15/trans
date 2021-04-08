@@ -36,17 +36,18 @@ $animation-duration: $transition-duration * 3;
 /////////////////////////////////////////////
 
 // Palette
-$color__light: #ffffff;
+$color__light: linear-gradient(20deg,rgba(139, 233, 223,0.7), #4f485f);
+$color__light2: linear-gradient(320deg,rgba(139, 233, 223, 0.6), #615672);
 $color__dark: #262425;
-$color__primary: #48cfcf;
-$color__primary--light: #4CAF50;
-$color__primary--lightest: #18AED6;
-$color__primary--1: #E9EFFF;
+$color__primary: rgb(72, 157, 146);
+$color__primary--light: rgb(68, 42, 83);
+$color__primary--lightest: #7852a4;
+$color__primary--1: #65dbcb;
 $color__success: #4CAF50;
 $color__danger: #F9690E;
 $color__warning: #F9690E;
-$color__warning--2: #F9690E;
-$color__star: #F9690E;
+$color__warning--2: #d47f63;
+$color__star: #2f7f8c;
 $color__star-1: #FFEEA9;
 
 // Grays
@@ -91,4 +92,4 @@ $breackpoints__md--max: ($breackpoints__lg - 1);
 $container__width--lg: 1170px + ($gutter * 2);
 
 // Fonts
-$font-family__main: 'MPLUSRounded1c', Helvetica, sans-serif;
+$font-family__main: 'Comfortaa', Helvetica, sans-serif;

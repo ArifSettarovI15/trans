@@ -61,25 +61,11 @@
                 </div>
               </div>
             </div>
-            <div class="footer__col footer__col_contacts">
-              <div class="footer__col-head">
-                <div class="footer__col-title">Контакты</div>
-              </div>
-              <div class="footer__col-list">
-                <div class="footer__col-item">
-                  <a href="tel:{{global.fields.about.about_phone2|replace({'(':'',')':'',' ':'','-':''})}}" class="footer__col-link">{{global.fields.about.about_phone2}}</a>
-                </div>
-                <div class="footer__col-item">
-                  <a href="tel:{{global.fields.about.about_phone|replace({'(':'',')':'',' ':'','-':''})}}" class="footer__col-link">{{global.fields.about.about_phone}}</a>
-                </div>
-                <div class="footer__col-item">
-                  <a href="mailto:{{ global.fields.about.about_email }}" class="footer__col-link">{{ global.fields.about.about_email }}</a>
-                </div>
-              </div>
-              <div class="footer__col-s">
-                {% include 'frontend/components/socials/socials.twig' %}
-              </div>
-            </div>
+{#            <div class="footer__col footer__col_contacts">#}
+{#              <div class="footer__col-s">#}
+{#                {% include 'frontend/components/socials/socials.twig' %}#}
+{#              </div>#}
+{#            </div>#}
             <div class="footer__col footer__col_rss js-acc-parent">
               <div class="footer__col-wrapper">
                 <div class="footer__col-head js-acc-head">
@@ -117,16 +103,6 @@
           <div class="footer__bottom-list">
             <div class="footer__copy">
               <div class="footer__copy-text">{% if "now"|date("Y")!=2019%}{{ "now"|date("Y") }}{% endif %} © {{ global.fields.about.about_copy}}</div>
-              <div class="footer__copy-links">
-                <a href="{{global.base_url}}/privacy.html" class="footer__copy-link link link_primary">
-                  <span class="link__text">Персональные данные</span>
-                </a>
-              </div>
-            </div>
-            <div class="footer__dev">
-              <a href="https://tigerweb.ru/" target="_blank" class="footer__dev-link">
-                <img src="/assets/images/static/tigerweb.png" alt="TigerWeb" title="TigerWeb">
-              </a>
             </div>
           </div>
         </div>

@@ -1,8 +1,15 @@
+.section_about
+{
+
+
+
+}
+
 .screen-about {
   max-width: 770px;
   margin: 0 auto;
   box-shadow: 0 16px 24px rgba(38, 36, 37, 0.2);
-  background-color: $color__light;
+  background: $color__light;
   padding: 40px;
   border-radius: 14px;
 
@@ -21,7 +28,7 @@
   &__text {
     margin-bottom: 32px;
     p {
-      color: $color__dark;
+      color: whitesmoke;
       font-size: 16px;
       line-height: 1.4;
       margin-bottom: 20px;

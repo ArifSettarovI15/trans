@@ -37,3 +37,11 @@ $('input[name="reverse"]').on('ifChecked', function(event) {
   $('.order-form__back-day').mod('active', true);
   $(this).closest('.order-form__bottom').find('.fc').hide();
 })
+
+
+$(document).on('click', '.slide_down_content', function() {
+    var vheight = $(window).height();
+    $('html, body').animate({
+        scrollTop: (Math.floor($(window).scrollTop() / vheight)+1) * vheight
+    }, 500);
+})

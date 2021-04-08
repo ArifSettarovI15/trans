@@ -15,14 +15,15 @@
           <input type="radio" name="price" id="car_type_{{ class.class_id }}" class="element required visually-hidden no-icheck" {% if class.class_id == selected_class %}checked{% endif%} disabled>
           <label class="order-type__slide-label" for="car_type_{{ class.class_id }}">
             <div class="order-type__slide-wrapper">
-              <div class="order-type__slide-img">
-                {{ Svg.icon(class.class_icon) }}
-                <div class="order-type__slide-check">
-                  {% include 'frontend/components/badge/badge-check.twig' %}
-                </div>
+              <div class="order-type__slide-img"
+              style="background-image: url('/assets/images/svg/{{ class.class_icon }}.svg'); background-repeat: no-repeat; background-position: center; background-size: contain">
+
+                {#                <div class="order-type__slide-check">#}
+                {#                  {% include 'frontend/components/badge/badge-check.twig' %}#}
+                {#                </div>#}
               </div>
               <div class="order-type__slide-content">
-                <div class="order-type__slide-title">{{ class.class_title }}</div>
+                <div class="order-type__slide-title" style="font-size:10px">{{ class.class_title }}</div>
                 <div class="order-type__slide-price">
                   <div class="order-type__price-wrapper">
                     <span class="type-price" data-value="0"></span>
@@ -35,9 +36,5 @@
         </div>
       {% endfor %}
     </div>
-
-
-
   </div>
-
 </div>

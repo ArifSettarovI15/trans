@@ -2,7 +2,7 @@
   height: 100%;
   $root: &;
   border-radius: 8px;
-  background-color: $color__light;
+  background: $color__light2;
   border: 1px solid $color__gray--4;
   @include transitions(border-color, box-shadow);
 
@@ -47,7 +47,7 @@
     font-weight: 500;
     font-size: 18px;
     line-height: 1.4;
-    color: $color__dark;
+    color: whitesmoke;
     margin-bottom: 8px;
     white-space: nowrap;
     text-overflow: ellipsis;
@@ -57,7 +57,7 @@
   &__text {
     font-size: 14px;
     line-height: 1.45;
-    color: $color__gray--darkest;
+    color: $color__dark;
     height: 100px;
     @include line-clamp(5, 20px);
   }
@@ -72,6 +72,7 @@
 
     .link__text {
       font-weight: 500;
+      color: whitesmoke;
       font-size: 14px;
       line-height: 1.15;
     }
@@ -81,13 +82,13 @@
     font-weight: 500;
     font-size: 14px;
     line-height: 1.45;
-    color: $color__gray--2;
+    color: $color__dark;
 
     b {
       text-transform: uppercase;
       font-size: inherit;
       font-weight: inherit;
-      color: $color__gray--darkest;
+      color: whitesmoke;
     }
   }
 
@@ -96,7 +97,7 @@
       font-weight: 500;
       font-size: 16px;
       line-height: 1.15;
-      color: $color__dark;
+      color: whitesmoke;
       @include line-clamp(3, 18px);
     }
   }

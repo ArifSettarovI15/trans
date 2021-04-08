@@ -21037,6 +21037,7 @@ function initTypeSlider3() {
 }
 
 
+
 function FilterTableData(page,obj) {
     var ShowLoading2=false;
     if (obj.closest('.table-data').attr('data-ajax2')) {

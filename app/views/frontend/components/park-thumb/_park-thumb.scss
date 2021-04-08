@@ -1,8 +1,17 @@
 .park-thumb {
   $root: &;
-  padding-bottom: 75%;
+  border-radius:15px;
+  height: 500px;
+  box-shadow: 10px 10px 24px -1px rgba(0,0,0,0.75);
 
-  &:hover {
+
+  .park-thumb:hover, .park-thumb__content:hover {
+    background: linear-gradient(260deg,rgba(100,207,207,.7) 0,#2e1a37 100%);
+    .park-thumb__center{
+      opacity: 1;
+      display: block;
+    }
+
     &:before {
       background-color: $color__primary--lightest;
     }
@@ -15,28 +24,59 @@
       background-color: $color__light;
       color: $color__primary;
     }
-
-    #{$root}__image:before {
-      opacity: 0;
-    }
   }
 
   &:after {
     content: '';
-    @extend %absolute-full;
-    @include size(100%);
-    background: linear-gradient(180deg, rgba(57, 85, 254, 0.3) 0%, rgba(57, 85, 254, 0.7) 100%);
+    z-index: 12;
+    background: $color__light;
     opacity: 0;
-    border-radius: 8px;
+    border-radius: 15px;
     overflow: hidden;
     @include transitions(opacity);
   }
+  &__center{
+    $root: &;
+    opacity: 0;
+    height: 60%;
+    border-radius: 15px;
+    padding: 0 40px;
+    display: none;
+    color: whitesmoke;
+    transition: all 1s;
+    &_title
+    {
+      color: whitesmoke;
+      text-align: center;
+      font-size: 24px;
+      margin-bottom: 40px;
+    }
+    &_item{
+      color: whitesmoke;
+      line-height: 30px;
+      strong{
+        font-weight: bold;
+        color: #4ddbca;
+        margin-right: 7px;
+      }
 
+    }
+    &_button{
+      display: flex;
+      justify-content: center;
+      margin-top: 40px;
+      .button{
+        width: 70%;
+        padding: 10px 10px;
+      }
+    }
+
+  }
   &__content,
   &__image {
     @extend %absolute-full;
-    @include size(100%);
-    border-radius: 8px;
+
+    border-radius: 15px;
     overflow: hidden;
   }
 
@@ -64,6 +104,8 @@
     justify-content: space-between;
     padding: 14px;
     z-index: 1;
+    background: none;
+    transition: background 2s;
   }
 
   &__head {

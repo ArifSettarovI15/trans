@@ -1,31 +1,20 @@
 .footer {
   $root: &;
   overflow: hidden;
+  box-shadow: 0 -40px 80px 10px rgba(0,0,0,0.40);
+  background: linear-gradient(285deg, rgba(100,207,207, 0.7) -20%, rgb(46, 26, 55) 100%);
 
-
-  &__wrapper {
-    padding-top: 80px;
-    &:before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 50%;
-      right: 0;
-      width: 100%;
-      min-width: 1920px;
-      height: 80px;
-      transform: translateX(-50%);
-      background-image: url('/assets/images/static/f-palette.png');
-      @extend %background__cover;
-    }
-  }
 
   &__main,
   &__bottom {
-    background-color: $color__dark;
+
+
+
+
   }
 
   &__main {
+    padding-top: 80px;
     padding-bottom: 32px;
   }
 
@@ -58,7 +47,7 @@
     font-weight: 500;
     font-size: 20px;
     line-height: 1.4;
-    color: $color__gray--darkest;
+    color: whitesmoke;
     @include transitions(color);
   }
 

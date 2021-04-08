@@ -1,12 +1,12 @@
 .section-title {
   &__wrapper {
-    max-width: 770px;
+    max-width: 1170px;
     margin: 0 auto;
 
     &:before {
       content: '';
       @include size(64px, 32px);
-      background-image: url('/assets/images/static/pattern_02.png');
+
       background-size: cover;
       background-repeat: no-repeat;
       position: absolute;
@@ -17,7 +17,7 @@
   }
 
   &__title {
-    font-weight: bold;
+    text-align: center;
     font-size: 42px;
     line-height: 1.1;
     color: $color__dark;
@@ -26,12 +26,14 @@
   &__row {
     width: 100%;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
+
     margin-top: 14px;
   }
 
   &__descr {
     font-weight: 300;
+
     font-size: 14px;
     line-height: 1.4;
     color: $color__gray--darkest;

@@ -15,11 +15,13 @@
     }
   }
   &_fixed {
+
     padding-top: 94px;
     #{$root}__top {
       position: fixed;
       width: 100%;
-      background-color: $color__gray--1;
+      background-color: $color__gray--3;
+      color: $color__dark !important;
       top: 0;
       left: 0;
       right: 0;
@@ -27,9 +29,11 @@
       opacity: 1;
       @include transitions(opacity);
       z-index: 10;
-
       #{$root}__wrapper {
         padding: 8px 0;
+        *{
+          color: $color__dark !important;
+        }
       }
 
       #{$root}__control_burger {
@@ -91,7 +95,7 @@
   }
   &__element{
     .two_lines{
-      width: 200px;
+      width: 170px;
       display: inline-block;
       .link
       {
@@ -99,10 +103,10 @@
         margin-top: 5px;
         text-align: right;
         float: right;
-        color: #f0f0f0 !important;
+        color: #f0f0f0;
         &:hover
         {
-          color: #a2bfc3 !important;
+          color: #a2bfc3;
         }
       }
       .icon{
