@@ -1,11 +1,11 @@
-<nav class="nav">
+<nav class="{% if is_home %} nav {% else %} nav_secondary {% endif %}">
   <ul class="nav__list">
-    <li class="nav__item"><a href="{{global.base_url}}/" class="link link_primary"><span class="link__text">Главная</span></a></li>
-    <li class="nav__item"><a href="{{global.base_url}}/prices/" class="link link_primary"><span class="link__text">Тарифы</span></a></li>
+    <li class="{% if is_home %} nav__item {% else %} nav_secondary__item {% endif %}"><a href="{{global.base_url}}/" class="link link_primary"><span class="link__text">Главная</span></a></li>
+    <li class="{% if is_home %} nav__item {% else %} nav_secondary__item {% endif %}"><a href="{{global.base_url}}/prices/" class="link link_primary"><span class="link__text">Тарифы</span></a></li>
 
-    <li class="nav__item"><a href="{{global.base_url}}/blog/" class="link link_primary"><span class="link__text">Блог</span></a></li>
-    <li class="nav__item"><a href="{{global.base_url}}/partners/" class="link link_primary"><span class="link__text">Партнерам</span></a></li>
-    <li class="nav__item"><a href="{{global.base_url}}/rent/" class="link link_primary"><span class="link__text">Аренда</span></a></li>
-    <li class="nav__item"><a href="{{global.base_url}}/about/" class="link link_primary"><span class="link__text">О нас</span></a></li>
+    <li class="{% if is_home %} nav__item {% else %} nav_secondary__item {% endif %}"><a href="{{global.base_url}}/blog/" class="link link_primary"><span class="link__text">Блог</span></a></li>
+    <li class="{% if is_home %} nav__item {% else %} nav_secondary__item {% endif %}"><a href="{{global.base_url}}/partners/" class="link link_primary"><span class="link__text">Партнерам</span></a></li>
+    <li class="{% if is_home %} nav__item {% else %} nav_secondary__item {% endif %}"><a href="{{global.base_url}}/rent/" class="link link_primary"><span class="link__text">Аренда</span></a></li>
+    <li class="{% if is_home %} nav__item {% else %} nav_secondary__item {% endif %}"><a href="{{global.base_url}}/about/" class="link link_primary"><span class="link__text">О нас</span></a></li>
   </ul>
 </nav>

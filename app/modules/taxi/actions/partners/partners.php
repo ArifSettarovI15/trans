@@ -40,6 +40,7 @@ $page_name = 'Сотрудничество';
 
 $breadcrumbs = array();
 $breadcrumbs[] = array(
+    'title'=>$page_name
 );
 
 $Main->template->SetPageAttributes(

@@ -87,13 +87,14 @@
 
   &_secondary {
     background-color: transparent;
-    box-shadow: 0 4px 8px rgba(255, 150, 0, 0.3);
+    color: whitesmoke;
+    box-shadow: 0 4px 8px rgb(76, 72, 88);
 
     &:before {
       content: '';
       @extend %absolute-full;
       @include size(100%);
-      background: linear-gradient(180deg, #FFCC00 0%, #FF9600 100%);
+      background: linear-gradient(180deg, #362253 10%, #5c9f92 100%);
       @include transitions(opacity);
     }
 
@@ -103,7 +104,7 @@
 
     &:hover {
       background-color: $color__star;
-      box-shadow: 0 16px 24px rgba(255, 150, 0, 0.24);
+      box-shadow: 0 16px 24px rgb(55, 46, 71);
 
       &:before {
         opacity: 0;

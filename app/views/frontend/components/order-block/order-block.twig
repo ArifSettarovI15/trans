@@ -53,11 +53,17 @@
                 </div>
             </div>
         </div>
-{#        <div class="order-block__map">#}
-{#            {% include 'frontend/components/order-block/order-block-map.twig' %}#}
-{#        </div>#}
+        <div class="order-block__map" style="display: none">
+            <div class="order-map js-map-block">
+                <div class="map-wrapper">
+                    <div id="map"></div>
+                </div>
+            </div>
+        </div>
         <div class="order-block__form">
+
             {% include 'frontend/components/order-block/order-form_part1.twig' %}
+            {% include 'frontend/components/order-block/order-form.twig' %}
 
         </div>
     </div>

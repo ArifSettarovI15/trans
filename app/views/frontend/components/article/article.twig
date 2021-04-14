@@ -14,7 +14,7 @@
           {% set month = item.content_time|date('m')  %}
 {#        <div class="feed__date"><b>{{ item.content_time|date('d')}} {{ month|rus_month}}</b> {{ item.content_time|date('Y')}}</div>#}
 
-          <div class="feed__date"><b>{{ item.content_time|rus_date['dm'] }}</b> {{ item.content_time|rus_date['y'] }}</div>
+          <div class="feed__date"><b>{{ item.content_time|date('d.m.Y')}}</b></div>
 
         </div>
       </div>
@@ -27,7 +27,7 @@
       </div>
       <div class="feed__bottom">
         <a href="/{{ item.content_type }}/{{ item.content_url }}.html" class="link link_underline_hide">
-          <span class="link__icon">{{ Svg.icon('eye', 1) }}</span>
+          <span class="link__icon" style="background: url('/assets/images/svg/eye.svg'); background-repeat: no-repeat; background-size: contain;"></span>
           <span class="link__text">Читать целиком</span>
         </a>
       </div>

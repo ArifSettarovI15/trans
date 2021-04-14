@@ -7,6 +7,48 @@
 
   &__main,
   &__bottom {
+  .container
+  {
+    display: flex;
+    flex-wrap: wrap;
+    .column{
+      flex: auto;
+      padding: 20px;
+      .footer__title{
+        color: whitesmoke;
+        font-size: 18px;
+        font-weight: bold;
+        padding-bottom: 40px;
+      }
+      .footer__content__contacts {
+        display: flex;
+        flex-wrap: wrap;
+
+        .content_item {
+          flex: 1 0 45%;
+          margin-right: 10px;
+          margin-bottom: 40px;
+        }
+      }
+      .footer__content,
+      .footer__content__contacts{
+
+          .item__label{
+              color: whitesmoke;
+              font-size: 14px;
+              padding-bottom: 10px;
+            }
+          .item__item{
+            font-size: 12px;
+            color: rgba(255, 255, 255, 0.6);
+            line-height: 30px;
+          }
+
+
+
+      }
+    }
+  }
 
 
 

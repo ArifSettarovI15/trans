@@ -1,7 +1,7 @@
 {% import 'frontend/elements/input/input_macro.twig' as Input %}
 {% import "frontend/elements/svg/svg_macros.twig" as Svg %}
 
-<div class="order-form form" data-url="{{ global.base_url }}/callback/" data-callback="beforeConfirmOrderForm">
+<div class="order-form order_form_part_2 form" data-url="{{ global.base_url }}/callback/" style="display: none" data-callback="beforeConfirmOrderForm">
     <input type="hidden" name="action" class="element" value="process_checkCode">
     <div class="order-form__body">
         {% if not article and not modal_calc %}
@@ -45,10 +45,6 @@
                         <div class="select__label">Куда</div>
                     </div>
                 </div>
-
-                <div class="order-form__elem full">
-                    {% include 'frontend/components/order-block/order-type-slider.twig' %}
-                </div>
             </div>
         </div>
 
@@ -89,7 +85,14 @@
                 </div>
             </div>
         </div>
-
+        <div class="order_done_data" style="display: none;">
+            <div class="order-class_wrapper">Класс: <span class="order-class"></span></div>
+            <div class="router-length_wrapper">Расстояние: <span class="router-length"></span></div>
+            <input type="hidden" name="router-length" class="element">
+            <div class="router-time_wrapper">Время в пути: <span class="router-time"></span></div>
+            <input type="hidden" name="router-time" class="element">
+            <div class="order-price_wrapper">Стоимость: <span class="order-price"></span>руб.</div>
+        </div>
     </div>
 
     <div class="order-form__bottom">

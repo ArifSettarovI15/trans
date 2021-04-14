@@ -16,10 +16,11 @@ if (!$has ){
     $Main->error->PageNotFound();
 }
 
-$page_name = 'Такси '.$city['city_title'];
+$page_name = 'Тарифы';
 
 $breadcrumbs = array();
 $breadcrumbs[] = array(
+    'title' => $page_name
 );
 
 $desc='Цены на такси из "'.$city['city_title'].'" по всему Крыму. Быстрая подача, автомобили с кондиционером и Wi-Fi.';

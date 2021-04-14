@@ -3,34 +3,34 @@
       'text': fields.prices_text
   } %}
 </div>
-<div class="page__tabs-wrapper">
-  <div class="tabs" data-tab="price" data-after="initPriceSliderOnTab">
-    <div class="container">
-      <div class="tabs__inner">
-        <div class="tabs__list">
-          <div class="tabs__item">
-            <a class="tabs__link {% if global.header.keywords=='' or global.header.keywords=='aeroport-simferopol' %}tabs__link_active{% endif %} no-js" href="{{ global.base_url }}/prices/">Аэропорт</a>
-          </div>
-          <div class="tabs__item">
-            <a href="{{ global.base_url }}/prices/{{ cities[114].city_url }}/" class="tabs__link {% if global.header.keywords=="zhd-vokzal-simferopol" %}tabs__link_active{% endif %} no-js">Ж/Д Вокзал</a>
-          </div>
-          <div class="tabs__item">
-            <a href="{{ global.base_url }}/prices/simferopol/" class="tabs__link {% if global.header.keywords!='' and global.header.keywords!='hotels' and global.header.keywords!='places'
-            and global.header.keywords!='aeroport-simferopol' and global.header.keywords!="zhd-vokzal-simferopol" %}
-            tabs__link_active{% endif %} no-js">Города</a>
-          </div>
-            {#
-          <div class="tabs__item">
-              <a href="{{ global.base_url }}/prices/hotels/ " class="tabs__link {% if global.header.keywords=="hotels" %}tabs__link_active{% endif %} no-js" data-id="4">Гостиницы</a>
-          </div>
-          <div class="tabs__item">
-              <a href="{{ global.base_url }}/prices/places/" class="tabs__link {% if global.header.keywords=="places" %}tabs__link_active{% endif %} no-js" data-id="5">Места</a>
-          </div>#}
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
+{#<div class="page__tabs-wrapper">#}
+{#  <div class="tabs" data-tab="price" data-after="initPriceSliderOnTab">#}
+{#    <div class="container">#}
+{#      <div class="tabs__inner">#}
+{#        <div class="tabs__list">#}
+{#          <div class="tabs__item">#}
+{#            <a class="tabs__link {% if global.header.keywords=='' or global.header.keywords=='aeroport-simferopol' %}tabs__link_active{% endif %} no-js" href="{{ global.base_url }}/prices/">Аэропорт</a>#}
+{#          </div>#}
+{#          <div class="tabs__item">#}
+{#            <a href="{{ global.base_url }}/prices/{{ cities[114].city_url }}/" class="tabs__link {% if global.header.keywords=="zhd-vokzal-simferopol" %}tabs__link_active{% endif %} no-js">Ж/Д Вокзал</a>#}
+{#          </div>#}
+{#          <div class="tabs__item">#}
+{#            <a href="{{ global.base_url }}/prices/simferopol/" class="tabs__link {% if global.header.keywords!='' and global.header.keywords!='hotels' and global.header.keywords!='places'#}
+{#            and global.header.keywords!='aeroport-simferopol' and global.header.keywords!="zhd-vokzal-simferopol" %}#}
+{#            tabs__link_active{% endif %} no-js">Города</a>#}
+{#          </div>#}
+{#            #}{##}
+{#          <div class="tabs__item">#}
+{#              <a href="{{ global.base_url }}/prices/hotels/ " class="tabs__link {% if global.header.keywords=="hotels" %}tabs__link_active{% endif %} no-js" data-id="4">Гостиницы</a>#}
+{#          </div>#}
+{#          <div class="tabs__item">#}
+{#              <a href="{{ global.base_url }}/prices/places/" class="tabs__link {% if global.header.keywords=="places" %}tabs__link_active{% endif %} no-js" data-id="5">Места</a>#}
+{#          </div>#}
+{#        </div>#}
+{#      </div>#}
+{#    </div>#}
+{#  </div>#}
+{#</div>#}
 <div class="price-block">
     <div class="price-block__search">
         <div class="container">

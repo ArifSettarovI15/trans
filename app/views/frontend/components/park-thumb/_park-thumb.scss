@@ -4,7 +4,11 @@
   height: 500px;
   box-shadow: 10px 10px 24px -1px rgba(0,0,0,0.75);
 
-
+  .badge_park {
+    background: rgba(100,207,207,.7);
+    color: whitesmoke;
+    border-radius: 3px;
+  }
   .park-thumb:hover, .park-thumb__content:hover {
     background: linear-gradient(260deg,rgba(100,207,207,.7) 0,#2e1a37 100%);
     .park-thumb__center{
@@ -19,10 +23,12 @@
     &:after {
       opacity: 1;
     }
-
-    .badge_park {
-      background-color: $color__light;
-      color: $color__primary;
+    .badge_park{
+      opacity: 0;
+    }
+    .park-thumb__bottom
+    {
+      opacity: 0;
     }
   }
 
@@ -113,10 +119,10 @@
   }
 
   &__title {
+    color: whitesmoke;
     font-weight: 500;
     font-size: 16px;
     line-height: 1.15;
-    color: $color__light;
   }
 
   &__feature {

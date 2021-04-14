@@ -19878,8 +19878,12 @@ $('input[name="reverse"]').on('ifChecked', function(event) {
   $('.order-form__back-day').mod('active', true);
   $(this).closest('.order-form__bottom').find('.fc').hide();
 })
+$(document).on('click', '.order_form_next', function (){
 
 
+    $('.order_form_part_1').css({'display':'none'})
+    $('.order_form_part_2').css({'display':'block'})
+})
 $(document).on('click', '.slide_down_content', function() {
     var vheight = $(window).height();
     $('html, body').animate({
@@ -20417,9 +20421,9 @@ function initScroll(obj) {
 var myMap
 
 function initMap() {
-    if (myMap) {
-        myMap.destroy();
-    }
+    // if (myMap) {
+    //     myMap.destroy();
+    // }
     myMap = new ymaps.Map('map', {
         center: [45.018453971093145, 34.123042216305585],
         zoom: 8,
@@ -20436,7 +20440,7 @@ function initMap() {
 function initMapWithRouter(coords) {
     var c1 = coords[0].split(',')
     var c2 = coords[1].split(',')
-    myMap.destroy();
+    // myMap.destroy();
     var multiRoute = new ymaps.multiRouter.MultiRoute({
         referencePoints: [
             c1,
@@ -20502,6 +20506,7 @@ function mapRouteDone(response, ajax_config, textStatus, jqXHR) {
             radioBtn.prop('disabled', false)
             radioBtn.val(response.type_car[id])
             radioBtn.on('change', function() {
+                console.log("12321")
                 $('input[name="car_id"]').val(id);
                 $(this).closest('.order-type__slide').find('[name="price"]').prop('checked',false);
                 $(this).closest('.order-type__slide').find('[id="car_type_'+id+'"][name="price"]').prop('checked',true);
@@ -20509,12 +20514,17 @@ function mapRouteDone(response, ajax_config, textStatus, jqXHR) {
             priceEl.html(response.type_car[id]*1+dop_price).attr('data-value',response.type_car[id]*1);
             priceEl.closest('.order-type__slide-price').fadeIn();
         })
-
+        var selected_class = $('.order-type__slide').find('input[name="price"]:checked')
+        var selected_class_title = $('.order-type__slide').find('label[for="'+$(selected_class).attr('id')+'"]').find('.order-type__slide-title').html()
         $('.router-length').html(ajax_config.data.distance_km)
+        $('.order-class').html(selected_class_title)
+        $('.order-price').html(response.type_car[$(selected_class).attr('data-type-id')])
         $('.router-time').html(ajax_config.data.duration)
+
         $('input[name="router-length"]').val(ajax_config.data.distance_km);
         $('input[name="router-time"]').val(ajax_config.data.seconds);
         $('.router-features').slideDown()
+        $('.order_done_data').show()
         $('.order-form .button').removeClass('disabled')
         fitMapToViewport()
     }
@@ -20831,7 +20841,7 @@ function initPriceSlider() {
         var controls = $('.js-slider-controls[data-slider=' + $(elem).attr('data-slider') + ']')
 
         $(elem).slick({
-            slidesToShow: 7,
+            slidesToShow: 5,
             slidesToScroll: 1,
             draggable: false,
             swipe: false,

@@ -18,7 +18,7 @@
                                 <span itemprop="name">{{ item.title }}</span>
                             </a>
                         {% else %}
-                            <span itemprop="name">{{ item.title }}</span>
+                            <span class="breadcrumbs__span" itemprop="name">{{ item.title }}</span>
                         {% endif %}
                         <meta itemprop="position" content="{{ b_pos }}">
                         {% set b_pos=b_pos+1 %}

@@ -1,17 +1,50 @@
 {% import "frontend/elements/svg/svg_macros.twig" as Svg %}
 <div class="section section_about">
   <div class="section__decor"></div>
-  <div class="section__title">
-    {% include 'frontend/components/screen-title/screen-title.twig' with {
-      title: 'О нас',
-      descr: 'Давайте станем чуть ближе',
-      href: '/about/'
-    } %}
-  </div>
-  <div class="section__content">
-    <div class="container">
-      {% include 'frontend/components/screen-about/about-content.twig' %}
+  <div class="section_inner">
+    <div class="inner_about_us">
+      <div class="section__title">
+        {% include 'frontend/components/screen-title/screen-title.twig' with {
+          title: 'О нас',
+          descr: 'Давайте станем чуть ближе',
+          href: '/about/'
+        } %}
+      </div>
+      <div class="section__content">
+        <div class="container">
+          {% include 'frontend/components/screen-about/about-content.twig' %}
+        </div>
+      </div>
+    </div>
+    <div class="inner_question">
+      <div class="section__title">
+        {% include 'frontend/components/screen-title/screen-title.twig' with {
+          title: 'Остались вопросы?',
+          descr: 'Оставьте ваш нормер и мы вам перезвоним',
+
+        } %}
+      </div>
+      <div class="section__content">
+        <div class="container">
+          <div class="form__element">
+            <input type="text" name="name" class="field__input element required " placeholder="Имя" autocomplete="off" data-default-value="" data-name="">
+          </div>
+          <div class="form__element">
+          <input type="text" name="name" class="field__input element required " placeholder="Телефон" autocomplete="off" data-default-value="" data-name="">
+          </div>
+          <div class="form__element">
+            <input type="text" name="name" class="field__input element required " placeholder="Имя" autocomplete="off" data-default-value="" data-name="">
+          </div>
+          <div class="form__element">
+            <input type="text" name="name" class="textfield__field element required " placeholder="Ваш комментарий..." autocomplete="off" data-default-value="" data-name="">
+          </div>
+          <div class="form__element">
+            <div class="button ">ОТПРАВИТЬ</div>
+          </div>
+
+        </div>
+      </div>
     </div>
   </div>
-  {% include 'frontend/components/modal-fast-order/modal-fast-order.twig' %}
+
 </div>

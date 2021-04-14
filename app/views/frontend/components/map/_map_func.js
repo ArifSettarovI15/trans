@@ -1,9 +1,9 @@
 var myMap
 
 function initMap() {
-    if (myMap) {
-        myMap.destroy();
-    }
+    // if (myMap) {
+    //     myMap.destroy();
+    // }
     myMap = new ymaps.Map('map', {
         center: [45.018453971093145, 34.123042216305585],
         zoom: 8,
@@ -20,7 +20,7 @@ function initMap() {
 function initMapWithRouter(coords) {
     var c1 = coords[0].split(',')
     var c2 = coords[1].split(',')
-    myMap.destroy();
+    // myMap.destroy();
     var multiRoute = new ymaps.multiRouter.MultiRoute({
         referencePoints: [
             c1,
@@ -86,6 +86,7 @@ function mapRouteDone(response, ajax_config, textStatus, jqXHR) {
             radioBtn.prop('disabled', false)
             radioBtn.val(response.type_car[id])
             radioBtn.on('change', function() {
+                console.log("12321")
                 $('input[name="car_id"]').val(id);
                 $(this).closest('.order-type__slide').find('[name="price"]').prop('checked',false);
                 $(this).closest('.order-type__slide').find('[id="car_type_'+id+'"][name="price"]').prop('checked',true);

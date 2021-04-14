@@ -51,14 +51,14 @@
 {% endfor %}
 <body class="page {% if global.page.page_class %}{{ global.page.page_class }}{% endif %} {% if home==1 %}page-home{% endif %}">
 <!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-M5SX552"
-                  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+{#<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-M5SX552"#}
+{#                  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>#}
 <!-- End Google Tag Manager (noscript) -->
 {% block global_content %}{% endblock %}
 {% include 'frontend/components/ajax-loading/ajax-loading.twig' %}
 
 <script type="text/javascript" src="{{ global.base_url }}/assets/js/frontend.min.js?{{ assets_version }}"></script>
-<script async src="https://api-maps.yandex.ru/2.1/?apikey=c88c442c-7527-4c29-a9d5-6eb8c5b072a2&lang=ru_RU" type="text/javascript"></script>
+<script src="https://api-maps.yandex.ru/2.1/?apikey=0ce9c012-fe3b-491a-8ece-1a3488aa6ffc&lang=ru_RU" type="text/javascript"></script>
 
 </body>
 </html>

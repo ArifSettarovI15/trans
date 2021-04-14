@@ -23,6 +23,9 @@ $meta_title=$page_name;
 $keywords='';
 $desc='';
 $breadcrumbs = array();
+$breadcrumbs[]=[
+    'title'=>'Блог'
+];
 
 
 
@@ -67,6 +70,7 @@ $breadcrumbs[] = array(
 $variables["active_tab"] = $Main->GPC['id'];
 $Main->template->SetPageAttributes(
     array(
+        'breadcrumbs' => $breadcrumbs,
         'title' => $page_name,
         'keywords' => $Main->GPC["id"],
         'desc' => '',

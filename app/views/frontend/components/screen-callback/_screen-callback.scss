@@ -33,9 +33,10 @@
 
 .callback-block {
   height: 100%;
-  border-radius: 14px;
-  background: linear-gradient(180deg, #F7F7F8 0%, #ECECEF 100%);
+  background: $color__light4;
   overflow: hidden;
+  border-bottom-right-radius: 15px;
+  border-top-right-radius: 15px ;
 
   &:before {
     content: '';
@@ -45,7 +46,7 @@
     transform: translateY(-50%) translateX(260px);
     width: 400px;
     height: 262px;
-    background-image: url('/assets/images/static/car-back.png');
+
     @extend %background__cover;
   }
 
@@ -58,14 +59,14 @@
     font-weight: bold;
     font-size: 24px;
     line-height: 1.15;
-    color: $color__dark;
+    color: whitesmoke;
     margin-bottom: 14px;
   }
 
   &__text {
     font-size: 16px;
     line-height: 1.4;
-    color: $color__gray--darkest;
+    color: whitesmoke;
     margin-bottom: 24px;
     flex: 1;
   }
@@ -86,6 +87,7 @@
   &__elem {
     width: (100%/2);
     padding: 7px;
+
   }
 
   @include media('<=1200px') {
@@ -152,22 +154,22 @@
 }
 
 .callback-register {
-  border-radius: 14px;
-  overflow: hidden;
-  background: linear-gradient(90deg, #E9EFFF -8.54%, rgba(233, 239, 255, 0) 73.04%), #E9EFFF;
-
+  border-bottom-left-radius: 15px;
+  border-top-left-radius: 15px ;
   &__bg {
     @include size(100%);
     @extend %absolute-full;
     @extend %background__cover;
-    border-radius: 14px;
-    background-image: url('/assets/images/static/callback-bg.jpg');
-    opacity: .2;
+    border-bottom-left-radius: 15px;
+    border-top-left-radius: 15px ;
+    background-image: url('/assets/images/static/callbackbg2.jpg');
 
     &:before {
       content: '';
-      background: linear-gradient(90deg, #E9EFFF -8.54%, rgba(233, 239, 255, 0) 73.04%);
+      background: $color__light3;
       @include size(100%);
+      border-bottom-left-radius: 15px;
+      border-top-left-radius: 15px ;
       @extend %absolute-full;
     }
   }

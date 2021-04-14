@@ -20,7 +20,7 @@
     text-align: center;
     font-size: 42px;
     line-height: 1.1;
-    color: $color__dark;
+
   }
 
   &__row {
@@ -36,7 +36,6 @@
 
     font-size: 14px;
     line-height: 1.4;
-    color: $color__gray--darkest;
   }
 
   @include media('<lg') {

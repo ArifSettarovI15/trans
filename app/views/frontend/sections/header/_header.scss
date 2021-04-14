@@ -117,6 +117,29 @@
         font-size: 24px;
       }
     }
+    .two_lines_secondary{
+      width: 170px;
+      display: inline-block;
+      .link
+      {
+        font-weight: 400;
+        margin-top: 5px;
+        text-align: right;
+        float: right;
+        color: $color__dark;
+        &:hover
+        {
+          color: #a2bfc3;
+        }
+      }
+      .icon{
+        color: $color__dark;
+        position: absolute;
+        top: 20%;
+        transform: rotateZ(-40deg);
+        font-size: 24px;
+      }
+    }
   }
   @include media('<lg') {
     &__element_city {
@@ -139,4 +162,3 @@
 
     }
   }
-

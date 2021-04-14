@@ -65,13 +65,13 @@
 
   &__col {
     display: none;
-    flex: 1;
+    //flex: 1;
     flex-direction: column;
-    width: (100%/7);
+    width: (100%/3);
     margin-right: 1px;
     //border-right: 1px solid $color__gray--5;
     
-    &:nth-child(-n + 7) {
+    &:nth-child(-n + 5) {
       display: flex;
     }
 

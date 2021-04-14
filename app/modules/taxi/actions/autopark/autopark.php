@@ -53,7 +53,9 @@ $Paging->template='frontend/components/paging/paging.twig';
 $page_name = 'Автопарк';
 
     $breadcrumbs = array();
-    $breadcrumbs[] = array();
+    $breadcrumbs[] = array(
+        'title'=>$page_name
+    );
 
 
 $Main->template->SetPageAttributes(

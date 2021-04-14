@@ -6,6 +6,9 @@ $Main->user->PagePrivacy();
 $page_name='О компании';
 
 $breadcrumbs=array();
+$breadcrumbs[] = [
+    'title'=>$page_name
+];
 
 
 $Main->template->SetPageAttributes(

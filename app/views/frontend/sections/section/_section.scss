@@ -13,7 +13,7 @@
       transform: translateX(-50%) scale(-1, 1);
       width: 1920px;
       height: 946px;
-      background-image: url('/assets/images/static/about-1.jpg');
+      background-image: url('/assets/images/static/about-2.jpg');
       @extend %background__cover;
 
       &:after {
@@ -24,7 +24,7 @@
         transform: translateX(-50%);
         width: 100%;
         height: 70px;
-        background-image: url('/assets/images/static/hero-palette.png');
+        background: linear-gradient(360deg, white 10%, transparent 90%);
         @extend %background__cover;
       }
 

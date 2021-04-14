@@ -6368,6 +6368,7 @@ template {
 
 .tabs__item {
   margin: 0 12px;
+  padding: 0 10px;
   display: -ms-inline-flexbox;
   display: inline-flex;
   -ms-flex-align: center;

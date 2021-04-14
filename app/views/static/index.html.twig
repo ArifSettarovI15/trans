@@ -15,6 +15,9 @@
 			{% include 'frontend/components/screen-about/screen-about.twig' %}
 		</div>
 	</div>
+    <div class="ptb">
+        {% include 'frontend/components/screen-callback/screen-callback.twig' %}
+    </div>
     {% if where_go or articles %}
     <div class="">
         {% if articles %}
@@ -22,9 +25,7 @@
         {% endif %}
     </div>
     {% endif %}
-{#    <div class="ptb">#}
-{#        {% include 'frontend/components/screen-callback/screen-callback.twig' %}#}
-{#    </div>#}
+
 
 {% endblock %}
 

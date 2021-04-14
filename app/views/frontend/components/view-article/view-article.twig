@@ -25,6 +25,7 @@
           <img itemprop="url image " src="{{ info.sizes_url.large }}" alt="{{ info.content_title }}" style="display: none">
         </div>
       {% endif %}
+      <h2 style="font-size: 34px; font-weight: 900">{{ global.page.title }}</h2>
 
       <div class="article__text text text_article" {% if info.content_type!='pages' %}itemprop="articleBody"{% endif %}>
 
@@ -33,7 +34,7 @@
         <div class="img img_solo">
           <div class="img__container">
             <div class="img__img">
-              <img src="{{ info.sizes_url.medium }}" alt="123">
+              <img src="/assets/images/static/article.jpg" alt="123">
             </div>
           </div>
         </div>

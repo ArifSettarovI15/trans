@@ -38,6 +38,9 @@ $animation-duration: $transition-duration * 3;
 // Palette
 $color__light: linear-gradient(20deg,rgba(139, 233, 223,0.7), #4f485f);
 $color__light2: linear-gradient(320deg,rgba(139, 233, 223, 0.6), #615672);
+$color__light3: linear-gradient(90deg,rgba(139, 233, 223, 0.6), #615672);
+$color__light4: linear-gradient(-90deg,rgba(139, 233, 223, 0.6), #615672);
+$color__light5: linear-gradient(-90deg,rgba(139, 233, 223, 0.6), #7c61a0);
 $color__dark: #262425;
 $color__primary: rgb(72, 157, 146);
 $color__primary--light: rgb(68, 42, 83);

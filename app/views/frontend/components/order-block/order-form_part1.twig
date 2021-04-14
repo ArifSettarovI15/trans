@@ -9,7 +9,7 @@
     {% set selected_class=4%}
 {% endif %}
 
-<div class="order-form form" data-url="{{ global.base_url }}/callback/" data-callback="beforeConfirmOrderForm">
+<div class="order-form order_form_part_1 form" data-url="{{ global.base_url }}/callback/" data-callback="beforeConfirmOrderForm">
     <input type="hidden" name="action" class="element" value="process_checkCode">
     <div class="order-form__body">
         {% if not article and not modal_calc %}
@@ -21,24 +21,24 @@
                  {% for class in global.classes %}
                     <div class="order-form__elem {% if loop.index == 3 %} full {% endif %}">
                         <div class="order-type__slide" data-type-id="{{ class.class_id }}">
-                        <input type="radio" name="price" id="car_type_{{ class.class_id }}" class="element required visually-hidden no-icheck" {% if class.class_id == selected_class %}checked{% endif%} disabled>
+                            <input type="radio" name="price" id="car_type_{{ class.class_id }}" data-type-id="{{ class.class_id }}" class="element required visually-hidden " {% if class.class_id == selected_class %}checked{% endif%}>
 
-                        <label class="order-type__slide-label" for="car_type_{{ class.class_id }}">
-                            <div class="order-type__slide-wrapper">
-                                <div class="order-type__slide-img"
-                                     style="background-image: url('/assets/images/svg/{{ class.class_icon }}.svg'); background-repeat: no-repeat; background-position: center; background-size: contain">
-                                </div>
-                                <div class="order-type__slide-content">
-                                    <div class="order-type__slide-title" style="font-size:10px">{{ class.class_title }}</div>
-                                    <div class="order-type__slide-price">
-                                        <div class="order-type__price-wrapper">
-                                            <span class="type-price" data-value="0"></span>
-                                            <div class="order-type__price-icon">{{ Svg.icon('rouble', 1) }}</div>
+                            <label class="order-type__slide-label" for="car_type_{{ class.class_id }}">
+                                <div class="order-type__slide-wrapper">
+                                    <div class="order-type__slide-img"
+                                         style="background-image: url('/assets/images/svg/{{ class.class_icon }}.svg'); background-repeat: no-repeat; background-position: center; background-size: contain">
+                                    </div>
+                                    <div class="order-type__slide-content">
+                                        <div class="order-type__slide-title" style="font-size:10px">{{ class.class_title }}</div>
+                                        <div class="order-type__slide-price">
+                                            <div class="order-type__price-wrapper">
+                                                <span class="type-price" data-value="0"></span>
+                                                <div class="order-type__price-icon">{{ Svg.icon('rouble', 1) }}</div>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                        </label>
+                            </label>
                         </div>
                     </div>
                 {% endfor %}
@@ -50,7 +50,7 @@
         <div class="order-form__bottom-wrapper">
             <div class="order-form__bottom-elem"></div>
             <div class="order-form__bottom-elem">
-                <div class="button button_md submit disabled" >
+                <div class="button button_md order_form_next" >
                     <div class="button__text">Далее</div>
                     <div class="button__icon_orderForm"><i class="fas fa-arrow-right"></i></div>
                 </div>

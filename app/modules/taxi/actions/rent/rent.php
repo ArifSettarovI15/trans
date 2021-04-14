@@ -105,6 +105,7 @@ $Paging->data = $Taxi->rent_cars->GetList();
 $page_name = 'Аренда';
 $breadcrumbs = array();
 $breadcrumbs[] = array(
+    'title'=>$page_name
 );
 
 $filter_s=array();

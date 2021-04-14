@@ -2,8 +2,8 @@
 <div class="callback-block">
   <div class="callback-block__wrapper">
     <div class="callback-block__content">
-      <div class="callback-block__title">Быстрый заказ такси</div>
-      <div class="callback-block__text">Просто оставьте заявку. Наши менеджеры составят самый удобный для Вас маршрут, рассчитают его стоимость и перезвонят через 3 минуты.</div>
+      <div class="callback-block__title">Быстрый заказ трансфера</div>
+      <div class="callback-block__text">Просто оставьте ваш номер. Наш менеджер перезвонит через 5 минут.</div>
       <div class="callback-block__form form" data-url="{{ global.base_url }}/callback/" data-callback="ShowThx">
         <input name="action" class="element" type="hidden" value="process_callback">
         <div class="callback-block__list">
@@ -25,15 +25,10 @@
           </div>
           <div class="callback-block__elem">
             <div class="button button_md button_secondary submit">
-              <div class="button__text">перезвоните мне</div>
+              <div class="button__text">отправить</div>
             </div>
           </div>
-          <div class="callback-block__elem">
-            {% include 'frontend/components/toggler/toggler.twig' with {
-              label: 'с правилами согласен',
-              checked: 1
-            } %}
-          </div>
+
         </div>
       </div>
     </div>

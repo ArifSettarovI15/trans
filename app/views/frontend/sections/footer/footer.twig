@@ -4,98 +4,48 @@
     <div class="footer__wrapper">
       <div class="footer__main">
         <div class="container">
-          <div class="footer__list">
-            <div class="footer__col js-acc-parent">
-              <div class="footer__col-head js-acc-head">
-                <div class="footer__col-title">{{ global.fields.about.about_name }} такси</div>
-                <div class="footer__col-caret">{{ Svg.icon('chevron-down', 1) }}</div>
+          <div class="column">
+              <div class="footer__title">
+                Контактая информация:
               </div>
-              <div class="footer__col-list">
-                <div class="footer__col-item">
-                  <a href="{{ global.base_url}}/about/" class="footer__col-link link link_primary">
-                    <span class="link__text">О нас</span>
-                  </a>
-                </div>
-                <div class="footer__col-item">
-                  <a href="{{ global.base_url}}/reviews/" class="footer__col-link link link_primary">
-                    <span class="link__text">Отзывы</span>
-                  </a>
-                </div>
-                <div class="footer__col-item">
-                  <a href="{{ global.base_url}}/partners/" class="footer__col-link link link_primary">
-                    <span class="link__text">Сотрудничество</span>
-                  </a>
-                </div>
-                <div class="footer__col-item">
-                  <a href="{{ global.base_url}}/blog/" class="footer__col-link link link_primary">
-                    <span class="link__text">Статьи</span>
-                  </a>
-                </div>
-              </div>
-            </div>
-            <div class="footer__col js-acc-parent">
-              <div class="footer__col-head js-acc-head">
-                <div class="footer__col-title">Клиентам</div>
-                <div class="footer__col-caret">{{ Svg.icon('chevron-down', 1) }}</div>
-              </div>
-              <div class="footer__col-list">
-                <div class="footer__col-item">
-                  <a href="{{ global.base_url}}/prices/" class="footer__col-link link link_primary">
-                    <span class="link__text">Тарифы</span>
-                  </a>
-                </div>
-                <div class="footer__col-item">
-                  <a href="{{ global.base_url}}/autopark/" class="footer__col-link link link_primary">
-                    <span class="link__text">Автопарк</span>
-                  </a>
-                </div>
-                <div class="footer__col-item">
-                  <a href="{{ global.base_url}}/rent/" class="footer__col-link link link_primary">
-                    <span class="link__text">Аренда</span>
-                  </a>
-                </div>
-                <div class="footer__col-item">
-                  <a href="{{ global.base_url}}/faq/" class="footer__col-link link link_primary">
-                    <span class="link__text">Помощь</span>
-                  </a>
-                </div>
-              </div>
-            </div>
-{#            <div class="footer__col footer__col_contacts">#}
-{#              <div class="footer__col-s">#}
-{#                {% include 'frontend/components/socials/socials.twig' %}#}
-{#              </div>#}
-{#            </div>#}
-            <div class="footer__col footer__col_rss js-acc-parent">
-              <div class="footer__col-wrapper">
-                <div class="footer__col-head js-acc-head">
-                  <div class="footer__col-title">Рассылка</div>
-                  <div class="footer__col-caret">{{ Svg.icon('chevron-down', 1) }}</div>
-                </div>
-                <div class="footer__col-list">
-                  <div class="footer__col-text">Публикации, изменение тарифов, акции и скидки.</div>
-                  <div class="footer__col-element form" data-url="{{ global.base_url }}/callback/" data-callback="ShowThx">
-                    <input type="hidden" name="action" class="element" value="process_mailing">
-                    <div class="footer__input">
-                      {{ Input.field('email', {
-                        required: 1,
-                        label: 'Ваш email',
-                        classes: 'field__input_secondary',
-                        type: 'email'
-                      }) }}
-                      <div class="footer__col-btn">
-                        <div class="btn btn_xs btn_sec submit">
-                          <div class="btn__icon">
-                            {{ Svg.icon('rss', 1) }}
-                          </div>
-                        </div>
-                      </div>
-                    </div>
+              <div class="footer__content__contacts">
+                  <div class="content_item">
+                    <div class="item__label">Телефоны для связи:</div>
+                    <div class="item__item">+7(978)07 28 194</div>
+                    <div class="item__item">+7(978)07 28 194</div>
                   </div>
-                </div>
+                  <div class="content_item">
+                    <div class="item__label">Электронная почта:</div>
+                    <div class="item__item">info@transugclimea.ru:</div>
+                  </div>
+                  <div class="content_item">
+                    <div class="item__label">Наш адрес:</div>
+                    <div class="item__item">г. Симферополь, ул. Пушкина д.1</div>
+                  </div>
+                  <div class="content_item">
+                    <div class="item__label">Режим работы:</div>
+                    <div class="item__item">Пн-Пт: 09:00 - 19:00</div>
+                    <div class="item__item">Сб-Вс: 09:00 - 13:00</div>
+                  </div>
+
+              </div>
+          </div>
+          <div class="column">
+            <div class="footer__title">
+              Меню сайта:
+            </div>
+            <div class="footer__content">
+              <div class="content_item">
+                <div class="item__item">Главная</div>
+                <div class="item__item">Тарифы</div>
+                <div class="item__item">Блог</div>
+                <div class="item__item">Партнерам</div>
+                <div class="item__item">Аренда</div>
+                <div class="item__item">О нас</div>
               </div>
             </div>
           </div>
+
         </div>
       </div>
       <div class="footer__bottom">

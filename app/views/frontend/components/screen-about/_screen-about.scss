@@ -1,17 +1,51 @@
-.section_about
+.section_inner
 {
-
-
-
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 200px;
 }
-
-.screen-about {
-  max-width: 770px;
-  margin: 0 auto;
-  box-shadow: 0 16px 24px rgba(38, 36, 37, 0.2);
-  background: $color__light;
-  padding: 40px;
+.inner_question
+{
+  flex: 1 0 40%;
+}
+.inner_about_us
+{
   border-radius: 14px;
+  background: $color__light;
+  flex: 1 0 50%;
+  box-shadow: 0 16px 24px rgba(38, 36, 37, 0.2);
+  padding: 20px;
+  &>.section__title
+  {
+    color: whitesmoke!important;
+  }
+}
+.about_section_logo svg *{
+  width: 200px;
+  fill:url('#paint11_linear');
+}
+.section__content{
+  .form__element
+  {
+    padding: 10px;
+    .textfield__field{
+      width: 100%;
+    }
+    .textfield__field:hover
+    {
+      border-color: transparent;
+      box-shadow: 0 0 0 4px #7852a4;
+    }
+
+    .button{
+      padding: 20px 20px;
+      color: whitesmoke;
+      font-weight: bold;
+    }
+  }
+}
+.screen-about {
+  margin: 0 auto;
 
   &__logo {
     margin-bottom: 32px;

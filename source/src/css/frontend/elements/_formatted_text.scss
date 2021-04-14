@@ -28,7 +28,7 @@
         left: 0;
         top: 7px;
         position: absolute;
-        @include size(16px, 8px);
+        @include size(16px, 12px);
         background-image: url('/assets/images/static/pattern_02.png');
         @extend %background__contain;
       }

@@ -12,16 +12,17 @@
       margin-left: 0;
     }
   }
+  &__span{
+    color: $color__gray--1;
 
+  }
   &__link {
     display: block;
-    padding: 6px 8px;
-    border-radius: 4px;
-    border: 1px solid $color__gray--1;
-
+    padding: 3px 3px;
+    border-bottom: 1px solid $color__gray--1;
     span {
       font-weight: 500;
-      font-size: 11px;
+      font-size: 12px;
       line-height: 1.1;
       color: $color__gray--1;
       letter-spacing: 0.1em;
@@ -30,9 +31,9 @@
   }
 
   &__line {
-    display: inline-block;
+    display: block;
     font-weight: 500;
-    font-size: 11px;
+    font-size: 12px;
     line-height: 1.1;
     letter-spacing: 0.1em;
     text-transform: uppercase;

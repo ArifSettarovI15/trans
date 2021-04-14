@@ -4,7 +4,7 @@ function initPriceSlider() {
         var controls = $('.js-slider-controls[data-slider=' + $(elem).attr('data-slider') + ']')
 
         $(elem).slick({
-            slidesToShow: 7,
+            slidesToShow: 5,
             slidesToScroll: 1,
             draggable: false,
             swipe: false,
